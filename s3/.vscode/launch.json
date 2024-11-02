@@ -1,0 +1,37 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            // https://code.visualstudio.com/docs/csharp/debugging#_user-settings
+            "name": ".NET Script Debug",
+            "type": "coreclr",
+            "request": "launch",
+            "program": "dotnet-script",
+            "args": [
+                "${file}",
+                "--",
+                "--help"
+            ],
+            "cwd": "${workspaceRoot}",
+            "stopAtEntry": false,
+            // "console": "integratedTerminal",
+            "console": "externalTerminal",
+        },
+        {
+            "name": "Testing Minio",
+            "type": "coreclr",
+            "request": "launch",
+            "program": "dotnet-script",
+            "args": [
+                "${file}",
+                "--",
+                "--help"
+            ],
+            "cwd": "${workspaceRoot}",
+            "stopAtEntry": false,
+            // "console": "integratedTerminal",
+            //"console": "externalTerminal",
+            "postDebugTask": "kill-minio"
+        }
+    ]
+}

@@ -1,0 +1,24 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "kill-minio",
+        "type": "process",
+        "command": "taskkill",
+        "args": ["/F", "/IM", "minio.exe"],
+        "windows": {
+          "command": "taskkill",
+          "args": ["/F", "/IM", "minio.exe"]
+        },
+        "linux": {
+          "command": "pkill",
+          "args": ["-f", "minio"]
+        },
+        "osx": {
+          "command": "pkill",
+          "args": ["-f", "minio"]
+        },
+        "problemMatcher": []
+      }
+    ]
+  }

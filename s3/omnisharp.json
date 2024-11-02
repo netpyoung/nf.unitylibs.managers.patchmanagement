@@ -1,0 +1,10 @@
+{
+  "script": {
+    "enableScriptNuGetReferences": true,
+    "defaultTargetFramework": "net7.0"
+  },
+  "fileOptions": {
+    "systemExcludeSearchPatterns": [],
+    "excludeSearchPatterns": []
+  }
+}
