@@ -1,11 +1,9 @@
-#nullable enable
-
 using System;
 using System.Buffers;
 using System.IO;
 using System.Text;
 
-namespace NF.UnityLibs.Managers.Patcher
+namespace NF.UnityLibs.Managers.Patcher.Common
 {
     public static class CRC32
     {
@@ -17,7 +15,7 @@ namespace NF.UnityLibs.Managers.Patcher
         {
             return Compute(Encoding.UTF8.GetBytes(str).AsSpan());
         }
-        
+
         public static uint Compute(ReadOnlySpan<byte> data)
         {
             uint crc = 0xFFFFFFFF;
@@ -30,7 +28,7 @@ namespace NF.UnityLibs.Managers.Patcher
             return ~crc;
         }
 
-        public static uint Compute(FileStream stream)
+        public static uint Compute(Stream stream)
         {
             uint crc = 0xFFFFFFFF;
             byte[] buffer = ArrayPool<byte>.Shared.Rent(BUFFER_SIZE);
