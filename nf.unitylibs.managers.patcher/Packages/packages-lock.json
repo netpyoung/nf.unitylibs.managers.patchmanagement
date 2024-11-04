@@ -104,6 +104,13 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+    "com.unity.nuget.newtonsoft-json": {
+      "version": "3.2.1",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
     "com.unity.render-pipelines.core": {
       "version": "17.0.3",
       "depth": 1,
@@ -209,7 +216,16 @@
       "version": "file:../../LocalPackage",
       "depth": 0,
       "source": "local",
-      "dependencies": {}
+      "dependencies": {
+        "com.unity.nuget.newtonsoft-json": "3.2.1"
+      }
+    },
+    "nf.unitylibs.utils": {
+      "version": "https://github.com/netpyoung/nf.unitylibs.utils.git?path=LocalPackage",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "eb03843edf6241f5773d0ca859f1c8943a8ba710"
     },
     "nf.unitytools.essentials": {
       "version": "https://github.com/netpyoung/nf.unitytools.essentials.git?path=LocalPackage",
