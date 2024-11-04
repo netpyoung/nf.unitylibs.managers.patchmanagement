@@ -1,0 +1,120 @@
+﻿@page "/"
+@rendermode InteractiveServer
+
+@using Amazon.S3
+@using Amazon.S3.Model
+@using Microsoft.Extensions.Logging
+@using System.IO
+@using NF.UnityLibs.Managers.Patcher.Common
+@using Newtonsoft.Json
+@using PatchProj.WebUI.Utils
+
+@inject ILogger<Home> Log
+@inject IJSRuntime JsRuntime
+@inject Class _cls;
+
+<style>
+	table {
+		border-collapse: collapse;
+	}
+
+	th, td {
+		border: 1px solid black;
+	}
+
+</style>
+
+<PageTitle>Home</PageTitle>
+
+<button class="btn btn-primary" @onclick="async() => await OnBtnRefresh()">
+	Refresh
+</button>
+
+<br />
+<br />
+
+@if (_patchVersionOrNull == null)
+{
+	<h2>Loading...</h2>
+}
+else
+{
+	PatchVersion patchVersion = _patchVersionOrNull!;
+
+	<table border="1" cellspacing="5">
+		<thead>
+			<tr>
+				<th scope="col">App Version</th>
+				<th scope="col">Patch Version</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (KeyValuePair<string, int> kv in patchVersion)
+			{
+				<tr>
+					<td>@kv.Key</td>
+					<td>@kv.Value</td>
+				</tr>
+			}
+		</tbody>
+		<caption>
+			PatchVersion
+		</caption>
+	</table>
+
+	<input type="text" @bind="CurrentValue" />
+
+	<button class="btn btn-primary" @onclick="async() => await OnBtnSetVersion()">
+		Set Version
+	</button>
+}
+
+@code
+{
+	int CurrentValue;
+	PatchVersion? _patchVersionOrNull;
+
+	protected override async Task OnAfterRenderAsync(bool firstRender)
+	{
+		if (firstRender)
+		{
+			await OnBtnRefresh();
+			StateHasChanged();
+		}
+	}
+
+	async Task OnBtnRefresh()
+	{
+		await RefreshPatchVersion();
+		StateHasChanged();
+	}
+
+	async Task RefreshPatchVersion()
+	{
+		_patchVersionOrNull = null;
+
+		(bool isSuccess, PatchVersion patchVersion) = await _cls.TryGetPatchVersion();
+		if (!isSuccess)
+		{
+			return;
+		}
+
+		_patchVersionOrNull = patchVersion;
+	}
+
+	async Task OnBtnSetVersion()
+	{
+		if (!await JsRuntime.InvokeAsync<bool>("confirm", $"Update?: {CurrentValue}"))
+		{
+			return;
+		}
+
+		PatchVersion patchVersion = _patchVersionOrNull!;
+		patchVersion["latest"] = CurrentValue;
+
+		_cls.Upload(patchVersion);
+
+		await RefreshPatchVersion();
+		StateHasChanged();
+	}
+}
