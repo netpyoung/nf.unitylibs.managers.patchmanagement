@@ -1,3 +1,4 @@
+using NF.UnityLibs.Managers.Patcher.Common;
 using NUnit.Framework;
 
 namespace NF.UnityLibs.Managers.Patcher.EditorTests
@@ -17,11 +18,23 @@ namespace NF.UnityLibs.Managers.Patcher.EditorTests
         [TestCase("hello", "hellp")]
         public void TestCrc32WithModifiedData(string a, string b)
         {
-
             uint crcA = CRC32.Compute(a);
             uint crcB = CRC32.Compute(b);
 
             Assert.AreNotEqual(crcA, crcB, "CRC32 should be different for modified data.");
+        }
+
+        [Test]
+        public void TestPatchVersionParse()
+        {
+            string json = @"{ ""A1"": 1, ""B1"": 2 }";
+            Assert.True(PatchVersion.TryFromJson(json, out PatchVersion x));
+
+            Assert.True(x.TryGetValue("A1", out int a1));
+            Assert.AreEqual(1, a1);
+
+            Assert.True(x.TryGetValue("B1", out int b1));
+            Assert.AreEqual(2, b1);
         }
     }
 }
