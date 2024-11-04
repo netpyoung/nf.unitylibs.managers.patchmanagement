@@ -3,7 +3,7 @@
     {
       "src": [
         {
-          "src": "../LocalPackage",
+          "src": "../LocalPackage/NF.UnityLibs.Managers.Patcher",
           "files": [
             "**/*.cs"
           ]
