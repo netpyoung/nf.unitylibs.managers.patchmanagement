@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PatchProj.WebUI.Components;
@@ -16,7 +17,10 @@ namespace PatchProj.WebUI
 			builder.Services
 				.AddRazorComponents()
 				.AddInteractiveServerComponents();
-			builder.Services.AddSingleton(new Class());
+			Config config = builder.Configuration.GetSection("Config").Get<Config>()!;
+			builder.Services.AddSingleton(config);
+			builder.Services.AddSingleton<Class>();
+			builder.Services.AddScoped<ScopedUser>();
 			WebApplication app = builder.Build();
 
 			// Configure the HTTP request pipeline.
