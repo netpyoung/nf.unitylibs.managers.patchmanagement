@@ -10,13 +10,17 @@ namespace PatchProj.WebUI.Utils
 	{
 		private S3Uploader _uploader;
 		public bool IsLoading { get; private set; } = true;
+		Config _config;
 
-		public Class()
+		public Class(Config config)
 		{
-			string credential_fpath = Path.Combine(Directory.GetCurrentDirectory(), "../../s3/s3.ini");
+			_config = config;
+			string credentialPath = config.CredentialPath;
+			string url = config.URL;
+			string credentialFpath = Path.Combine(Directory.GetCurrentDirectory(), credentialPath);
 			S3UploaderBuilder builder = S3UploaderBuilder
-				.FromCredentialFpath(credential_fpath)
-				.UseURL("http://127.0.0.1:9000");
+				.FromCredentialFpath(credentialFpath)
+				.UseURL(url);
 			S3Uploader uploader = builder.Build();
 			_uploader = uploader;
 		}
@@ -34,19 +38,32 @@ namespace PatchProj.WebUI.Utils
 
 			string jsonStr = patchVersion.ToJson();
 			File.WriteAllText(fpath, jsonStr);
-			_uploader.Upload("bucket-a", string.Empty, fpath);
+			_uploader.Upload("bucket-a", "prefix-a", fpath);
 		}
 
 		public async Task<(bool, PatchVersion patchVersion)> TryGetPatchVersion()
 		{
 			string bucketName = "bucket-a";
-			string key = "PatchVersion.json";
+			string key = "prefix-a/PatchVersion.json";
 			string json = await _uploader.GetTextAsync(bucketName, key);
 			if (!PatchVersion.TryFromJson(json, out PatchVersion patchVersion))
 			{
 				return (false, PatchVersion.Dummy());
 			}
 			return (true, patchVersion);
+		}
+
+		public async Task<(bool, PatchFileList)> GetPatchFileList(int v)
+		{
+			string bucketName = "bucket-a";
+			string key = $"prefix-a/{v}/PatchFileList.json";
+
+			string json = await _uploader.GetTextAsync(bucketName, key);
+			if (!PatchFileList.TryFromJson(json, out PatchFileList patchFileList))
+			{
+				return (false, PatchFileList.Dummy());
+			}
+			return (true, patchFileList);
 		}
 	}
 

@@ -12,6 +12,8 @@
 @inject ILogger<Home> Log
 @inject IJSRuntime JsRuntime
 @inject Class _cls;
+@inject Config _config
+@inject ScopedUser _user;
 
 <style>
 	table {
@@ -33,13 +35,13 @@
 <br />
 <br />
 
-@if (_patchVersionOrNull == null)
+@if (_user._patchVersionOrNull == null)
 {
 	<h2>Loading...</h2>
 }
 else
 {
-	PatchVersion patchVersion = _patchVersionOrNull!;
+	PatchVersion patchVersion = _user._patchVersionOrNull!;
 
 	<table border="1" cellspacing="5">
 		<thead>
@@ -53,7 +55,10 @@ else
 			{
 				<tr>
 					<td>@kv.Key</td>
-					<td>@kv.Value</td>
+					<td>
+						<a href="#" @onclick:preventDefault @onclick="@(async() => await OnClickValue(kv.Value))">@kv.Value</a>
+					</td>
+
 				</tr>
 			}
 		</tbody>
@@ -62,17 +67,53 @@ else
 		</caption>
 	</table>
 
-	<input type="text" @bind="CurrentValue" />
+
+	<input type="text" @bind="_txtAppVersion" />
+	<input type="text" @bind="_txtPatchVersion" />
 
 	<button class="btn btn-primary" @onclick="async() => await OnBtnSetVersion()">
 		Set Version
 	</button>
 }
 
+
+@if (_user._patchFileListOrNull == null)
+{
+	<h2>Loading...</h2>
+}
+else
+{
+	PatchFileList patchFileList = _user._patchFileListOrNull!;
+	<h2>PatchVersion: @patchFileList.Version</h2>
+	<table border="1" cellspacing="5">
+		<thead>
+			<tr>
+				<th scope="col">Name</th>
+				<th scope="col">Bytes</th>
+				<th scope="col">Checksum</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (KeyValuePair<string, PatchFileList.PatchFileInfo> kv in patchFileList.Dic)
+			{
+				string url = $"{_config.URL}/bucket-a/prefix-a/{patchFileList.Version}/{@kv.Value.Name}";
+				<tr>
+					<td><a href="@url">@kv.Value.Name</a></td>
+					<td>@kv.Value.Bytes</td>
+					<td>@kv.Value.Checksum</td>
+				</tr>
+			}
+		</tbody>
+		<caption>
+			PatchFileList
+		</caption>
+	</table>
+}
+
 @code
 {
-	int CurrentValue;
-	PatchVersion? _patchVersionOrNull;
+	string _txtAppVersion = "latest";
+	int _txtPatchVersion = 0;
 
 	protected override async Task OnAfterRenderAsync(bool firstRender)
 	{
@@ -91,7 +132,7 @@ else
 
 	async Task RefreshPatchVersion()
 	{
-		_patchVersionOrNull = null;
+		_user._patchVersionOrNull = null;
 
 		(bool isSuccess, PatchVersion patchVersion) = await _cls.TryGetPatchVersion();
 		if (!isSuccess)
@@ -99,22 +140,38 @@ else
 			return;
 		}
 
-		_patchVersionOrNull = patchVersion;
+		_user._patchVersionOrNull = patchVersion;
 	}
 
 	async Task OnBtnSetVersion()
 	{
-		if (!await JsRuntime.InvokeAsync<bool>("confirm", $"Update?: {CurrentValue}"))
+		if (string.IsNullOrEmpty(_txtAppVersion))
 		{
 			return;
 		}
 
-		PatchVersion patchVersion = _patchVersionOrNull!;
-		patchVersion["latest"] = CurrentValue;
+		if (!await JsRuntime.InvokeAsync<bool>("confirm", $"Update?: {_txtPatchVersion}"))
+		{
+			return;
+		}
+
+		PatchVersion patchVersion = _user._patchVersionOrNull!;
+		patchVersion[_txtAppVersion] = _txtPatchVersion;
 
 		_cls.Upload(patchVersion);
 
 		await RefreshPatchVersion();
+		StateHasChanged();
+	}
+
+	async Task OnClickValue(int v)
+	{
+		(bool isSuccess, PatchFileList patchFileList) = await _cls.GetPatchFileList(v);
+		if (!isSuccess)
+		{
+			return;
+		}
+		_user._patchFileListOrNull = patchFileList;
 		StateHasChanged();
 	}
 }
