@@ -1,6 +1,7 @@
 using System;
 using System.Buffers;
 using System.IO;
+using System.IO.MemoryMappedFiles;
 using System.Text;
 
 namespace NF.UnityLibs.Managers.Patcher.Common
@@ -11,12 +12,12 @@ namespace NF.UnityLibs.Managers.Patcher.Common
         private const int BUFFER_SIZE = 4096;
         private const uint POLY_NOMIAL = 0xEDB88320;
 
-        public static uint Compute(string str)
+        public static uint ComputeFromStr(string str)
         {
-            return Compute(Encoding.UTF8.GetBytes(str).AsSpan());
+            return ComputeFromSpan(Encoding.UTF8.GetBytes(str).AsSpan());
         }
 
-        public static uint Compute(ReadOnlySpan<byte> data)
+        public static uint ComputeFromSpan(ReadOnlySpan<byte> data)
         {
             uint crc = 0xFFFFFFFF;
             foreach (byte b in data)
@@ -28,7 +29,7 @@ namespace NF.UnityLibs.Managers.Patcher.Common
             return ~crc;
         }
 
-        public static uint Compute(Stream stream)
+        public static uint ComputeFromStream(Stream stream)
         {
             uint crc = 0xFFFFFFFF;
             byte[] buffer = ArrayPool<byte>.Shared.Rent(BUFFER_SIZE);
@@ -52,6 +53,16 @@ namespace NF.UnityLibs.Managers.Patcher.Common
             return ~crc;
         }
 
+        public static uint ComputeFromFpath(string fpath)
+        {
+            long bytes = new FileInfo(fpath).Length;
+            using (MemoryMappedFile mmf = MemoryMappedFile.CreateFromFile(fpath, FileMode.Open, null, bytes))
+            using (MemoryMappedViewStream stream = mmf.CreateViewStream(0, bytes, MemoryMappedFileAccess.Read))
+            {
+                return ComputeFromStream(stream);
+            }
+        }
+        
         private static uint[] GenerateCrc32Table()
         {
             uint[] table = new uint[256];
