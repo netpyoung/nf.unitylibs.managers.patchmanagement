@@ -137,7 +137,7 @@ namespace NF.UnityLibs.Managers.Patcher.Impl
                     }
                     taskArr[i] = _DownloadPerFile(qid, info);
                 }
-                for (int i = 0; i <= _infoArr.Length; ++i)
+                for (int i = 0; i < _infoArr.Length; ++i)
                 {
                     Exception? exOrNull = await taskArr[i];
                     if (exOrNull != null)
