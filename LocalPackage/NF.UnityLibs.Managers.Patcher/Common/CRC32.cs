@@ -55,15 +55,32 @@ namespace NF.UnityLibs.Managers.Patcher.Common
 
         public static uint ComputeFromFpath(string fpath)
         {
-            long bytes = new FileInfo(fpath).Length;
-            if (bytes == 0)
+            try
             {
+                long bytes = new FileInfo(fpath).Length;
+                if (bytes == 0)
+                {
+                    return 0;
+                }
+                using (MemoryMappedFile mmf = MemoryMappedFile.CreateFromFile(fpath, FileMode.Open, null, bytes))
+                using (MemoryMappedViewStream stream = mmf.CreateViewStream(0, bytes, MemoryMappedFileAccess.Read))
+                {
+                    return ComputeFromStream(stream);
+                }
+            }
+            catch (IOException ex)
+            {
+#if UNITY_5_3_OR_NEWER
+                UnityEngine.Debug.LogException(ex);
+#endif // UNITY_5_3_OR_NEWER
                 return 0;
             }
-            using (MemoryMappedFile mmf = MemoryMappedFile.CreateFromFile(fpath, FileMode.Open, null, bytes))
-            using (MemoryMappedViewStream stream = mmf.CreateViewStream(0, bytes, MemoryMappedFileAccess.Read))
+            catch (Exception ex)
             {
-                return ComputeFromStream(stream);
+#if UNITY_5_3_OR_NEWER
+                UnityEngine.Debug.LogException(ex);
+#endif // UNITY_5_3_OR_NEWER
+                return 0;
             }
         }
 
