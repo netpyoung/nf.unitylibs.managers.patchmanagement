@@ -25,12 +25,13 @@ namespace NF.UnityLibs.Managers.Patcher.Impl
 
         private CancellationTokenSource _cancelTokenSource;
         private CancellationToken _cancelToken;
-        private Task<bool> _downloadAllTask;
+        private Task<Exception?> _downloadAllTask;
         private PatchFileList.PatchFileInfo[] _infoArr;
         private Queue<int> _concurrentIdQueue;
         private Option _option;
         private bool _isDisposed;
         private bool _isError;
+        private Exception? _savedExceptionOrNull;
 
         public static InternalConcurrentDownloader DownloadAll(Option option, PatchFileList.PatchFileInfo[] infoArr)
         {
@@ -93,14 +94,14 @@ namespace NF.UnityLibs.Managers.Patcher.Impl
         }
 
         #region For Await
-        public TaskAwaiter<bool> GetAwaiter()
+        public TaskAwaiter<Exception?> GetAwaiter()
         {
             return _downloadAllTask.GetAwaiter();
         }
 
         public bool IsCompleted => _downloadAllTask.IsCompleted;
 
-        public bool GetResult()
+        public Exception? GetResult()
         {
             return _downloadAllTask.GetAwaiter().GetResult();
         }
@@ -116,10 +117,10 @@ namespace NF.UnityLibs.Managers.Patcher.Impl
         }
         #endregion For Await
 
-        private async Task<bool> _DownloadAll()
+        private async Task<Exception?> _DownloadAll()
         {
 
-            Task<bool>[] taskArr = ArrayPool<Task<bool>>.Shared.Rent(_infoArr.Length);
+            Task<Exception?>[] taskArr = ArrayPool<Task<Exception?>>.Shared.Rent(_infoArr.Length);
             try
             {
                 int qid;
@@ -130,26 +131,37 @@ namespace NF.UnityLibs.Managers.Patcher.Impl
                     {
                         if (_IsError())
                         {
-                            return false;
+                            return _GetError();
                         }
                         await Task.Yield();
                     }
                     taskArr[i] = _DownloadPerFile(qid, info);
                 }
-                bool[] xs = await Task.WhenAll(taskArr.Take(_infoArr.Length));
-                return xs.All(x => x);
+                for (int i = 0; i <= _infoArr.Length; ++i)
+                {
+                    Exception? exOrNull = await taskArr[i];
+                    if (exOrNull != null)
+                    {
+                        return _SetError(exOrNull);
+                    }
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                return _SetError(ex);
             }
             finally
             {
-                ArrayPool<Task<bool>>.Shared.Return(taskArr);
+                ArrayPool<Task<Exception?>>.Shared.Return(taskArr);
             }
         }
 
-        private async Task<bool> _DownloadPerFile(int qid, PatchFileList.PatchFileInfo info)
+        private async Task<Exception?> _DownloadPerFile(int qid, PatchFileList.PatchFileInfo info)
         {
             if (_IsError())
             {
-                return false;
+                return _GetError();
             }
             try
             {
@@ -167,30 +179,37 @@ namespace NF.UnityLibs.Managers.Patcher.Impl
                     {
                         if (_IsError())
                         {
-                            return false;
+                            return _GetError();
                         }
                         await Task.Yield();
-                        //Debug.Log($"tick {qid} - {op.progress} - {info}");
                     }
                     if (uwr.result != UnityWebRequest.Result.Success)
                     {
-                        Debug.LogWarning($"uwr.error: {uwr.error} / uwr.responseCode: {uwr.responseCode} / url: {url} / info: {info}");
-                        _isError = true;
-                        return false;
+                        return _SetError(new PatcherException($"uwr.error: {uwr.error} / uwr.responseCode: {uwr.responseCode} / url: {url} / info: {info}"));
                     }
                 }
-                return true;
+                return null;
             }
             catch (Exception ex)
             {
-                Debug.LogException(ex);
-                _isError = true;
-                return false;
+                return _SetError(ex);
             }
             finally
             {
                 _concurrentIdQueue.Enqueue(qid);
             }
+        }
+
+        private Exception _GetError()
+        {
+            return _savedExceptionOrNull!;
+        }
+
+        private Exception _SetError(Exception ex)
+        {
+            _savedExceptionOrNull = ex;
+            _isError = true;
+            return _savedExceptionOrNull;
         }
 
         private bool _IsError()

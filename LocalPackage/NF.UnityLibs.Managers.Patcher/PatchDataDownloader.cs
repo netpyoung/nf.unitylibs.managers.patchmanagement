@@ -183,10 +183,10 @@ namespace NF.UnityLibs.Managers.Patcher
                             PatchItemMax = nextPatchFileList.Dic.Count,
                             RemoteURL_Parent = $"{RemoteURL_Base}/{RemoteURL_SubPath}/{version}"
                         };
-                        bool isSuccess = await InternalConcurrentDownloader.DownloadAll(opt, items);
-                        if (!isSuccess)
+                        Exception? exOrNull = await InternalConcurrentDownloader.DownloadAll(opt, items);
+                        if (exOrNull != null)
                         {
-                            return (false, new PatcherException("failed InternalConcurrentDownloader.DownloadAll"));
+                            return (false, exOrNull!);
                         }
                     }
                 }
