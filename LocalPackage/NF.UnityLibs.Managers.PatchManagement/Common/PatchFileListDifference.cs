@@ -19,11 +19,13 @@ namespace NF.UnityLibs.Managers.PatchManagement.Common
 
             public PatchFileList.PatchFileInfo PatchFileInfo { get; private set; }
             public E_STATE State { get; private set; }
+            public long OccupiedByte { get; private set; }
 
-            public PatchStatus(PatchFileList.PatchFileInfo patchFileInfo, E_STATE state)
+            public PatchStatus(PatchFileList.PatchFileInfo patchFileInfo, E_STATE state, long occupiedByte = 0)
             {
                 PatchFileInfo = patchFileInfo;
                 State = state;
+                OccupiedByte = occupiedByte;
             }
         }
 
@@ -47,7 +49,8 @@ namespace NF.UnityLibs.Managers.PatchManagement.Common
                 uint checksum = CRC32.ComputeFromFpath(downloadFpath);
                 if (checksum != nextValue.Checksum)
                 {
-                    return new PatchStatus(nextValue, PatchStatus.E_STATE.UPDATE);
+                    long occupiedByte = new FileInfo(downloadFpath).Length;
+                    return new PatchStatus(nextValue, PatchStatus.E_STATE.UPDATE, occupiedByte);
                 }
             }
 
