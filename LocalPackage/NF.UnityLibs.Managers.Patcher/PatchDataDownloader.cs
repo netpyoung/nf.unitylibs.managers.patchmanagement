@@ -172,9 +172,13 @@ namespace NF.UnityLibs.Managers.Patcher
                 }
                 {
                     // Update
-                    Directory.CreateDirectory(patchDir);
-                    PatchFileList.PatchFileInfo[] items = patchStatusList.Where(x => x.State == PatchFileListDifference.PatchStatus.E_STATE.UPDATE).Select(x => x.PatchFileInfo).ToArray();
+                    PatchFileList.PatchFileInfo[] updateItems = patchStatusList.Where(x => x.State == PatchFileListDifference.PatchStatus.E_STATE.UPDATE).Select(x => x.PatchFileInfo).ToArray();
+                    if (updateItems.Length != 0)
                     {
+                        Directory.CreateDirectory(patchDir);
+#if UNITY_IOS
+                        UnityEngine.iOS.Device.SetNoBackupFlag(patchDir);
+#endif // UNITY_IOS
                         InternalConcurrentDownloader.Option opt = new InternalConcurrentDownloader.Option
                         {
                             PatchDirectory = patchDir,
@@ -183,7 +187,7 @@ namespace NF.UnityLibs.Managers.Patcher
                             PatchItemMax = nextPatchFileList.Dic.Count,
                             RemoteURL_Parent = $"{RemoteURL_Base}/{RemoteURL_SubPath}/{version}"
                         };
-                        Exception? exOrNull = await InternalConcurrentDownloader.DownloadAll(opt, items);
+                        Exception? exOrNull = await InternalConcurrentDownloader.DownloadAll(opt, updateItems);
                         if (exOrNull != null)
                         {
                             return (false, exOrNull!);
