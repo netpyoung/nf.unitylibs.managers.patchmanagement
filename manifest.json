@@ -122,16 +122,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/NF.UnityLibs.Managers.PatchManagement.PatchManager.yml",
       "output": {
         ".html": {
