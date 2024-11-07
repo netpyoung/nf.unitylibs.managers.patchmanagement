@@ -81,12 +81,6 @@ namespace NF.UnityLibs.Managers.Patcher.Impl
         }
 #endif // UNITY_EDITOR
 
-
-        public TaskAwaiter<bool> GetAwaiter()
-        {
-            return _downloadAllTask.GetAwaiter();
-        }
-
         public void Dispose()
         {
             if (_isDisposed)
@@ -97,6 +91,30 @@ namespace NF.UnityLibs.Managers.Patcher.Impl
             _isDisposed = true;
             Debug.LogWarning("Disposed!!!!");
         }
+
+        #region For Await
+        public TaskAwaiter<bool> GetAwaiter()
+        {
+            return _downloadAllTask.GetAwaiter();
+        }
+
+        public bool IsCompleted => _downloadAllTask.IsCompleted;
+
+        public bool GetResult()
+        {
+            return _downloadAllTask.GetAwaiter().GetResult();
+        }
+
+        public void OnCompleted(Action continuation)
+        {
+            _downloadAllTask.GetAwaiter().OnCompleted(continuation);
+        }
+
+        public void UnsafeOnCompleted(Action continuation)
+        {
+            _downloadAllTask.GetAwaiter().OnCompleted(continuation);
+        }
+        #endregion For Await
 
         private async Task<bool> _DownloadAll()
         {
@@ -152,7 +170,7 @@ namespace NF.UnityLibs.Managers.Patcher.Impl
                             return false;
                         }
                         await Task.Yield();
-                        Debug.Log($"tick {qid} - {op.progress} - {info}");
+                        //Debug.Log($"tick {qid} - {op.progress} - {info}");
                     }
                     if (uwr.result != UnityWebRequest.Result.Success)
                     {
@@ -199,16 +217,6 @@ namespace NF.UnityLibs.Managers.Patcher.Impl
                 return true;
             }
             return false;
-        }
-
-        public void OnCompleted(Action continuation)
-        {
-            _downloadAllTask.GetAwaiter().OnCompleted(continuation);
-        }
-
-        public void UnsafeOnCompleted(Action continuation)
-        {
-            _downloadAllTask.GetAwaiter().OnCompleted(continuation);
         }
     }
 }
