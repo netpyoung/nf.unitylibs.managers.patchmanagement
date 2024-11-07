@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace NF.UnityLibs.Managers.Patcher
+namespace NF.UnityLibs.Managers.Patcher.Impl
 {
-	public class PatcherException : Exception
+	internal sealed class PatcherException : Exception
     {
         public override string StackTrace { get; }
 
