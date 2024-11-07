@@ -1,7 +1,7 @@
-using NF.UnityLibs.Managers.Patcher.Common;
+using NF.UnityLibs.Managers.PatchManagement.Common;
 using NUnit.Framework;
 
-namespace NF.UnityLibs.Managers.Patcher.EditorTests
+namespace NF.UnityLibs.Managers.PatchManagement.EditorTests
 {
     public sealed class NewTestScript
     {

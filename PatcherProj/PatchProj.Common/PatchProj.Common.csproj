@@ -9,8 +9,8 @@
 		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
 	</PropertyGroup>
 	<ItemGroup>
-		<Compile Include="..\..\LocalPackage\NF.UnityLibs.Managers.Patcher\Common\*.cs">
-			<Link>NF.UnityLibs.Managers.Patcher.Common\%(RecursiveDir)%(Filename)%(Extension)</Link>
+		<Compile Include="..\..\LocalPackage\NF.UnityLibs.Managers.PatchManagement\Common\*.cs">
+			<Link>NF.UnityLibs.Managers.PatchManagement.Common\%(RecursiveDir)%(Filename)%(Extension)</Link>
 			<DependentUpon>$(MSBuildProjectDirectory)\.editorconfig</DependentUpon>
 		</Compile>
 	</ItemGroup>

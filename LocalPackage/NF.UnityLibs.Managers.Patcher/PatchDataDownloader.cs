@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
-using NF.UnityLibs.Managers.Patcher.Common;
-using NF.UnityLibs.Managers.Patcher.Impl;
+using NF.UnityLibs.Managers.PatchManagement.Common;
+using NF.UnityLibs.Managers.PatchManagement.Impl;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace NF.UnityLibs.Managers.Patcher
+namespace NF.UnityLibs.Managers.PatchManagement
 {
     // remoteURL_Full    : https://helloworld.com/blabla/hello/a.txt
     // remoteURL_Parent  : https://helloworld.com/blabla/hello

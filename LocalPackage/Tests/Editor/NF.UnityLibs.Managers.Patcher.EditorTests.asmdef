@@ -1,10 +1,10 @@
 {
-    "name": "NF.UnityLibs.Managers.Patcher.EditorTests",
-    "rootNamespace": "NF.UnityLibs.Managers.Patcher.EditorTests",
+    "name": "NF.UnityLibs.Managers.PatchManagement.EditorTests",
+    "rootNamespace": "NF.UnityLibs.Managers.PatchManagement.EditorTests",
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
-        "NF.UnityLibs.Managers.Patcher"
+        "NF.UnityLibs.Managers.PatchManagement"
     ],
     "includePlatforms": [
         "Editor"

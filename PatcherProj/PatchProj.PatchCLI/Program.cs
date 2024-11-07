@@ -1,4 +1,4 @@
-﻿using NF.UnityLibs.Managers.Patcher.Common;
+﻿using NF.UnityLibs.Managers.PatchManagement.Common;
 using System;
 using System.Diagnostics;
 

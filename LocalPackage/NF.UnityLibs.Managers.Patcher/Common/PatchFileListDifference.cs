@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace NF.UnityLibs.Managers.Patcher.Common
+namespace NF.UnityLibs.Managers.PatchManagement.Common
 {
     public class PatchFileListDifference
     {

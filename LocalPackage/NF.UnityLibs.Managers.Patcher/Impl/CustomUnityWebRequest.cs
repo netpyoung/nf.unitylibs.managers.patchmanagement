@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace NF.UnityLibs.Managers.Patcher.Impl
+namespace NF.UnityLibs.Managers.PatchManagement.Impl
 {
     internal sealed class CustomUnityWebRequest
     {

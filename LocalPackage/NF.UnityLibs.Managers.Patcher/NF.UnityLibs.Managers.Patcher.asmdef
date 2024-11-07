@@ -1,6 +1,6 @@
 {
-    "name": "NF.UnityLibs.Managers.Patcher",
-    "rootNamespace": "NF.UnityLibs.Managers.Patcher",
+    "name": "NF.UnityLibs.Managers.PatchManagement",
+    "rootNamespace": "NF.UnityLibs.Managers.PatchManagement",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],

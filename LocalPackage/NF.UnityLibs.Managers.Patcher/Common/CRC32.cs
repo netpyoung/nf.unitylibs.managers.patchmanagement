@@ -4,7 +4,7 @@ using System.IO;
 using System.IO.MemoryMappedFiles;
 using System.Text;
 
-namespace NF.UnityLibs.Managers.Patcher.Common
+namespace NF.UnityLibs.Managers.PatchManagement.Common
 {
     public static class CRC32
     {
@@ -94,7 +94,7 @@ namespace NF.UnityLibs.Managers.Patcher.Common
             {
                 uint crc = i;
 
-                // NOTE(pyoung): �ݺ� 8ȸ - crc = (crc >> 1) ^ ((crc & 1) * POLY_NOMIAL);
+                // NOTE(pyoung): �ݺ� 8ȸ - crc = (crc >> 1) ^ ((crc & 1) * POLY_NOMIAL);
                 //for (int j = 0; j < 8; j++)
                 //{
                 //    crc = (crc >> 1) ^ ((crc & 1) * POLY_NOMIAL);

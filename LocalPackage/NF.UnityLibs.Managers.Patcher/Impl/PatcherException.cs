@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NF.UnityLibs.Managers.Patcher.Impl
+namespace NF.UnityLibs.Managers.PatchManagement.Impl
 {
 	internal sealed class PatcherException : Exception
     {

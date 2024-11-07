@@ -1,4 +1,4 @@
-using NF.UnityLibs.Managers.Patcher.Common;
+using NF.UnityLibs.Managers.PatchManagement.Common;
 using System;
 using System.Buffers;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Threading;
 using UnityEngine.Networking;
 using UnityEngine;
 
-namespace NF.UnityLibs.Managers.Patcher.Impl
+namespace NF.UnityLibs.Managers.PatchManagement.Impl
 {
     internal sealed class InternalConcurrentDownloader : IDisposable, INotifyCompletion, ICriticalNotifyCompletion
     {
