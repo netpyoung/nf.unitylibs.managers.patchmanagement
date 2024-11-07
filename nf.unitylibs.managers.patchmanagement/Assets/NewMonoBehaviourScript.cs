@@ -19,7 +19,7 @@ public sealed class HelloException : Exception
     }
 }
 
-public class NewMonoBehaviourScript : MonoBehaviour, IPatchManagerEventReceiver
+public sealed class NewMonoBehaviourScript : MonoBehaviour, IPatchManagerEventReceiver
 {
     public Slider _slider_Total;
     public TextMeshProUGUI _txt_Total;

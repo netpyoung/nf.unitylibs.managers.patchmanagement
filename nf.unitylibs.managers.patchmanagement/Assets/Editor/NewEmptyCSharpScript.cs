@@ -7,7 +7,7 @@ using UnityEditor;
 using UnityEngine;
 using Logger = Unity.Logging.Logger;
 
-public class NewEmptyCSharpScript
+public sealed class NewEmptyCSharpScript
 {
     [MenuItem("@A/Hello")]
     public static void Hello()

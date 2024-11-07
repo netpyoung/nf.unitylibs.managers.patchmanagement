@@ -5,7 +5,7 @@ namespace NF.UnityLibs.Managers.PatchManagement
 {
     public interface IPatchManagerEventReceiver
     {
-        public class ProgressFileInfo
+        public sealed class ProgressFileInfo
         {
             public PatchFileList.PatchFileInfo PatchFileInfo { get; set; } = new PatchFileList.PatchFileInfo(string.Empty, 0, 0);
             public float ProgressInFileDownload { get; set; }

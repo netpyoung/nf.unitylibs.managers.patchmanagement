@@ -19,7 +19,7 @@ namespace NF.UnityLibs.Managers.PatchManagement
     [Serializable]
     public sealed class PatchManager
     {
-        public class Option
+        internal class Option
         {
             public string RemoteURL_Base { get; internal set; } = string.Empty;
             public string RemoteURL_SubPath { get; internal set; } = string.Empty;
