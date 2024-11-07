@@ -14,33 +14,5 @@ namespace NF.UnityLibs.Managers.Patcher.Common
             string json = JsonConvert.SerializeObject(this, Formatting.Indented);
             return json;
         }
-
-        public static PatchVersion Dummy()
-        {
-            PatchVersion ret = new PatchVersion();
-            ret["latest"] = 0;
-            return ret;
-        }
-
-        public static bool TryFromJson(string json, out PatchVersion result)
-        {
-            try
-            {
-                PatchVersion? x = JsonConvert.DeserializeObject<PatchVersion>(json);
-                result = x!;
-                return true;
-            }
-#if UNITY_5_3_OR_NEWER
-            catch (Exception ex)
-            {
-                UnityEngine.Debug.LogException(ex);
-#else
-            catch
-            {
-#endif // UNITY_5_3_OR_NEWER
-                result = Dummy();
-                return false;
-            }
-        }
     }
 }

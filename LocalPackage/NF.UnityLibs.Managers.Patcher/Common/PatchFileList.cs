@@ -92,31 +92,5 @@ namespace NF.UnityLibs.Managers.Patcher.Common
             ret.UpdateTotalBytes();
             return ret;
         }
-
-        public static PatchFileList Dummy()
-        {
-            return new PatchFileList(0, new Dictionary<string, PatchFileInfo>(), 0);
-        }
-
-        public static bool TryFromJson(string json, out PatchFileList result)
-        {
-            try
-            {
-                PatchFileList? x = JsonConvert.DeserializeObject<PatchFileList>(json);
-                result = x!;
-                return true;
-            }
-#if UNITY_5_3_OR_NEWER
-            catch (Exception ex)
-            {
-                UnityEngine.Debug.LogException(ex);
-#else
-            catch
-            {
-#endif // UNITY_5_3_OR_NEWER
-                result = Dummy();
-                return false;
-            }
-        }
     }
 }
