@@ -4,7 +4,7 @@
 # Rider ignored files
 /projectSettingsUpdater.xml
 /contentModel.xml
-/.idea.nf.unitylibs.managers.patcher.iml
+/.idea.nf.unitylibs.managers.patchmanagement.iml
 /modules.xml
 # Editor-based HTTP Client requests
 /httpRequests/

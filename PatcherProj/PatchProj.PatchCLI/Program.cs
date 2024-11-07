@@ -10,7 +10,7 @@ namespace PatchProj.PatchCLI
 		{
 			Console.WriteLine("Hello, World!");
 
-			string patchSrcDir = "D:\\@NF\\nf.unitylibs.managers.patcher\\s3\\test-src";
+			string patchSrcDir = "D:\\@NF\\nf.unitylibs.managers.patchmanagement\\s3\\test-src";
 			int patchNumber = 0;
 			Stopwatch sw = new Stopwatch();
 			sw.Start();

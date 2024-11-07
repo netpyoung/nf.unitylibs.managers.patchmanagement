@@ -1,6 +1,6 @@
 {
-  "name": "nf.unitylibs.managers.patcher",
-  "displayName": "nf.unitylibs.managers.patcher",
+  "name": "nf.unitylibs.managers.patchmanagement",
+  "displayName": "nf.unitylibs.managers.patchmanagement",
   "author": { "name": "netpyoung", "url": "https://netpyoung.github.io/" },
   "version": "0.0.1",
   "unity": "",

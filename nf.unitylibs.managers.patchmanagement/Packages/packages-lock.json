@@ -212,7 +212,7 @@
         "com.unity.modules.imgui": "1.0.0"
       }
     },
-    "nf.unitylibs.managers.patcher": {
+    "nf.unitylibs.managers.patchmanagement": {
       "version": "file:../../LocalPackage",
       "depth": 0,
       "source": "local",

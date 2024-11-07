@@ -1,13 +1,13 @@
-# nf.unitylibs.managers.patcher
+# nf.unitylibs.managers.patchmanagement
 
-- [repo](https://github.com/netpyoung/nf.unitylibs.managers.patcher/)
+- [repo](https://github.com/netpyoung/nf.unitylibs.managers.patchmanagement/)
 
 ## upm
 
 - <https://docs.unity3d.com/Manual/upm-ui-giturl.html>
 
 ```
-https://github.com/netpyoung/nf.unitylibs.managers.patcher.git?path=LocalPackage
+https://github.com/netpyoung/nf.unitylibs.managers.patchmanagement.git?path=LocalPackage
 ```
 
 ## 구조
