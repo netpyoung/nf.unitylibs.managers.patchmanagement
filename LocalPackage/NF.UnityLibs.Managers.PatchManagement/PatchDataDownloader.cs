@@ -113,7 +113,7 @@ namespace NF.UnityLibs.Managers.PatchManagement
                 }
                 else
                 {
-                    return new PatcherException($"failed to get version from patchVersion\n{patchVersion.ToJson()}");
+                    return new PatchManagerException($"failed to get version from patchVersion\n{patchVersion.ToJson()}");
                 }
             }
             return await FromPatchBuildVersion(patchBuildVersion);
@@ -148,7 +148,7 @@ namespace NF.UnityLibs.Managers.PatchManagement
             List<PatchFileListDifference.PatchStatus>? patchStatusListOrNull = await PatchFileListDifference.DifferenceSetOrNull(currPatchFileListOrNull, nextPatchFileList, patchDir);
             if (patchStatusListOrNull == null)
             {
-                return new PatcherException("Internal Exception: patchStatusListOrNull == null");
+                return new PatchManagerException("Internal Exception: patchStatusListOrNull == null");
             }
 
             {
@@ -210,13 +210,13 @@ namespace NF.UnityLibs.Managers.PatchManagement
                 List<PatchFileListDifference.PatchStatus>? validatePatchStatusListOrNull = await PatchFileListDifference.DifferenceSetOrNull(currPatchFileListOrNull, nextPatchFileList, patchDir);
                 if (validatePatchStatusListOrNull == null)
                 {
-                    return new PatcherException("Internal Exception: validatePatchStatusListOrNull == null");
+                    return new PatchManagerException("Internal Exception: validatePatchStatusListOrNull == null");
                 }
                 List<PatchFileListDifference.PatchStatus> validatePatchStatusList = validatePatchStatusListOrNull!;
                 validatePatchStatusList.RemoveAll(x => x.State == PatchFileListDifference.PatchStatus.E_STATE.SKIP);
                 if (validatePatchStatusList.Count != 0)
                 {
-                    return new PatcherException($"validatePatchStatusList.Count != 0 | validatePatchStatusList.Count:{validatePatchStatusList.Count}");
+                    return new PatchManagerException($"validatePatchStatusList.Count != 0 | validatePatchStatusList.Count:{validatePatchStatusList.Count}");
                 }
             }
 

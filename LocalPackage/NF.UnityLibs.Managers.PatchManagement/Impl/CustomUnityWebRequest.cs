@@ -20,13 +20,13 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
 
                     if (uwr.result != UnityWebRequest.Result.Success)
                     {
-                        return (string.Empty, new PatcherException($"uwr.result != UnityWebRequest.Result.Success | url: {url} | uwr.result: {uwr.result} | uwr.error: {uwr.error}"));
+                        return (string.Empty, new PatchManagerException($"uwr.result != UnityWebRequest.Result.Success | url: {url} | uwr.result: {uwr.result} | uwr.error: {uwr.error}"));
                     }
 
                     string str = uwr.downloadHandler.text;
                     if (string.IsNullOrEmpty(str))
                     {
-                        return (string.Empty, new PatcherException($"uwr.downloadHandler.text is empty | url: {url}"));
+                        return (string.Empty, new PatchManagerException($"uwr.downloadHandler.text is empty | url: {url}"));
                     }
 
                     return (str, null);

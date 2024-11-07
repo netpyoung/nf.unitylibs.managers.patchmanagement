@@ -185,7 +185,7 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
                     }
                     if (uwr.result != UnityWebRequest.Result.Success)
                     {
-                        return _SetError(new PatcherException($"uwr.error: {uwr.error} / uwr.responseCode: {uwr.responseCode} / url: {url} / info: {info}"));
+                        return _SetError(new PatchManagerException($"uwr.error: {uwr.error} / uwr.responseCode: {uwr.responseCode} / url: {url} / info: {info}"));
                     }
                 }
                 return null;
