@@ -87,38 +87,47 @@ namespace NF.UnityLibs.Managers.Patcher
             }
         }
 
-        public async Task<(bool isSuccess, Exception? exOrNull)> X()
+        public Task<Exception?> FromCurrentAppVersion()
         {
             string appVersion = Application.version;
-            int version = 0;
+            return FromAppVersion(appVersion);
+        }
+
+        public async Task<Exception?> FromAppVersion(string appVersion)
+        {
+            int patchBuildVersion = 0;
             {
                 string url = $"{RemoteURL_Base}/{RemoteURL_SubPath}/{nameof(PatchVersion)}.json";
                 (PatchVersion? patchVersionOrNull, Exception? exOrNull) = await CustomUnityWebRequest.Get<PatchVersion>(url);
                 if (exOrNull != null)
                 {
-                    return (false, exOrNull!);
+                    return exOrNull!;
                 }
 
                 PatchVersion patchVersion = patchVersionOrNull!;
-                if (patchVersion.TryGetValue(appVersion, out version))
+                if (patchVersion.TryGetValue(appVersion, out patchBuildVersion))
                 {
                 }
-                else if (patchVersion.TryGetValue("latest", out version))
+                else if (patchVersion.TryGetValue("latest", out patchBuildVersion))
                 {
                 }
                 else
                 {
-                    return (false, new PatcherException($"failed to get version from patchVersion\n{patchVersion.ToJson()}"));
+                    return new PatcherException($"failed to get version from patchVersion\n{patchVersion.ToJson()}");
                 }
             }
+            return await FromPatchBuildVersion(patchBuildVersion);
+        }
 
+        public async Task<Exception?> FromPatchBuildVersion(int patchBuildVersion)
+        {
             PatchFileList nextPatchFileList;
             {
-                string url = $"{RemoteURL_Base}/{RemoteURL_SubPath}/{version}/{nameof(PatchFileList)}.json";
+                string url = $"{RemoteURL_Base}/{RemoteURL_SubPath}/{patchBuildVersion}/{nameof(PatchFileList)}.json";
                 (PatchFileList? remotePatchFileListOrNull, Exception? exOrNull) = await CustomUnityWebRequest.Get<PatchFileList>(url);
                 if (exOrNull != null)
                 {
-                    return (false, exOrNull!);
+                    return exOrNull!;
                 }
 
                 nextPatchFileList = remotePatchFileListOrNull!;
@@ -129,9 +138,9 @@ namespace NF.UnityLibs.Managers.Patcher
             if (currPatchFileListOrNull != null)
             {
                 PatchFileList currPatchFileList = currPatchFileListOrNull!;
-                if (currPatchFileList.Version == version)
+                if (currPatchFileList.Version == patchBuildVersion)
                 {
-                    return (true, null);
+                    return null;
                 }
             }
 
@@ -139,7 +148,7 @@ namespace NF.UnityLibs.Managers.Patcher
             List<PatchFileListDifference.PatchStatus>? patchStatusListOrNull = await PatchFileListDifference.DifferenceSetOrNull(currPatchFileListOrNull, nextPatchFileList, patchDir);
             if (patchStatusListOrNull == null)
             {
-                return (false, new PatcherException("Internal Exception: patchStatusListOrNull == null"));
+                return new PatcherException("Internal Exception: patchStatusListOrNull == null");
             }
 
             {
@@ -166,7 +175,7 @@ namespace NF.UnityLibs.Managers.Patcher
                         }
                         catch (Exception ex)
                         {
-                            return (false, ex);
+                            return ex;
                         }
                     }
                 }
@@ -185,12 +194,12 @@ namespace NF.UnityLibs.Managers.Patcher
                             ConcurrentWebRequestMax = 5,
                             PatchItemByteMax = nextPatchFileList.TotalBytes,
                             PatchItemMax = nextPatchFileList.Dic.Count,
-                            RemoteURL_Parent = $"{RemoteURL_Base}/{RemoteURL_SubPath}/{version}"
+                            RemoteURL_Parent = $"{RemoteURL_Base}/{RemoteURL_SubPath}/{patchBuildVersion}"
                         };
                         Exception? exOrNull = await InternalConcurrentDownloader.DownloadAll(opt, updateItems);
                         if (exOrNull != null)
                         {
-                            return (false, exOrNull!);
+                            return exOrNull!;
                         }
                     }
                 }
@@ -201,13 +210,13 @@ namespace NF.UnityLibs.Managers.Patcher
                 List<PatchFileListDifference.PatchStatus>? validatePatchStatusListOrNull = await PatchFileListDifference.DifferenceSetOrNull(currPatchFileListOrNull, nextPatchFileList, patchDir);
                 if (validatePatchStatusListOrNull == null)
                 {
-                    return (false, new PatcherException("Internal Exception: validatePatchStatusListOrNull == null"));
+                    return new PatcherException("Internal Exception: validatePatchStatusListOrNull == null");
                 }
                 List<PatchFileListDifference.PatchStatus> validatePatchStatusList = validatePatchStatusListOrNull!;
                 validatePatchStatusList.RemoveAll(x => x.State == PatchFileListDifference.PatchStatus.E_STATE.SKIP);
                 if (validatePatchStatusList.Count != 0)
                 {
-                    return (false, new PatcherException($"validatePatchStatusList.Count != 0 | validatePatchStatusList.Count:{validatePatchStatusList.Count}"));
+                    return new PatcherException($"validatePatchStatusList.Count != 0 | validatePatchStatusList.Count:{validatePatchStatusList.Count}");
                 }
             }
 
@@ -217,11 +226,11 @@ namespace NF.UnityLibs.Managers.Patcher
                 try
                 {
                     File.WriteAllText(currPatchFileListFpath, json);
-                    return (true, null);
+                    return null;
                 }
                 catch (Exception ex)
                 {
-                    return (false, ex);
+                    return ex;
                 }
             }
         }
