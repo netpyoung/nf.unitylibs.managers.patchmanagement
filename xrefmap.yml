@@ -335,15 +335,15 @@ references:
   commentId: T:NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.PatchStatus
   fullName: NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.PatchStatus
   nameWithType: PatchFileListDifference.PatchStatus
-- uid: NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.PatchStatus.#ctor(NF.UnityLibs.Managers.PatchManagement.Common.PatchFileList.PatchFileInfo,NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.PatchStatus.E_STATE)
-  name: PatchStatus(PatchFileInfo, E_STATE)
-  href: api/NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.PatchStatus.html#NF_UnityLibs_Managers_PatchManagement_Common_PatchFileListDifference_PatchStatus__ctor_NF_UnityLibs_Managers_PatchManagement_Common_PatchFileList_PatchFileInfo_NF_UnityLibs_Managers_PatchManagement_Common_PatchFileListDifference_PatchStatus_E_STATE_
-  commentId: M:NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.PatchStatus.#ctor(NF.UnityLibs.Managers.PatchManagement.Common.PatchFileList.PatchFileInfo,NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.PatchStatus.E_STATE)
-  name.vb: New(PatchFileInfo, E_STATE)
-  fullName: NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.PatchStatus.PatchStatus(NF.UnityLibs.Managers.PatchManagement.Common.PatchFileList.PatchFileInfo, NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.PatchStatus.E_STATE)
-  fullName.vb: NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.PatchStatus.New(NF.UnityLibs.Managers.PatchManagement.Common.PatchFileList.PatchFileInfo, NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.PatchStatus.E_STATE)
-  nameWithType: PatchFileListDifference.PatchStatus.PatchStatus(PatchFileList.PatchFileInfo, PatchFileListDifference.PatchStatus.E_STATE)
-  nameWithType.vb: PatchFileListDifference.PatchStatus.New(PatchFileList.PatchFileInfo, PatchFileListDifference.PatchStatus.E_STATE)
+- uid: NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.PatchStatus.#ctor(NF.UnityLibs.Managers.PatchManagement.Common.PatchFileList.PatchFileInfo,NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.PatchStatus.E_STATE,System.Int64)
+  name: PatchStatus(PatchFileInfo, E_STATE, long)
+  href: api/NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.PatchStatus.html#NF_UnityLibs_Managers_PatchManagement_Common_PatchFileListDifference_PatchStatus__ctor_NF_UnityLibs_Managers_PatchManagement_Common_PatchFileList_PatchFileInfo_NF_UnityLibs_Managers_PatchManagement_Common_PatchFileListDifference_PatchStatus_E_STATE_System_Int64_
+  commentId: M:NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.PatchStatus.#ctor(NF.UnityLibs.Managers.PatchManagement.Common.PatchFileList.PatchFileInfo,NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.PatchStatus.E_STATE,System.Int64)
+  name.vb: New(PatchFileInfo, E_STATE, Long)
+  fullName: NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.PatchStatus.PatchStatus(NF.UnityLibs.Managers.PatchManagement.Common.PatchFileList.PatchFileInfo, NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.PatchStatus.E_STATE, long)
+  fullName.vb: NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.PatchStatus.New(NF.UnityLibs.Managers.PatchManagement.Common.PatchFileList.PatchFileInfo, NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.PatchStatus.E_STATE, Long)
+  nameWithType: PatchFileListDifference.PatchStatus.PatchStatus(PatchFileList.PatchFileInfo, PatchFileListDifference.PatchStatus.E_STATE, long)
+  nameWithType.vb: PatchFileListDifference.PatchStatus.New(PatchFileList.PatchFileInfo, PatchFileListDifference.PatchStatus.E_STATE, Long)
 - uid: NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.PatchStatus.#ctor*
   name: PatchStatus
   href: api/NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.PatchStatus.html#NF_UnityLibs_Managers_PatchManagement_Common_PatchFileListDifference_PatchStatus__ctor_
@@ -378,6 +378,19 @@ references:
   commentId: F:NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.PatchStatus.E_STATE.UPDATE
   fullName: NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.PatchStatus.E_STATE.UPDATE
   nameWithType: PatchFileListDifference.PatchStatus.E_STATE.UPDATE
+- uid: NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.PatchStatus.OccupiedByte
+  name: OccupiedByte
+  href: api/NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.PatchStatus.html#NF_UnityLibs_Managers_PatchManagement_Common_PatchFileListDifference_PatchStatus_OccupiedByte
+  commentId: P:NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.PatchStatus.OccupiedByte
+  fullName: NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.PatchStatus.OccupiedByte
+  nameWithType: PatchFileListDifference.PatchStatus.OccupiedByte
+- uid: NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.PatchStatus.OccupiedByte*
+  name: OccupiedByte
+  href: api/NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.PatchStatus.html#NF_UnityLibs_Managers_PatchManagement_Common_PatchFileListDifference_PatchStatus_OccupiedByte_
+  commentId: Overload:NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.PatchStatus.OccupiedByte
+  isSpec: "True"
+  fullName: NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.PatchStatus.OccupiedByte
+  nameWithType: PatchFileListDifference.PatchStatus.OccupiedByte
 - uid: NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.PatchStatus.PatchFileInfo
   name: PatchFileInfo
   href: api/NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.PatchStatus.html#NF_UnityLibs_Managers_PatchManagement_Common_PatchFileListDifference_PatchStatus_PatchFileInfo
@@ -423,122 +436,405 @@ references:
   isSpec: "True"
   fullName: NF.UnityLibs.Managers.PatchManagement.Common.PatchVersion.ToJson
   nameWithType: PatchVersion.ToJson
-- uid: NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader
-  name: PatchDataDownloader
-  href: api/NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.html
-  commentId: T:NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader
-  fullName: NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader
-  nameWithType: PatchDataDownloader
-- uid: NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.DevicePrefix
-  name: DevicePrefix
-  href: api/NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.html#NF_UnityLibs_Managers_PatchManagement_PatchDataDownloader_DevicePrefix
-  commentId: P:NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.DevicePrefix
-  fullName: NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.DevicePrefix
-  nameWithType: PatchDataDownloader.DevicePrefix
-- uid: NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.DevicePrefix*
-  name: DevicePrefix
-  href: api/NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.html#NF_UnityLibs_Managers_PatchManagement_PatchDataDownloader_DevicePrefix_
-  commentId: Overload:NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.DevicePrefix
+- uid: NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver
+  name: IPatchManagerEventReceiver
+  href: api/NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.html
+  commentId: T:NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver
+  fullName: NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver
+  nameWithType: IPatchManagerEventReceiver
+- uid: NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.OnIsEnoughStorageSpace(System.Int64)
+  name: OnIsEnoughStorageSpace(long)
+  href: api/NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.html#NF_UnityLibs_Managers_PatchManagement_IPatchManagerEventReceiver_OnIsEnoughStorageSpace_System_Int64_
+  commentId: M:NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.OnIsEnoughStorageSpace(System.Int64)
+  name.vb: OnIsEnoughStorageSpace(Long)
+  fullName: NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.OnIsEnoughStorageSpace(long)
+  fullName.vb: NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.OnIsEnoughStorageSpace(Long)
+  nameWithType: IPatchManagerEventReceiver.OnIsEnoughStorageSpace(long)
+  nameWithType.vb: IPatchManagerEventReceiver.OnIsEnoughStorageSpace(Long)
+- uid: NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.OnIsEnoughStorageSpace*
+  name: OnIsEnoughStorageSpace
+  href: api/NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.html#NF_UnityLibs_Managers_PatchManagement_IPatchManagerEventReceiver_OnIsEnoughStorageSpace_
+  commentId: Overload:NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.OnIsEnoughStorageSpace
   isSpec: "True"
-  fullName: NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.DevicePrefix
-  nameWithType: PatchDataDownloader.DevicePrefix
-- uid: NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.FromAppVersion(System.String)
+  fullName: NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.OnIsEnoughStorageSpace
+  nameWithType: IPatchManagerEventReceiver.OnIsEnoughStorageSpace
+- uid: NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.OnProgressFileInfo(NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo)
+  name: OnProgressFileInfo(ProgressFileInfo)
+  href: api/NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.html#NF_UnityLibs_Managers_PatchManagement_IPatchManagerEventReceiver_OnProgressFileInfo_NF_UnityLibs_Managers_PatchManagement_IPatchManagerEventReceiver_ProgressFileInfo_
+  commentId: M:NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.OnProgressFileInfo(NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo)
+  fullName: NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.OnProgressFileInfo(NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo)
+  nameWithType: IPatchManagerEventReceiver.OnProgressFileInfo(IPatchManagerEventReceiver.ProgressFileInfo)
+- uid: NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.OnProgressFileInfo*
+  name: OnProgressFileInfo
+  href: api/NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.html#NF_UnityLibs_Managers_PatchManagement_IPatchManagerEventReceiver_OnProgressFileInfo_
+  commentId: Overload:NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.OnProgressFileInfo
+  isSpec: "True"
+  fullName: NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.OnProgressFileInfo
+  nameWithType: IPatchManagerEventReceiver.OnProgressFileInfo
+- uid: NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.OnProgressTotal(System.Single,System.Int64)
+  name: OnProgressTotal(float, long)
+  href: api/NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.html#NF_UnityLibs_Managers_PatchManagement_IPatchManagerEventReceiver_OnProgressTotal_System_Single_System_Int64_
+  commentId: M:NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.OnProgressTotal(System.Single,System.Int64)
+  name.vb: OnProgressTotal(Single, Long)
+  fullName: NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.OnProgressTotal(float, long)
+  fullName.vb: NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.OnProgressTotal(Single, Long)
+  nameWithType: IPatchManagerEventReceiver.OnProgressTotal(float, long)
+  nameWithType.vb: IPatchManagerEventReceiver.OnProgressTotal(Single, Long)
+- uid: NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.OnProgressTotal*
+  name: OnProgressTotal
+  href: api/NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.html#NF_UnityLibs_Managers_PatchManagement_IPatchManagerEventReceiver_OnProgressTotal_
+  commentId: Overload:NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.OnProgressTotal
+  isSpec: "True"
+  fullName: NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.OnProgressTotal
+  nameWithType: IPatchManagerEventReceiver.OnProgressTotal
+- uid: NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo
+  name: IPatchManagerEventReceiver.ProgressFileInfo
+  href: api/NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.html
+  commentId: T:NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo
+  fullName: NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo
+  nameWithType: IPatchManagerEventReceiver.ProgressFileInfo
+- uid: NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.BytesDownloaded
+  name: BytesDownloaded
+  href: api/NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.html#NF_UnityLibs_Managers_PatchManagement_IPatchManagerEventReceiver_ProgressFileInfo_BytesDownloaded
+  commentId: P:NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.BytesDownloaded
+  fullName: NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.BytesDownloaded
+  nameWithType: IPatchManagerEventReceiver.ProgressFileInfo.BytesDownloaded
+- uid: NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.BytesDownloaded*
+  name: BytesDownloaded
+  href: api/NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.html#NF_UnityLibs_Managers_PatchManagement_IPatchManagerEventReceiver_ProgressFileInfo_BytesDownloaded_
+  commentId: Overload:NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.BytesDownloaded
+  isSpec: "True"
+  fullName: NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.BytesDownloaded
+  nameWithType: IPatchManagerEventReceiver.ProgressFileInfo.BytesDownloaded
+- uid: NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.ConcurrentIndex
+  name: ConcurrentIndex
+  href: api/NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.html#NF_UnityLibs_Managers_PatchManagement_IPatchManagerEventReceiver_ProgressFileInfo_ConcurrentIndex
+  commentId: P:NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.ConcurrentIndex
+  fullName: NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.ConcurrentIndex
+  nameWithType: IPatchManagerEventReceiver.ProgressFileInfo.ConcurrentIndex
+- uid: NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.ConcurrentIndex*
+  name: ConcurrentIndex
+  href: api/NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.html#NF_UnityLibs_Managers_PatchManagement_IPatchManagerEventReceiver_ProgressFileInfo_ConcurrentIndex_
+  commentId: Overload:NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.ConcurrentIndex
+  isSpec: "True"
+  fullName: NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.ConcurrentIndex
+  nameWithType: IPatchManagerEventReceiver.ProgressFileInfo.ConcurrentIndex
+- uid: NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.ItemCurrIndex
+  name: ItemCurrIndex
+  href: api/NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.html#NF_UnityLibs_Managers_PatchManagement_IPatchManagerEventReceiver_ProgressFileInfo_ItemCurrIndex
+  commentId: P:NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.ItemCurrIndex
+  fullName: NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.ItemCurrIndex
+  nameWithType: IPatchManagerEventReceiver.ProgressFileInfo.ItemCurrIndex
+- uid: NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.ItemCurrIndex*
+  name: ItemCurrIndex
+  href: api/NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.html#NF_UnityLibs_Managers_PatchManagement_IPatchManagerEventReceiver_ProgressFileInfo_ItemCurrIndex_
+  commentId: Overload:NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.ItemCurrIndex
+  isSpec: "True"
+  fullName: NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.ItemCurrIndex
+  nameWithType: IPatchManagerEventReceiver.ProgressFileInfo.ItemCurrIndex
+- uid: NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.ItemMaxLength
+  name: ItemMaxLength
+  href: api/NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.html#NF_UnityLibs_Managers_PatchManagement_IPatchManagerEventReceiver_ProgressFileInfo_ItemMaxLength
+  commentId: P:NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.ItemMaxLength
+  fullName: NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.ItemMaxLength
+  nameWithType: IPatchManagerEventReceiver.ProgressFileInfo.ItemMaxLength
+- uid: NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.ItemMaxLength*
+  name: ItemMaxLength
+  href: api/NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.html#NF_UnityLibs_Managers_PatchManagement_IPatchManagerEventReceiver_ProgressFileInfo_ItemMaxLength_
+  commentId: Overload:NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.ItemMaxLength
+  isSpec: "True"
+  fullName: NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.ItemMaxLength
+  nameWithType: IPatchManagerEventReceiver.ProgressFileInfo.ItemMaxLength
+- uid: NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.PatchFileInfo
+  name: PatchFileInfo
+  href: api/NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.html#NF_UnityLibs_Managers_PatchManagement_IPatchManagerEventReceiver_ProgressFileInfo_PatchFileInfo
+  commentId: P:NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.PatchFileInfo
+  fullName: NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.PatchFileInfo
+  nameWithType: IPatchManagerEventReceiver.ProgressFileInfo.PatchFileInfo
+- uid: NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.PatchFileInfo*
+  name: PatchFileInfo
+  href: api/NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.html#NF_UnityLibs_Managers_PatchManagement_IPatchManagerEventReceiver_ProgressFileInfo_PatchFileInfo_
+  commentId: Overload:NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.PatchFileInfo
+  isSpec: "True"
+  fullName: NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.PatchFileInfo
+  nameWithType: IPatchManagerEventReceiver.ProgressFileInfo.PatchFileInfo
+- uid: NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.ProgressInFileDownload
+  name: ProgressInFileDownload
+  href: api/NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.html#NF_UnityLibs_Managers_PatchManagement_IPatchManagerEventReceiver_ProgressFileInfo_ProgressInFileDownload
+  commentId: P:NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.ProgressInFileDownload
+  fullName: NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.ProgressInFileDownload
+  nameWithType: IPatchManagerEventReceiver.ProgressFileInfo.ProgressInFileDownload
+- uid: NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.ProgressInFileDownload*
+  name: ProgressInFileDownload
+  href: api/NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.html#NF_UnityLibs_Managers_PatchManagement_IPatchManagerEventReceiver_ProgressFileInfo_ProgressInFileDownload_
+  commentId: Overload:NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.ProgressInFileDownload
+  isSpec: "True"
+  fullName: NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.ProgressInFileDownload
+  nameWithType: IPatchManagerEventReceiver.ProgressFileInfo.ProgressInFileDownload
+- uid: NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.ToString
+  name: ToString()
+  href: api/NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.html#NF_UnityLibs_Managers_PatchManagement_IPatchManagerEventReceiver_ProgressFileInfo_ToString
+  commentId: M:NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.ToString
+  fullName: NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.ToString()
+  nameWithType: IPatchManagerEventReceiver.ProgressFileInfo.ToString()
+- uid: NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.ToString*
+  name: ToString
+  href: api/NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.html#NF_UnityLibs_Managers_PatchManagement_IPatchManagerEventReceiver_ProgressFileInfo_ToString_
+  commentId: Overload:NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.ToString
+  isSpec: "True"
+  fullName: NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.ToString
+  nameWithType: IPatchManagerEventReceiver.ProgressFileInfo.ToString
+- uid: NF.UnityLibs.Managers.PatchManagement.PatchManager
+  name: PatchManager
+  href: api/NF.UnityLibs.Managers.PatchManagement.PatchManager.html
+  commentId: T:NF.UnityLibs.Managers.PatchManagement.PatchManager
+  fullName: NF.UnityLibs.Managers.PatchManagement.PatchManager
+  nameWithType: PatchManager
+- uid: NF.UnityLibs.Managers.PatchManagement.PatchManager.DevicePersistentPrefix
+  name: DevicePersistentPrefix
+  href: api/NF.UnityLibs.Managers.PatchManagement.PatchManager.html#NF_UnityLibs_Managers_PatchManagement_PatchManager_DevicePersistentPrefix
+  commentId: P:NF.UnityLibs.Managers.PatchManagement.PatchManager.DevicePersistentPrefix
+  fullName: NF.UnityLibs.Managers.PatchManagement.PatchManager.DevicePersistentPrefix
+  nameWithType: PatchManager.DevicePersistentPrefix
+- uid: NF.UnityLibs.Managers.PatchManagement.PatchManager.DevicePersistentPrefix*
+  name: DevicePersistentPrefix
+  href: api/NF.UnityLibs.Managers.PatchManagement.PatchManager.html#NF_UnityLibs_Managers_PatchManagement_PatchManager_DevicePersistentPrefix_
+  commentId: Overload:NF.UnityLibs.Managers.PatchManagement.PatchManager.DevicePersistentPrefix
+  isSpec: "True"
+  fullName: NF.UnityLibs.Managers.PatchManagement.PatchManager.DevicePersistentPrefix
+  nameWithType: PatchManager.DevicePersistentPrefix
+- uid: NF.UnityLibs.Managers.PatchManagement.PatchManager.FromAppVersion(System.String)
   name: FromAppVersion(string)
-  href: api/NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.html#NF_UnityLibs_Managers_PatchManagement_PatchDataDownloader_FromAppVersion_System_String_
-  commentId: M:NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.FromAppVersion(System.String)
+  href: api/NF.UnityLibs.Managers.PatchManagement.PatchManager.html#NF_UnityLibs_Managers_PatchManagement_PatchManager_FromAppVersion_System_String_
+  commentId: M:NF.UnityLibs.Managers.PatchManagement.PatchManager.FromAppVersion(System.String)
   name.vb: FromAppVersion(String)
-  fullName: NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.FromAppVersion(string)
-  fullName.vb: NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.FromAppVersion(String)
-  nameWithType: PatchDataDownloader.FromAppVersion(string)
-  nameWithType.vb: PatchDataDownloader.FromAppVersion(String)
-- uid: NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.FromAppVersion*
+  fullName: NF.UnityLibs.Managers.PatchManagement.PatchManager.FromAppVersion(string)
+  fullName.vb: NF.UnityLibs.Managers.PatchManagement.PatchManager.FromAppVersion(String)
+  nameWithType: PatchManager.FromAppVersion(string)
+  nameWithType.vb: PatchManager.FromAppVersion(String)
+- uid: NF.UnityLibs.Managers.PatchManagement.PatchManager.FromAppVersion*
   name: FromAppVersion
-  href: api/NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.html#NF_UnityLibs_Managers_PatchManagement_PatchDataDownloader_FromAppVersion_
-  commentId: Overload:NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.FromAppVersion
+  href: api/NF.UnityLibs.Managers.PatchManagement.PatchManager.html#NF_UnityLibs_Managers_PatchManagement_PatchManager_FromAppVersion_
+  commentId: Overload:NF.UnityLibs.Managers.PatchManagement.PatchManager.FromAppVersion
   isSpec: "True"
-  fullName: NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.FromAppVersion
-  nameWithType: PatchDataDownloader.FromAppVersion
-- uid: NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.FromCurrentAppVersion
+  fullName: NF.UnityLibs.Managers.PatchManagement.PatchManager.FromAppVersion
+  nameWithType: PatchManager.FromAppVersion
+- uid: NF.UnityLibs.Managers.PatchManagement.PatchManager.FromCurrentAppVersion
   name: FromCurrentAppVersion()
-  href: api/NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.html#NF_UnityLibs_Managers_PatchManagement_PatchDataDownloader_FromCurrentAppVersion
-  commentId: M:NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.FromCurrentAppVersion
-  fullName: NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.FromCurrentAppVersion()
-  nameWithType: PatchDataDownloader.FromCurrentAppVersion()
-- uid: NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.FromCurrentAppVersion*
+  href: api/NF.UnityLibs.Managers.PatchManagement.PatchManager.html#NF_UnityLibs_Managers_PatchManagement_PatchManager_FromCurrentAppVersion
+  commentId: M:NF.UnityLibs.Managers.PatchManagement.PatchManager.FromCurrentAppVersion
+  fullName: NF.UnityLibs.Managers.PatchManagement.PatchManager.FromCurrentAppVersion()
+  nameWithType: PatchManager.FromCurrentAppVersion()
+- uid: NF.UnityLibs.Managers.PatchManagement.PatchManager.FromCurrentAppVersion*
   name: FromCurrentAppVersion
-  href: api/NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.html#NF_UnityLibs_Managers_PatchManagement_PatchDataDownloader_FromCurrentAppVersion_
-  commentId: Overload:NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.FromCurrentAppVersion
+  href: api/NF.UnityLibs.Managers.PatchManagement.PatchManager.html#NF_UnityLibs_Managers_PatchManagement_PatchManager_FromCurrentAppVersion_
+  commentId: Overload:NF.UnityLibs.Managers.PatchManagement.PatchManager.FromCurrentAppVersion
   isSpec: "True"
-  fullName: NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.FromCurrentAppVersion
-  nameWithType: PatchDataDownloader.FromCurrentAppVersion
-- uid: NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.FromPatchBuildVersion(System.Int32)
+  fullName: NF.UnityLibs.Managers.PatchManagement.PatchManager.FromCurrentAppVersion
+  nameWithType: PatchManager.FromCurrentAppVersion
+- uid: NF.UnityLibs.Managers.PatchManagement.PatchManager.FromPatchBuildVersion(System.Int32)
   name: FromPatchBuildVersion(int)
-  href: api/NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.html#NF_UnityLibs_Managers_PatchManagement_PatchDataDownloader_FromPatchBuildVersion_System_Int32_
-  commentId: M:NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.FromPatchBuildVersion(System.Int32)
+  href: api/NF.UnityLibs.Managers.PatchManagement.PatchManager.html#NF_UnityLibs_Managers_PatchManagement_PatchManager_FromPatchBuildVersion_System_Int32_
+  commentId: M:NF.UnityLibs.Managers.PatchManagement.PatchManager.FromPatchBuildVersion(System.Int32)
   name.vb: FromPatchBuildVersion(Integer)
-  fullName: NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.FromPatchBuildVersion(int)
-  fullName.vb: NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.FromPatchBuildVersion(Integer)
-  nameWithType: PatchDataDownloader.FromPatchBuildVersion(int)
-  nameWithType.vb: PatchDataDownloader.FromPatchBuildVersion(Integer)
-- uid: NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.FromPatchBuildVersion*
+  fullName: NF.UnityLibs.Managers.PatchManagement.PatchManager.FromPatchBuildVersion(int)
+  fullName.vb: NF.UnityLibs.Managers.PatchManagement.PatchManager.FromPatchBuildVersion(Integer)
+  nameWithType: PatchManager.FromPatchBuildVersion(int)
+  nameWithType.vb: PatchManager.FromPatchBuildVersion(Integer)
+- uid: NF.UnityLibs.Managers.PatchManagement.PatchManager.FromPatchBuildVersion*
   name: FromPatchBuildVersion
-  href: api/NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.html#NF_UnityLibs_Managers_PatchManagement_PatchDataDownloader_FromPatchBuildVersion_
-  commentId: Overload:NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.FromPatchBuildVersion
+  href: api/NF.UnityLibs.Managers.PatchManagement.PatchManager.html#NF_UnityLibs_Managers_PatchManagement_PatchManager_FromPatchBuildVersion_
+  commentId: Overload:NF.UnityLibs.Managers.PatchManagement.PatchManager.FromPatchBuildVersion
   isSpec: "True"
-  fullName: NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.FromPatchBuildVersion
-  nameWithType: PatchDataDownloader.FromPatchBuildVersion
-- uid: NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.Init(System.String,System.String)
-  name: Init(string, string)
-  href: api/NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.html#NF_UnityLibs_Managers_PatchManagement_PatchDataDownloader_Init_System_String_System_String_
-  commentId: M:NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.Init(System.String,System.String)
-  name.vb: Init(String, String)
-  fullName: NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.Init(string, string)
-  fullName.vb: NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.Init(String, String)
-  nameWithType: PatchDataDownloader.Init(string, string)
-  nameWithType.vb: PatchDataDownloader.Init(String, String)
-- uid: NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.Init*
-  name: Init
-  href: api/NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.html#NF_UnityLibs_Managers_PatchManagement_PatchDataDownloader_Init_
-  commentId: Overload:NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.Init
+  fullName: NF.UnityLibs.Managers.PatchManagement.PatchManager.FromPatchBuildVersion
+  nameWithType: PatchManager.FromPatchBuildVersion
+- uid: NF.UnityLibs.Managers.PatchManagement.PatchManager.Option
+  name: PatchManager.Option
+  href: api/NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.html
+  commentId: T:NF.UnityLibs.Managers.PatchManagement.PatchManager.Option
+  fullName: NF.UnityLibs.Managers.PatchManagement.PatchManager.Option
+  nameWithType: PatchManager.Option
+- uid: NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.ConcurrentWebRequestMax
+  name: ConcurrentWebRequestMax
+  href: api/NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.html#NF_UnityLibs_Managers_PatchManagement_PatchManager_Option_ConcurrentWebRequestMax
+  commentId: P:NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.ConcurrentWebRequestMax
+  fullName: NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.ConcurrentWebRequestMax
+  nameWithType: PatchManager.Option.ConcurrentWebRequestMax
+- uid: NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.ConcurrentWebRequestMax*
+  name: ConcurrentWebRequestMax
+  href: api/NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.html#NF_UnityLibs_Managers_PatchManagement_PatchManager_Option_ConcurrentWebRequestMax_
+  commentId: Overload:NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.ConcurrentWebRequestMax
   isSpec: "True"
-  fullName: NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.Init
-  nameWithType: PatchDataDownloader.Init
-- uid: NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.RemoteURL_Base
+  fullName: NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.ConcurrentWebRequestMax
+  nameWithType: PatchManager.Option.ConcurrentWebRequestMax
+- uid: NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.DevicePersistentPrefix
+  name: DevicePersistentPrefix
+  href: api/NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.html#NF_UnityLibs_Managers_PatchManagement_PatchManager_Option_DevicePersistentPrefix
+  commentId: P:NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.DevicePersistentPrefix
+  fullName: NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.DevicePersistentPrefix
+  nameWithType: PatchManager.Option.DevicePersistentPrefix
+- uid: NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.DevicePersistentPrefix*
+  name: DevicePersistentPrefix
+  href: api/NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.html#NF_UnityLibs_Managers_PatchManagement_PatchManager_Option_DevicePersistentPrefix_
+  commentId: Overload:NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.DevicePersistentPrefix
+  isSpec: "True"
+  fullName: NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.DevicePersistentPrefix
+  nameWithType: PatchManager.Option.DevicePersistentPrefix
+- uid: NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.EventReceiver
+  name: EventReceiver
+  href: api/NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.html#NF_UnityLibs_Managers_PatchManagement_PatchManager_Option_EventReceiver
+  commentId: P:NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.EventReceiver
+  fullName: NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.EventReceiver
+  nameWithType: PatchManager.Option.EventReceiver
+- uid: NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.EventReceiver*
+  name: EventReceiver
+  href: api/NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.html#NF_UnityLibs_Managers_PatchManagement_PatchManager_Option_EventReceiver_
+  commentId: Overload:NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.EventReceiver
+  isSpec: "True"
+  fullName: NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.EventReceiver
+  nameWithType: PatchManager.Option.EventReceiver
+- uid: NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.RemoteURL_Base
   name: RemoteURL_Base
-  href: api/NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.html#NF_UnityLibs_Managers_PatchManagement_PatchDataDownloader_RemoteURL_Base
-  commentId: P:NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.RemoteURL_Base
-  fullName: NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.RemoteURL_Base
-  nameWithType: PatchDataDownloader.RemoteURL_Base
-- uid: NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.RemoteURL_Base*
+  href: api/NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.html#NF_UnityLibs_Managers_PatchManagement_PatchManager_Option_RemoteURL_Base
+  commentId: P:NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.RemoteURL_Base
+  fullName: NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.RemoteURL_Base
+  nameWithType: PatchManager.Option.RemoteURL_Base
+- uid: NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.RemoteURL_Base*
   name: RemoteURL_Base
-  href: api/NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.html#NF_UnityLibs_Managers_PatchManagement_PatchDataDownloader_RemoteURL_Base_
-  commentId: Overload:NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.RemoteURL_Base
+  href: api/NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.html#NF_UnityLibs_Managers_PatchManagement_PatchManager_Option_RemoteURL_Base_
+  commentId: Overload:NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.RemoteURL_Base
   isSpec: "True"
-  fullName: NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.RemoteURL_Base
-  nameWithType: PatchDataDownloader.RemoteURL_Base
-- uid: NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.RemoteURL_SubPath
+  fullName: NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.RemoteURL_Base
+  nameWithType: PatchManager.Option.RemoteURL_Base
+- uid: NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.RemoteURL_SubPath
   name: RemoteURL_SubPath
-  href: api/NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.html#NF_UnityLibs_Managers_PatchManagement_PatchDataDownloader_RemoteURL_SubPath
-  commentId: P:NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.RemoteURL_SubPath
-  fullName: NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.RemoteURL_SubPath
-  nameWithType: PatchDataDownloader.RemoteURL_SubPath
-- uid: NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.RemoteURL_SubPath*
+  href: api/NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.html#NF_UnityLibs_Managers_PatchManagement_PatchManager_Option_RemoteURL_SubPath
+  commentId: P:NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.RemoteURL_SubPath
+  fullName: NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.RemoteURL_SubPath
+  nameWithType: PatchManager.Option.RemoteURL_SubPath
+- uid: NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.RemoteURL_SubPath*
   name: RemoteURL_SubPath
-  href: api/NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.html#NF_UnityLibs_Managers_PatchManagement_PatchDataDownloader_RemoteURL_SubPath_
-  commentId: Overload:NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.RemoteURL_SubPath
+  href: api/NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.html#NF_UnityLibs_Managers_PatchManagement_PatchManager_Option_RemoteURL_SubPath_
+  commentId: Overload:NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.RemoteURL_SubPath
   isSpec: "True"
-  fullName: NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.RemoteURL_SubPath
-  nameWithType: PatchDataDownloader.RemoteURL_SubPath
-- uid: NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.Version
-  name: Version
-  href: api/NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.html#NF_UnityLibs_Managers_PatchManagement_PatchDataDownloader_Version
-  commentId: P:NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.Version
-  fullName: NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.Version
-  nameWithType: PatchDataDownloader.Version
-- uid: NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.Version*
-  name: Version
-  href: api/NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.html#NF_UnityLibs_Managers_PatchManagement_PatchDataDownloader_Version_
-  commentId: Overload:NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.Version
+  fullName: NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.RemoteURL_SubPath
+  nameWithType: PatchManager.Option.RemoteURL_SubPath
+- uid: NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.Validate
+  name: Validate()
+  href: api/NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.html#NF_UnityLibs_Managers_PatchManagement_PatchManager_Option_Validate
+  commentId: M:NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.Validate
+  fullName: NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.Validate()
+  nameWithType: PatchManager.Option.Validate()
+- uid: NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.Validate*
+  name: Validate
+  href: api/NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.html#NF_UnityLibs_Managers_PatchManagement_PatchManager_Option_Validate_
+  commentId: Overload:NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.Validate
   isSpec: "True"
-  fullName: NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.Version
-  nameWithType: PatchDataDownloader.Version
+  fullName: NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.Validate
+  nameWithType: PatchManager.Option.Validate
+- uid: NF.UnityLibs.Managers.PatchManagement.PatchManager.RemoteURL_Base
+  name: RemoteURL_Base
+  href: api/NF.UnityLibs.Managers.PatchManagement.PatchManager.html#NF_UnityLibs_Managers_PatchManagement_PatchManager_RemoteURL_Base
+  commentId: P:NF.UnityLibs.Managers.PatchManagement.PatchManager.RemoteURL_Base
+  fullName: NF.UnityLibs.Managers.PatchManagement.PatchManager.RemoteURL_Base
+  nameWithType: PatchManager.RemoteURL_Base
+- uid: NF.UnityLibs.Managers.PatchManagement.PatchManager.RemoteURL_Base*
+  name: RemoteURL_Base
+  href: api/NF.UnityLibs.Managers.PatchManagement.PatchManager.html#NF_UnityLibs_Managers_PatchManagement_PatchManager_RemoteURL_Base_
+  commentId: Overload:NF.UnityLibs.Managers.PatchManagement.PatchManager.RemoteURL_Base
+  isSpec: "True"
+  fullName: NF.UnityLibs.Managers.PatchManagement.PatchManager.RemoteURL_Base
+  nameWithType: PatchManager.RemoteURL_Base
+- uid: NF.UnityLibs.Managers.PatchManagement.PatchManager.RemoteURL_SubPath
+  name: RemoteURL_SubPath
+  href: api/NF.UnityLibs.Managers.PatchManagement.PatchManager.html#NF_UnityLibs_Managers_PatchManagement_PatchManager_RemoteURL_SubPath
+  commentId: P:NF.UnityLibs.Managers.PatchManagement.PatchManager.RemoteURL_SubPath
+  fullName: NF.UnityLibs.Managers.PatchManagement.PatchManager.RemoteURL_SubPath
+  nameWithType: PatchManager.RemoteURL_SubPath
+- uid: NF.UnityLibs.Managers.PatchManagement.PatchManager.RemoteURL_SubPath*
+  name: RemoteURL_SubPath
+  href: api/NF.UnityLibs.Managers.PatchManagement.PatchManager.html#NF_UnityLibs_Managers_PatchManagement_PatchManager_RemoteURL_SubPath_
+  commentId: Overload:NF.UnityLibs.Managers.PatchManagement.PatchManager.RemoteURL_SubPath
+  isSpec: "True"
+  fullName: NF.UnityLibs.Managers.PatchManagement.PatchManager.RemoteURL_SubPath
+  nameWithType: PatchManager.RemoteURL_SubPath
+- uid: NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder
+  name: PatchManagerBuilder
+  href: api/NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder.html
+  commentId: T:NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder
+  fullName: NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder
+  nameWithType: PatchManagerBuilder
+- uid: NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder.Build
+  name: Build()
+  href: api/NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder.html#NF_UnityLibs_Managers_PatchManagement_PatchManagerBuilder_Build
+  commentId: M:NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder.Build
+  fullName: NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder.Build()
+  nameWithType: PatchManagerBuilder.Build()
+- uid: NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder.Build*
+  name: Build
+  href: api/NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder.html#NF_UnityLibs_Managers_PatchManagement_PatchManagerBuilder_Build_
+  commentId: Overload:NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder.Build
+  isSpec: "True"
+  fullName: NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder.Build
+  nameWithType: PatchManagerBuilder.Build
+- uid: NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder.EventRecieveWith(NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver)
+  name: EventRecieveWith(IPatchManagerEventReceiver)
+  href: api/NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder.html#NF_UnityLibs_Managers_PatchManagement_PatchManagerBuilder_EventRecieveWith_NF_UnityLibs_Managers_PatchManagement_IPatchManagerEventReceiver_
+  commentId: M:NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder.EventRecieveWith(NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver)
+  fullName: NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder.EventRecieveWith(NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver)
+  nameWithType: PatchManagerBuilder.EventRecieveWith(IPatchManagerEventReceiver)
+- uid: NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder.EventRecieveWith*
+  name: EventRecieveWith
+  href: api/NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder.html#NF_UnityLibs_Managers_PatchManagement_PatchManagerBuilder_EventRecieveWith_
+  commentId: Overload:NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder.EventRecieveWith
+  isSpec: "True"
+  fullName: NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder.EventRecieveWith
+  nameWithType: PatchManagerBuilder.EventRecieveWith
+- uid: NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder.FromRemote(System.String,System.String)
+  name: FromRemote(string, string)
+  href: api/NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder.html#NF_UnityLibs_Managers_PatchManagement_PatchManagerBuilder_FromRemote_System_String_System_String_
+  commentId: M:NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder.FromRemote(System.String,System.String)
+  name.vb: FromRemote(String, String)
+  fullName: NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder.FromRemote(string, string)
+  fullName.vb: NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder.FromRemote(String, String)
+  nameWithType: PatchManagerBuilder.FromRemote(string, string)
+  nameWithType.vb: PatchManagerBuilder.FromRemote(String, String)
+- uid: NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder.FromRemote*
+  name: FromRemote
+  href: api/NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder.html#NF_UnityLibs_Managers_PatchManagement_PatchManagerBuilder_FromRemote_
+  commentId: Overload:NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder.FromRemote
+  isSpec: "True"
+  fullName: NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder.FromRemote
+  nameWithType: PatchManagerBuilder.FromRemote
+- uid: NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder.ToPersistantPrefix(System.String)
+  name: ToPersistantPrefix(string)
+  href: api/NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder.html#NF_UnityLibs_Managers_PatchManagement_PatchManagerBuilder_ToPersistantPrefix_System_String_
+  commentId: M:NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder.ToPersistantPrefix(System.String)
+  name.vb: ToPersistantPrefix(String)
+  fullName: NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder.ToPersistantPrefix(string)
+  fullName.vb: NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder.ToPersistantPrefix(String)
+  nameWithType: PatchManagerBuilder.ToPersistantPrefix(string)
+  nameWithType.vb: PatchManagerBuilder.ToPersistantPrefix(String)
+- uid: NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder.ToPersistantPrefix*
+  name: ToPersistantPrefix
+  href: api/NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder.html#NF_UnityLibs_Managers_PatchManagement_PatchManagerBuilder_ToPersistantPrefix_
+  commentId: Overload:NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder.ToPersistantPrefix
+  isSpec: "True"
+  fullName: NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder.ToPersistantPrefix
+  nameWithType: PatchManagerBuilder.ToPersistantPrefix
+- uid: NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder.WithConcurrentWebRequestMax(System.Int32)
+  name: WithConcurrentWebRequestMax(int)
+  href: api/NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder.html#NF_UnityLibs_Managers_PatchManagement_PatchManagerBuilder_WithConcurrentWebRequestMax_System_Int32_
+  commentId: M:NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder.WithConcurrentWebRequestMax(System.Int32)
+  name.vb: WithConcurrentWebRequestMax(Integer)
+  fullName: NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder.WithConcurrentWebRequestMax(int)
+  fullName.vb: NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder.WithConcurrentWebRequestMax(Integer)
+  nameWithType: PatchManagerBuilder.WithConcurrentWebRequestMax(int)
+  nameWithType.vb: PatchManagerBuilder.WithConcurrentWebRequestMax(Integer)
+- uid: NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder.WithConcurrentWebRequestMax*
+  name: WithConcurrentWebRequestMax
+  href: api/NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder.html#NF_UnityLibs_Managers_PatchManagement_PatchManagerBuilder_WithConcurrentWebRequestMax_
+  commentId: Overload:NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder.WithConcurrentWebRequestMax
+  isSpec: "True"
+  fullName: NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder.WithConcurrentWebRequestMax
+  nameWithType: PatchManagerBuilder.WithConcurrentWebRequestMax

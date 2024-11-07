@@ -102,10 +102,50 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.yml",
+      "source_relative_path": "api/NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.yml",
       "output": {
         ".html": {
-          "relative_path": "api/NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.html"
+          "relative_path": "api/NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.ProgressFileInfo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NF.UnityLibs.Managers.PatchManagement.PatchManager.Option.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NF.UnityLibs.Managers.PatchManagement.PatchManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NF.UnityLibs.Managers.PatchManagement.PatchManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder.html"
         }
       },
       "version": ""
