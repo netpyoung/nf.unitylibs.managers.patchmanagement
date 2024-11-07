@@ -11,7 +11,7 @@ using UnityEngine;
 
 namespace NF.UnityLibs.Managers.Patcher.Impl
 {
-    internal sealed class InternalConcurrentDownloader : IDisposable
+    internal sealed class InternalConcurrentDownloader : IDisposable, INotifyCompletion, ICriticalNotifyCompletion
     {
         public sealed class Option
         {
@@ -199,6 +199,16 @@ namespace NF.UnityLibs.Managers.Patcher.Impl
                 return true;
             }
             return false;
+        }
+
+        public void OnCompleted(Action continuation)
+        {
+            _downloadAllTask.GetAwaiter().OnCompleted(continuation);
+        }
+
+        public void UnsafeOnCompleted(Action continuation)
+        {
+            _downloadAllTask.GetAwaiter().OnCompleted(continuation);
         }
     }
 }
