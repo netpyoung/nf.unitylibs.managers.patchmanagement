@@ -18,7 +18,7 @@ try
     using (S3Uploader uploader = builder.Build())
     {
         string bucketName = "bucket-a";
-        string prefix = "prefix-a";
+        string prefix = "prefix-a/0";
 
         Stopwatch stopwatch = new Stopwatch();
         stopwatch.Start();
