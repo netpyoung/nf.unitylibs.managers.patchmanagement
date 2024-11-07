@@ -854,14 +854,14 @@ PlayerSettings:
   editorAssembliesCompatibilityLevel: 1
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: NF.Managers.Patcher
+  metroPackageName: NF.UnityLibs.Managers.PatchManagement
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: NF.Managers.Patcher
+  metroApplicationDescription: NF.UnityLibs.Managers.PatchManagement
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0

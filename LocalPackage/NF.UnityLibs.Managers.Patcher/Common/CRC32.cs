@@ -68,7 +68,7 @@ namespace NF.UnityLibs.Managers.PatchManagement.Common
                     return ComputeFromStream(stream);
                 }
             }
-#if UNITY_5_3_OR_NEWER && NF_PATCHER_LOG_ENABLED
+#if UNITY_5_3_OR_NEWER && NF_PATCHMANAGEMENT_LOG_ENABLED
             catch (IOException ex)
             {
                 UnityEngine.Debug.LogException(ex);
@@ -79,7 +79,7 @@ namespace NF.UnityLibs.Managers.PatchManagement.Common
                 UnityEngine.Debug.LogException(ex);
                 return 0;
             }
-#endif // UNITY_5_3_OR_NEWER && NF_PATCHER_LOG_ENABLED
+#endif // UNITY_5_3_OR_NEWER && NF_PATCHMANAGEMENT_LOG_ENABLED
             catch
             {
                 return 0;
