@@ -1,5 +1,5 @@
 {
-  "source_base_path": "/home/runner/work/nf.unitylibs.managers.patcher/nf.unitylibs.managers.patcher/docfx",
+  "source_base_path": "/home/runner/work/nf.unitylibs.managers.patchmanagement/nf.unitylibs.managers.patchmanagement/docfx",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -12,110 +12,110 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/NF.UnityLibs.Managers.Patcher.Common.CRC32.yml",
+      "source_relative_path": "api/NF.UnityLibs.Managers.PatchManagement.Common.CRC32.yml",
       "output": {
         ".html": {
-          "relative_path": "api/NF.UnityLibs.Managers.Patcher.Common.CRC32.html"
+          "relative_path": "api/NF.UnityLibs.Managers.PatchManagement.Common.CRC32.html"
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/NF.UnityLibs.Managers.Patcher.Common.PatchDataGenerator.yml",
+      "source_relative_path": "api/NF.UnityLibs.Managers.PatchManagement.Common.PatchDataGenerator.yml",
       "output": {
         ".html": {
-          "relative_path": "api/NF.UnityLibs.Managers.Patcher.Common.PatchDataGenerator.html"
+          "relative_path": "api/NF.UnityLibs.Managers.PatchManagement.Common.PatchDataGenerator.html"
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/NF.UnityLibs.Managers.Patcher.Common.PatchFileList.PatchFileInfo.yml",
+      "source_relative_path": "api/NF.UnityLibs.Managers.PatchManagement.Common.PatchFileList.PatchFileInfo.yml",
       "output": {
         ".html": {
-          "relative_path": "api/NF.UnityLibs.Managers.Patcher.Common.PatchFileList.PatchFileInfo.html"
+          "relative_path": "api/NF.UnityLibs.Managers.PatchManagement.Common.PatchFileList.PatchFileInfo.html"
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/NF.UnityLibs.Managers.Patcher.Common.PatchFileList.yml",
+      "source_relative_path": "api/NF.UnityLibs.Managers.PatchManagement.Common.PatchFileList.yml",
       "output": {
         ".html": {
-          "relative_path": "api/NF.UnityLibs.Managers.Patcher.Common.PatchFileList.html"
+          "relative_path": "api/NF.UnityLibs.Managers.PatchManagement.Common.PatchFileList.html"
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.E_STATE.yml",
+      "source_relative_path": "api/NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.PatchStatus.E_STATE.yml",
       "output": {
         ".html": {
-          "relative_path": "api/NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.E_STATE.html"
+          "relative_path": "api/NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.PatchStatus.E_STATE.html"
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.yml",
+      "source_relative_path": "api/NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.PatchStatus.yml",
       "output": {
         ".html": {
-          "relative_path": "api/NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.html"
+          "relative_path": "api/NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.PatchStatus.html"
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.yml",
+      "source_relative_path": "api/NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.yml",
       "output": {
         ".html": {
-          "relative_path": "api/NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.html"
+          "relative_path": "api/NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.html"
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/NF.UnityLibs.Managers.Patcher.Common.PatchVersion.yml",
+      "source_relative_path": "api/NF.UnityLibs.Managers.PatchManagement.Common.PatchVersion.yml",
       "output": {
         ".html": {
-          "relative_path": "api/NF.UnityLibs.Managers.Patcher.Common.PatchVersion.html"
+          "relative_path": "api/NF.UnityLibs.Managers.PatchManagement.Common.PatchVersion.html"
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/NF.UnityLibs.Managers.Patcher.Common.yml",
+      "source_relative_path": "api/NF.UnityLibs.Managers.PatchManagement.Common.yml",
       "output": {
         ".html": {
-          "relative_path": "api/NF.UnityLibs.Managers.Patcher.Common.html"
+          "relative_path": "api/NF.UnityLibs.Managers.PatchManagement.Common.html"
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/NF.UnityLibs.Managers.Patcher.PatchDataDownloader.yml",
+      "source_relative_path": "api/NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.yml",
       "output": {
         ".html": {
-          "relative_path": "api/NF.UnityLibs.Managers.Patcher.PatchDataDownloader.html"
+          "relative_path": "api/NF.UnityLibs.Managers.PatchManagement.PatchDataDownloader.html"
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/NF.UnityLibs.Managers.Patcher.yml",
+      "source_relative_path": "api/NF.UnityLibs.Managers.PatchManagement.yml",
       "output": {
         ".html": {
-          "relative_path": "api/NF.UnityLibs.Managers.Patcher.html"
+          "relative_path": "api/NF.UnityLibs.Managers.PatchManagement.html"
         }
       },
       "version": ""
