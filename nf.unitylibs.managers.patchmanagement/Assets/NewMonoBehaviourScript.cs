@@ -76,7 +76,7 @@ public sealed class NewMonoBehaviourScript : MonoBehaviour, IPatchManagerEventRe
         return Task.FromResult(true);
     }
 
-    public void OnProgressFileInfo(IPatchManagerEventReceiver.ProgressFileInfo info)
+    public void OnProgressFileInfo(ProgressFileInfo info)
     {
         if (info.ProgressInFileDownload == 1)
         {

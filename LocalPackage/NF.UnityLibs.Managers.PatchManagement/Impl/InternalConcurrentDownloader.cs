@@ -21,8 +21,7 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
             public string PatchDirectory = string.Empty;
             public int PatchItemMax;
             public long PatchItemByteMax;
-            public UnityEngine.Object? UnityObject;
-            public IPatchManagerEventReceiver EventReceiver = new DummyPatchManagerEventReceiver();
+            public IPatchManagerEventReceiver EventReceiver = new IPatchManagerEventReceiver.DummyPatchManagerEventReceiver();
         }
 
         private struct EventStorage : IDisposable
@@ -33,14 +32,14 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
             private bool _isDisposed;
             private long _acc;
 
-            private List<IPatchManagerEventReceiver.ProgressFileInfo> _registerdProgressFileInfo;
+            private List<ProgressFileInfo> _registerdProgressFileInfo;
             public EventStorage(Option option)
             {
                 _option = option;
                 _bytesDownloadedPerSecond = 0;
                 _previousBytesDownloaded = 0;
                 _isDisposed = false;
-                _registerdProgressFileInfo = new List<IPatchManagerEventReceiver.ProgressFileInfo>(option.ConcurrentWebRequestMax);
+                _registerdProgressFileInfo = new List<ProgressFileInfo>(option.ConcurrentWebRequestMax);
                 _acc = 0;
             }
 
@@ -49,17 +48,17 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
                 _isDisposed = true;
             }
 
-            internal void RegisterProgressFileInfo(IPatchManagerEventReceiver.ProgressFileInfo info)
+            internal void RegisterProgressFileInfo(ProgressFileInfo info)
             {
                 _registerdProgressFileInfo.Add(info);
             }
-            internal void UnregisterProgressFileInfo(IPatchManagerEventReceiver.ProgressFileInfo info)
+            internal void UnregisterProgressFileInfo(ProgressFileInfo info)
             {
                 _acc += info.PatchFileInfo.Bytes;
                 _registerdProgressFileInfo.Remove(info);
             }
 
-            internal void OnProgressFile(IPatchManagerEventReceiver.ProgressFileInfo info, float currProgress)
+            internal void OnProgressFile(ProgressFileInfo info, float currProgress)
             {
                 if (_isDisposed)
                 {
@@ -173,7 +172,6 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
             ___eventStorage___.Dispose();
             _cancelTokenSource.Dispose();
             _isDisposed = true;
-            Debug.LogWarning("Disposed!!!!");
         }
 
         #region For Await
@@ -220,7 +218,7 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
                         await Task.Yield();
                     }
 
-                    IPatchManagerEventReceiver.ProgressFileInfo progressInfo = new IPatchManagerEventReceiver.ProgressFileInfo
+                    ProgressFileInfo progressInfo = new ProgressFileInfo
                     {
                         PatchFileInfo = fileInfo,
                         ProgressInFileDownload = 0,
@@ -254,7 +252,7 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
             }
         }
 
-        private async Task<Exception?> _DownloadPerFile(IPatchManagerEventReceiver.ProgressFileInfo progressInfo)
+        private async Task<Exception?> _DownloadPerFile(ProgressFileInfo progressInfo)
         {
             if (_IsError())
             {

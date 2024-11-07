@@ -25,27 +25,28 @@ namespace NF.UnityLibs.Managers.PatchManagement
             public string RemoteURL_SubPath { get; internal set; } = string.Empty;
             public string DevicePersistentPrefix { get; internal set; } = string.Empty;
             public int ConcurrentWebRequestMax { get; internal set; } = 1;
-            public IPatchManagerEventReceiver EventReceiver { get; internal set; } = new DummyPatchManagerEventReceiver();
+            public IPatchManagerEventReceiver EventReceiver { get; internal set; } = new IPatchManagerEventReceiver.DummyPatchManagerEventReceiver();
 
             public Exception? Validate()
             {
                 if (ConcurrentWebRequestMax < 1)
                 {
-                    return null;
+                    return new PatchManagerException($"ConcurrentWebRequestMax < 1 | ConcurrentWebRequestMax: {ConcurrentWebRequestMax}");
                 }
+
                 if (string.IsNullOrEmpty(RemoteURL_Base))
                 {
-                    return null;
+                    return new PatchManagerException($"string.IsNullOrEmpty(RemoteURL_Base) | RemoteURL_Base: {RemoteURL_Base}");
                 }
 
                 if (string.IsNullOrEmpty(RemoteURL_SubPath))
                 {
-                    return null;
+                    return new PatchManagerException($"string.IsNullOrEmpty(RemoteURL_SubPath) | RemoteURL_SubPath: {RemoteURL_SubPath}");
                 }
 
                 if (string.IsNullOrEmpty(DevicePersistentPrefix))
                 {
-                    return null;
+                    return new PatchManagerException($"string.IsNullOrEmpty(DevicePersistentPrefix) | DevicePersistentPrefix: {DevicePersistentPrefix}");
                 }
                 return null;
             }
