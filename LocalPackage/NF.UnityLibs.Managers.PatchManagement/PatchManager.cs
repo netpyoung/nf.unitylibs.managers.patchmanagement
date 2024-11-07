@@ -17,7 +17,7 @@ namespace NF.UnityLibs.Managers.PatchManagement
     // remoteURL_Filename: a.txt
 
     [Serializable]
-    public sealed class PatchDataDownloader
+    public sealed class PatchManager
     {
         [SerializeField]
         private string _remoteURL_Base = string.Empty;
