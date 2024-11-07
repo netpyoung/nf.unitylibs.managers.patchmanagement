@@ -87,7 +87,7 @@ namespace NF.UnityLibs.Managers.Patcher
             }
         }
 
-        public async Task X()
+        public async Task<(bool isSuccess, Exception? exOrNull)> X()
         {
             string appVersion = Application.version;
             int version = 0;
@@ -96,8 +96,7 @@ namespace NF.UnityLibs.Managers.Patcher
                 (PatchVersion? patchVersionOrNull, Exception? exOrNull) = await CustomUnityWebRequest.Get<PatchVersion>(url);
                 if (exOrNull != null)
                 {
-                    Debug.LogException(exOrNull);
-                    return;
+                    return (false, exOrNull!);
                 }
 
                 PatchVersion patchVersion = patchVersionOrNull!;
@@ -109,7 +108,7 @@ namespace NF.UnityLibs.Managers.Patcher
                 }
                 else
                 {
-                    return;
+                    return (false, new PatcherException($"failed to get version from patchVersion\n{patchVersion.ToJson()}"));
                 }
             }
 
@@ -119,8 +118,7 @@ namespace NF.UnityLibs.Managers.Patcher
                 (PatchFileList? remotePatchFileListOrNull, Exception? exOrNull) = await CustomUnityWebRequest.Get<PatchFileList>(url);
                 if (exOrNull != null)
                 {
-                    Debug.LogException(exOrNull);
-                    return;
+                    return (false, exOrNull!);
                 }
 
                 nextPatchFileList = remotePatchFileListOrNull!;
@@ -133,29 +131,27 @@ namespace NF.UnityLibs.Managers.Patcher
                 PatchFileList currPatchFileList = currPatchFileListOrNull!;
                 if (currPatchFileList.Version == version)
                 {
-                    Debug.Log("HelloWorld");
-                    return;
+                    return (true, null);
                 }
             }
 
             string patchDir = $"{Application.persistentDataPath}/{DevicePrefix}";
-            List<PatchFileListDifference.PatchStatus>? lstOrNull = await PatchFileListDifference.DifferenceSetOrNull(currPatchFileListOrNull, nextPatchFileList, patchDir);
-            if (lstOrNull == null)
+            List<PatchFileListDifference.PatchStatus>? patchStatusListOrNull = await PatchFileListDifference.DifferenceSetOrNull(currPatchFileListOrNull, nextPatchFileList, patchDir);
+            if (patchStatusListOrNull == null)
             {
-                Debug.Log("WTF");
-                return;
+                return (false, new PatcherException("Internal Exception: patchStatusListOrNull == null"));
             }
 
             {
-                List<PatchFileListDifference.PatchStatus> lst = lstOrNull!;
+                List<PatchFileListDifference.PatchStatus> patchStatusList = patchStatusListOrNull!;
 
                 {
                     // Skip
-                    lst.RemoveAll(x => x.State == PatchFileListDifference.PatchStatus.E_STATE.SKIP);
+                    patchStatusList.RemoveAll(x => x.State == PatchFileListDifference.PatchStatus.E_STATE.SKIP);
                 }
                 {
                     // Delete
-                    PatchFileListDifference.PatchStatus[] items = lst.Where(x => x.State == PatchFileListDifference.PatchStatus.E_STATE.DELETE).ToArray();
+                    PatchFileListDifference.PatchStatus[] items = patchStatusList.Where(x => x.State == PatchFileListDifference.PatchStatus.E_STATE.DELETE).ToArray();
                     foreach (PatchFileListDifference.PatchStatus item in items)
                     {
                         string fpath = $"{patchDir}/{item.PatchFileInfo.Name}";
@@ -170,15 +166,14 @@ namespace NF.UnityLibs.Managers.Patcher
                         }
                         catch (Exception ex)
                         {
-                            Debug.LogException(ex);
-                            return;
+                            return (false, ex);
                         }
                     }
                 }
                 {
                     // Update
                     Directory.CreateDirectory(patchDir);
-                    PatchFileList.PatchFileInfo[] items = lst.Where(x => x.State == PatchFileListDifference.PatchStatus.E_STATE.UPDATE).Select(x => x.PatchFileInfo).ToArray();
+                    PatchFileList.PatchFileInfo[] items = patchStatusList.Where(x => x.State == PatchFileListDifference.PatchStatus.E_STATE.UPDATE).Select(x => x.PatchFileInfo).ToArray();
                     {
                         InternalConcurrentDownloader.Option opt = new InternalConcurrentDownloader.Option
                         {
@@ -189,24 +184,40 @@ namespace NF.UnityLibs.Managers.Patcher
                             RemoteURL_Parent = $"{RemoteURL_Base}/{RemoteURL_SubPath}/{version}"
                         };
                         bool isSuccess = await InternalConcurrentDownloader.DownloadAll(opt, items);
-                        Debug.Log($"isSuccess: {isSuccess}");
+                        if (!isSuccess)
+                        {
+                            return (false, new PatcherException("failed InternalConcurrentDownloader.DownloadAll"));
+                        }
                     }
+                }
+            }
 
-                    List<PatchFileListDifference.PatchStatus>? againListOrNull = await PatchFileListDifference.DifferenceSetOrNull(currPatchFileListOrNull, nextPatchFileList, patchDir);
-                    if (againListOrNull == null)
-                    {
-                        Debug.Log("WTF");
-                        return;
-                    }
-                    List<PatchFileListDifference.PatchStatus> againList = againListOrNull!;
-                    againList.RemoveAll(x => x.State == PatchFileListDifference.PatchStatus.E_STATE.SKIP);
-                    if (againList.Count != 0)
-                    {
-                        Debug.LogError($"againList.Count : {againList.Count}");
-                        return;
-                    }
-                    string json = nextPatchFileList.ToJson();
+            {
+                // Validate
+                List<PatchFileListDifference.PatchStatus>? validatePatchStatusListOrNull = await PatchFileListDifference.DifferenceSetOrNull(currPatchFileListOrNull, nextPatchFileList, patchDir);
+                if (validatePatchStatusListOrNull == null)
+                {
+                    return (false, new PatcherException("Internal Exception: validatePatchStatusListOrNull == null"));
+                }
+                List<PatchFileListDifference.PatchStatus> validatePatchStatusList = validatePatchStatusListOrNull!;
+                validatePatchStatusList.RemoveAll(x => x.State == PatchFileListDifference.PatchStatus.E_STATE.SKIP);
+                if (validatePatchStatusList.Count != 0)
+                {
+                    return (false, new PatcherException($"validatePatchStatusList.Count != 0 | validatePatchStatusList.Count:{validatePatchStatusList.Count}"));
+                }
+            }
+
+            {
+                // Finalize
+                string json = nextPatchFileList.ToJson();
+                try
+                {
                     File.WriteAllText(currPatchFileListFpath, json);
+                    return (true, null);
+                }
+                catch (Exception ex)
+                {
+                    return (false, ex);
                 }
             }
         }
