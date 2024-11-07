@@ -31,22 +31,22 @@ namespace NF.UnityLibs.Managers.PatchManagement
             {
                 if (ConcurrentWebRequestMax < 1)
                 {
-                    return new PatchManagerException($"ConcurrentWebRequestMax < 1 | ConcurrentWebRequestMax: {ConcurrentWebRequestMax}");
+                    return new PatchManagerException(E_EXCEPTION_KIND.ERR_FAIL_OPTION_VALIDATE, $"ConcurrentWebRequestMax < 1 | ConcurrentWebRequestMax: {ConcurrentWebRequestMax}");
                 }
 
                 if (string.IsNullOrEmpty(RemoteURL_Base))
                 {
-                    return new PatchManagerException($"string.IsNullOrEmpty(RemoteURL_Base) | RemoteURL_Base: {RemoteURL_Base}");
+                    return new PatchManagerException(E_EXCEPTION_KIND.ERR_FAIL_OPTION_VALIDATE, $"string.IsNullOrEmpty(RemoteURL_Base) | RemoteURL_Base: {RemoteURL_Base}");
                 }
 
                 if (string.IsNullOrEmpty(RemoteURL_SubPath))
                 {
-                    return new PatchManagerException($"string.IsNullOrEmpty(RemoteURL_SubPath) | RemoteURL_SubPath: {RemoteURL_SubPath}");
+                    return new PatchManagerException(E_EXCEPTION_KIND.ERR_FAIL_OPTION_VALIDATE, $"string.IsNullOrEmpty(RemoteURL_SubPath) | RemoteURL_SubPath: {RemoteURL_SubPath}");
                 }
 
                 if (string.IsNullOrEmpty(DevicePersistentPrefix))
                 {
-                    return new PatchManagerException($"string.IsNullOrEmpty(DevicePersistentPrefix) | DevicePersistentPrefix: {DevicePersistentPrefix}");
+                    return new PatchManagerException(E_EXCEPTION_KIND.ERR_FAIL_OPTION_VALIDATE, $"string.IsNullOrEmpty(DevicePersistentPrefix) | DevicePersistentPrefix: {DevicePersistentPrefix}");
                 }
                 return null;
             }
@@ -114,7 +114,7 @@ namespace NF.UnityLibs.Managers.PatchManagement
                 }
                 else
                 {
-                    return new PatchManagerException($"failed to get version from patchVersion\n{patchVersion.ToJson()}");
+                    return new PatchManagerException(E_EXCEPTION_KIND.ERR_FAIL_TO_GET_PATCHBUILDVERSION, $"failed to get version from patchVersion\n{patchVersion.ToJson()}");
                 }
             }
             Debug.LogWarning($"{nameof(FromPatchBuildVersion)} // patchBuildVersion: {patchBuildVersion}");
@@ -151,7 +151,7 @@ namespace NF.UnityLibs.Managers.PatchManagement
             List<PatchFileListDifference.PatchStatus>? patchStatusListOrNull = await PatchFileListDifference.DifferenceSetOrNull(currPatchFileListOrNull, nextPatchFileList, patchDir);
             if (patchStatusListOrNull == null)
             {
-                return new PatchManagerException("Internal Exception: patchStatusListOrNull == null");
+                return new PatchManagerException(E_EXCEPTION_KIND.ERR_SYSTEM_EXCEPTION, "Internal Exception: patchStatusListOrNull == null");
             }
 
             {
@@ -196,7 +196,7 @@ namespace NF.UnityLibs.Managers.PatchManagement
                         long needFreeStorageBytes = requireByteForUpdate - occupiedByte;
                         if (!await _option.EventReceiver.OnIsEnoughStorageSpace(needFreeStorageBytes))
                         {
-                            return new PatchManagerException("needFreeStorageBytes");
+                            return new PatchManagerException(E_EXCEPTION_KIND.ERR_LACK_OF_STORAGE, "needFreeStorageBytes");
                         }
 
                         Directory.CreateDirectory(patchDir);
@@ -227,13 +227,13 @@ namespace NF.UnityLibs.Managers.PatchManagement
                 List<PatchFileListDifference.PatchStatus>? validatePatchStatusListOrNull = await PatchFileListDifference.DifferenceSetOrNull(currPatchFileListOrNull, nextPatchFileList, patchDir);
                 if (validatePatchStatusListOrNull == null)
                 {
-                    return new PatchManagerException("Internal Exception: validatePatchStatusListOrNull == null");
+                    return new PatchManagerException(E_EXCEPTION_KIND.ERR_SYSTEM_EXCEPTION, "Internal Exception: validatePatchStatusListOrNull == null");
                 }
                 List<PatchFileListDifference.PatchStatus> validatePatchStatusList = validatePatchStatusListOrNull!;
                 validatePatchStatusList.RemoveAll(x => x.State == PatchFileListDifference.PatchStatus.E_STATE.SKIP);
                 if (validatePatchStatusList.Count != 0)
                 {
-                    return new PatchManagerException($"validatePatchStatusList.Count != 0 | validatePatchStatusList.Count:{validatePatchStatusList.Count}");
+                    return new PatchManagerException(E_EXCEPTION_KIND.ERR_FAIL_TO_VALIDATE_PATCHFILES, $"validatePatchStatusList.Count != 0 | validatePatchStatusList.Count:{validatePatchStatusList.Count}");
                 }
             }
 

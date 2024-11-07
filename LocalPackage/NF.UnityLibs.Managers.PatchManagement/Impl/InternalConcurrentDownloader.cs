@@ -283,7 +283,7 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
                     }
                     if (uwr.result != UnityWebRequest.Result.Success)
                     {
-                        return _SetError(new PatchManagerException($"uwr.error: {uwr.error} / uwr.responseCode: {uwr.responseCode} / url: {url} / progressInfo: {progressInfo}"));
+                        return _SetError(new PatchManagerException(E_EXCEPTION_KIND.ERR_WEBREQUEST_FAIL, $"uwr.error: {uwr.error} / uwr.responseCode: {uwr.responseCode} / url: {url} / progressInfo: {progressInfo}"));
                     }
                 }
                 ___eventStorage___.OnProgressFile(progressInfo, 1);
@@ -340,18 +340,18 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
 #if UNITY_EDITOR
             if (!Application.isPlaying)
             {
-                _SetError(new PatchManagerException("!Application.isPlaying"));
+                _SetError(new PatchManagerException(E_EXCEPTION_KIND.ERR_APPLICATION_IS_NOT_PLAYING, "!Application.isPlaying"));
                 return true;
             }
 #endif // UNITY_EDITOR
             if (Application.internetReachability == NetworkReachability.NotReachable)
             {
-                _SetError(new PatchManagerException("Application.internetReachability == NetworkReachability.NotReachable"));
+                _SetError(new PatchManagerException(E_EXCEPTION_KIND.ERR_NETWORK_IS_NOT_REACHABLE, "Application.internetReachability == NetworkReachability.NotReachable"));
                 return true;
             }
             if (_cancelToken.IsCancellationRequested)
             {
-                _SetError(new PatchManagerException("_cancelToken.IsCancellationRequested"));
+                _SetError(new PatchManagerException(E_EXCEPTION_KIND.ERR_TASK_IS_CANCELED, "_cancelToken.IsCancellationRequested"));
                 return true;
             }
             return false;
