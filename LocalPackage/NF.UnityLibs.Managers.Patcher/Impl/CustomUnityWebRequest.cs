@@ -20,13 +20,13 @@ namespace NF.UnityLibs.Managers.Patcher.Impl
 
                     if (uwr.result != UnityWebRequest.Result.Success)
                     {
-                        return (string.Empty, new PatcherException($"uwr.result != UnityWebRequest.Result.Success | uwr.result: {uwr.result}"));
+                        return (string.Empty, new PatcherException($"uwr.result != UnityWebRequest.Result.Success | url: {url} | uwr.result: {uwr.result} | uwr.error: {uwr.error}"));
                     }
 
                     string str = uwr.downloadHandler.text;
                     if (string.IsNullOrEmpty(str))
                     {
-                        return (string.Empty, new PatcherException("uwr.downloadHandler.text is empty"));
+                        return (string.Empty, new PatcherException($"uwr.downloadHandler.text is empty | url: {url}"));
                     }
 
                     return (str, null);
@@ -48,8 +48,8 @@ namespace NF.UnityLibs.Managers.Patcher.Impl
 
             try
             {
-                T? t = JsonConvert.DeserializeObject<T>(str);
-                return (t, null);
+                T? tOrNull = JsonConvert.DeserializeObject<T>(str);
+                return (tOrNull, null);
             }
             catch (System.Exception ex)
             {
