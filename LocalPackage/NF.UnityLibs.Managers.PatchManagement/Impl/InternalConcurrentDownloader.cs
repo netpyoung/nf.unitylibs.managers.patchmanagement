@@ -2,6 +2,7 @@ using NF.UnityLibs.Managers.PatchManagement.Common;
 using System;
 using System.Buffers;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
@@ -10,6 +11,7 @@ using UnityEngine.Networking;
 
 namespace NF.UnityLibs.Managers.PatchManagement.Impl
 {
+    // TODO(pyoung): dispose timing for awaiter
     internal sealed class InternalConcurrentDownloader : IDisposable, INotifyCompletion, ICriticalNotifyCompletion
     {
         public sealed class Option
@@ -20,6 +22,85 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
             public int PatchItemMax;
             public long PatchItemByteMax;
             public UnityEngine.Object? UnityObject;
+            public IPatchManagerEventReceiver EventReceiver = new DummyPatchManagerEventReceiver();
+        }
+
+        private struct EventStorage : IDisposable
+        {
+            private Option _option;
+            private long _bytesDownloadedPerSecond;
+            private long _previousBytesDownloaded;
+            private bool _isDisposed;
+            private long _acc;
+
+            private List<IPatchManagerEventReceiver.ProgressFileInfo> _registerdProgressFileInfo;
+            public EventStorage(Option option)
+            {
+                _option = option;
+                _bytesDownloadedPerSecond = 0;
+                _previousBytesDownloaded = 0;
+                _isDisposed = false;
+                _registerdProgressFileInfo = new List<IPatchManagerEventReceiver.ProgressFileInfo>(option.ConcurrentWebRequestMax);
+                _acc = 0;
+            }
+
+            public void Dispose()
+            {
+                _isDisposed = true;
+            }
+
+            internal void RegisterProgressFileInfo(IPatchManagerEventReceiver.ProgressFileInfo info)
+            {
+                _registerdProgressFileInfo.Add(info);
+            }
+            internal void UnregisterProgressFileInfo(IPatchManagerEventReceiver.ProgressFileInfo info)
+            {
+                _acc += info.PatchFileInfo.Bytes;
+                _registerdProgressFileInfo.Remove(info);
+            }
+
+            internal void OnProgressFile(IPatchManagerEventReceiver.ProgressFileInfo info, float currProgress)
+            {
+                if (_isDisposed)
+                {
+                    return;
+                }
+                if (currProgress == info.ProgressInFileDownload)
+                {
+                    return;
+                }
+                info.ProgressInFileDownload = currProgress;
+                info.BytesDownloaded = (long)(info.PatchFileInfo.Bytes * currProgress);
+                _option.EventReceiver.OnProgressFileInfo(info);
+                OnProgressTotal();
+            }
+
+            internal void OnProgressTotal()
+            {
+                if (_isDisposed)
+                {
+                    return;
+                }
+                long totalBytesDownloaded = GetTotalBytesDownloaded();
+                float totalProgress = (float)((double)totalBytesDownloaded / _option.PatchItemByteMax);
+                _option.EventReceiver.OnProgressTotal(totalProgress, _bytesDownloadedPerSecond);
+            }
+
+            internal void TickOneSecond()
+            {
+                if (_isDisposed)
+                {
+                    return;
+                }
+                long totalBytesDownloaded = GetTotalBytesDownloaded();
+                _bytesDownloadedPerSecond = totalBytesDownloaded - _previousBytesDownloaded;
+                _previousBytesDownloaded = totalBytesDownloaded;
+            }
+
+            private long GetTotalBytesDownloaded()
+            {
+                return _acc + _registerdProgressFileInfo.Sum(x => x.BytesDownloaded);
+            }
         }
 
         private CancellationTokenSource _cancelTokenSource;
@@ -31,15 +112,17 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
         private bool _isDisposed;
         private bool _isError;
         private Exception? _savedExceptionOrNull;
+        private EventStorage ___eventStorage___;
+        private bool _isStopWatch;
 
         public static InternalConcurrentDownloader DownloadAll(Option option, PatchFileList.PatchFileInfo[] infoArr)
         {
             InternalConcurrentDownloader ret = new InternalConcurrentDownloader(option, infoArr);
             ret._isError = false;
             ret._isDisposed = false;
+            ret.___eventStorage___ = new EventStorage(option);
             return ret;
         }
-
 
         private InternalConcurrentDownloader(Option option, PatchFileList.PatchFileInfo[] infoArr)
         {
@@ -87,6 +170,7 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
             {
                 return;
             }
+            ___eventStorage___.Dispose();
             _cancelTokenSource.Dispose();
             _isDisposed = true;
             Debug.LogWarning("Disposed!!!!");
@@ -118,14 +202,15 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
 
         private async Task<Exception?> _DownloadAll()
         {
-
             Task<Exception?>[] taskArr = ArrayPool<Task<Exception?>>.Shared.Rent(_infoArr.Length);
             try
             {
+                Task watchTask = _Watch();
+                ___eventStorage___.OnProgressTotal();
                 int qid;
                 for (int i = 0; i < _infoArr.Length; ++i)
                 {
-                    PatchFileList.PatchFileInfo info = _infoArr[i];
+                    PatchFileList.PatchFileInfo fileInfo = _infoArr[i];
                     while (!_concurrentIdQueue.TryDequeue(out qid))
                     {
                         if (_IsError())
@@ -134,7 +219,17 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
                         }
                         await Task.Yield();
                     }
-                    taskArr[i] = _DownloadPerFile(qid, info);
+
+                    IPatchManagerEventReceiver.ProgressFileInfo progressInfo = new IPatchManagerEventReceiver.ProgressFileInfo
+                    {
+                        PatchFileInfo = fileInfo,
+                        ProgressInFileDownload = 0,
+                        ConcurrentIndex = qid,
+                        ItemCurrIndex = i,
+                        ItemMaxLength = _infoArr.Length,
+                        BytesDownloaded = 0,
+                    };
+                    taskArr[i] = _DownloadPerFile(progressInfo);
                 }
                 for (int i = 0; i < _infoArr.Length; ++i)
                 {
@@ -144,6 +239,9 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
                         return _SetError(exOrNull);
                     }
                 }
+                ___eventStorage___.OnProgressTotal();
+                _isStopWatch = true;
+                await watchTask;
                 return null;
             }
             catch (Exception ex)
@@ -156,7 +254,7 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
             }
         }
 
-        private async Task<Exception?> _DownloadPerFile(int qid, PatchFileList.PatchFileInfo info)
+        private async Task<Exception?> _DownloadPerFile(IPatchManagerEventReceiver.ProgressFileInfo progressInfo)
         {
             if (_IsError())
             {
@@ -164,8 +262,10 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
             }
             try
             {
-                string url = $"{_option.RemoteURL_Parent}/{info.Name}";
-                string fpath = $"{_option.PatchDirectory}/{info.Name}";
+                ___eventStorage___.RegisterProgressFileInfo(progressInfo);
+                ___eventStorage___.OnProgressFile(progressInfo, 0);
+                string url = $"{_option.RemoteURL_Parent}/{progressInfo.PatchFileInfo.Name}";
+                string fpath = $"{_option.PatchDirectory}/{progressInfo.PatchFileInfo.Name}";
                 using (UnityWebRequest uwr = new UnityWebRequest(url, UnityWebRequest.kHttpVerbGET))
                 {
                     DownloadHandlerFile downloadHandler = new DownloadHandlerFile(fpath)
@@ -181,12 +281,15 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
                             return _GetError();
                         }
                         await Task.Yield();
+                        ___eventStorage___.OnProgressFile(progressInfo, op.progress);
                     }
                     if (uwr.result != UnityWebRequest.Result.Success)
                     {
-                        return _SetError(new PatchManagerException($"uwr.error: {uwr.error} / uwr.responseCode: {uwr.responseCode} / url: {url} / info: {info}"));
+                        return _SetError(new PatchManagerException($"uwr.error: {uwr.error} / uwr.responseCode: {uwr.responseCode} / url: {url} / progressInfo: {progressInfo}"));
                     }
                 }
+                ___eventStorage___.OnProgressFile(progressInfo, 1);
+
                 return null;
             }
             catch (Exception ex)
@@ -195,7 +298,25 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
             }
             finally
             {
-                _concurrentIdQueue.Enqueue(qid);
+                ___eventStorage___.UnregisterProgressFileInfo(progressInfo);
+                _concurrentIdQueue.Enqueue(progressInfo.ConcurrentIndex);
+            }
+        }
+
+        private async Task _Watch()
+        {
+            while (true)
+            {
+                if (_isStopWatch)
+                {
+                    return;
+                }
+                if (_IsError())
+                {
+                    return;
+                }
+                await Task.Delay(1000);
+                ___eventStorage___.TickOneSecond();
             }
         }
 
@@ -208,6 +329,7 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
         {
             _savedExceptionOrNull = ex;
             _isError = true;
+            _isStopWatch = true;
             return _savedExceptionOrNull;
         }
 
@@ -220,18 +342,18 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
 #if UNITY_EDITOR
             if (!Application.isPlaying)
             {
-                _isError = true;
+                _SetError(new PatchManagerException("!Application.isPlaying"));
                 return true;
             }
 #endif // UNITY_EDITOR
             if (Application.internetReachability == NetworkReachability.NotReachable)
             {
-                _isError = true;
+                _SetError(new PatchManagerException("Application.internetReachability == NetworkReachability.NotReachable"));
                 return true;
             }
             if (_cancelToken.IsCancellationRequested)
             {
-                _isError = true;
+                _SetError(new PatchManagerException("_cancelToken.IsCancellationRequested"));
                 return true;
             }
             return false;

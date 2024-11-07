@@ -19,47 +19,47 @@ namespace NF.UnityLibs.Managers.PatchManagement
     [Serializable]
     public sealed class PatchManager
     {
-        [SerializeField]
-        private string _remoteURL_Base = string.Empty;
-
-        [SerializeField]
-        private string _remoteURL_SubPath = string.Empty;
-
-        [SerializeField]
-        private string _devicePrefix = string.Empty;
-
-        [SerializeField]
-        private int _version;
-
-        public string RemoteURL_Base
+        public class Option
         {
-            get { return _remoteURL_Base; }
-            private set { _remoteURL_Base = value; }
+            public string RemoteURL_Base { get; internal set; } = string.Empty;
+            public string RemoteURL_SubPath { get; internal set; } = string.Empty;
+            public string DevicePersistentPrefix { get; internal set; } = string.Empty;
+            public int ConcurrentWebRequestMax { get; internal set; } = 1;
+            public IPatchManagerEventReceiver EventReceiver { get; internal set; } = new DummyPatchManagerEventReceiver();
+
+            public Exception? Validate()
+            {
+                if (ConcurrentWebRequestMax < 1)
+                {
+                    return null;
+                }
+                if (string.IsNullOrEmpty(RemoteURL_Base))
+                {
+                    return null;
+                }
+
+                if (string.IsNullOrEmpty(RemoteURL_SubPath))
+                {
+                    return null;
+                }
+
+                if (string.IsNullOrEmpty(DevicePersistentPrefix))
+                {
+                    return null;
+                }
+                return null;
+            }
         }
 
-        public string RemoteURL_SubPath
-        {
-            get { return _remoteURL_SubPath; }
-            private set { _remoteURL_SubPath = value; }
-        }
+        private Option _option;
 
-        public string DevicePrefix
-        {
-            get { return _devicePrefix; }
-            private set { _devicePrefix = value; }
-        }
+        public string RemoteURL_Base { get => _option.RemoteURL_Base; }
+        public string RemoteURL_SubPath { get => _option.RemoteURL_SubPath; }
+        public string DevicePersistentPrefix { get => _option.DevicePersistentPrefix; }
 
-        public int Version
+        internal PatchManager(Option option)
         {
-            get { return _version; }
-            set { _version = value; }
-        }
-
-        public void Init(string remoteURL_Base, string remoteURL_SubPath)
-        {
-            _remoteURL_Base = remoteURL_Base.TrimEnd('/');
-            _remoteURL_SubPath = remoteURL_SubPath;
-            _devicePrefix = "A";
+            _option = option;
         }
 
         private PatchFileList? GetCurrPatchFileListOrNull(string fpath)
@@ -116,6 +116,7 @@ namespace NF.UnityLibs.Managers.PatchManagement
                     return new PatchManagerException($"failed to get version from patchVersion\n{patchVersion.ToJson()}");
                 }
             }
+            Debug.LogWarning($"{nameof(FromPatchBuildVersion)} // patchBuildVersion: {patchBuildVersion}");
             return await FromPatchBuildVersion(patchBuildVersion);
         }
 
@@ -132,8 +133,9 @@ namespace NF.UnityLibs.Managers.PatchManagement
 
                 nextPatchFileList = remotePatchFileListOrNull!;
             }
+            Debug.LogWarning($"{nameof(FromPatchBuildVersion)} // nextPatchFileList: {nextPatchFileList}");
 
-            string currPatchFileListFpath = $"{Application.persistentDataPath}/{DevicePrefix}/{nameof(PatchFileList)}.json";
+            string currPatchFileListFpath = $"{Application.persistentDataPath}/{DevicePersistentPrefix}/{nameof(PatchFileList)}.json";
             PatchFileList? currPatchFileListOrNull = GetCurrPatchFileListOrNull(currPatchFileListFpath);
             if (currPatchFileListOrNull != null)
             {
@@ -144,7 +146,7 @@ namespace NF.UnityLibs.Managers.PatchManagement
                 }
             }
 
-            string patchDir = $"{Application.persistentDataPath}/{DevicePrefix}";
+            string patchDir = $"{Application.persistentDataPath}/{DevicePersistentPrefix}";
             List<PatchFileListDifference.PatchStatus>? patchStatusListOrNull = await PatchFileListDifference.DifferenceSetOrNull(currPatchFileListOrNull, nextPatchFileList, patchDir);
             if (patchStatusListOrNull == null)
             {
@@ -156,10 +158,12 @@ namespace NF.UnityLibs.Managers.PatchManagement
 
                 {
                     // Skip
+                    Debug.LogWarning($"{nameof(FromPatchBuildVersion)} // Skip");
                     patchStatusList.RemoveAll(x => x.State == PatchFileListDifference.PatchStatus.E_STATE.SKIP);
                 }
                 {
                     // Delete
+                    Debug.LogWarning($"{nameof(FromPatchBuildVersion)} // Delete");
                     PatchFileListDifference.PatchStatus[] items = patchStatusList.Where(x => x.State == PatchFileListDifference.PatchStatus.E_STATE.DELETE).ToArray();
                     foreach (PatchFileListDifference.PatchStatus item in items)
                     {
@@ -181,9 +185,19 @@ namespace NF.UnityLibs.Managers.PatchManagement
                 }
                 {
                     // Update
-                    PatchFileList.PatchFileInfo[] updateItems = patchStatusList.Where(x => x.State == PatchFileListDifference.PatchStatus.E_STATE.UPDATE).Select(x => x.PatchFileInfo).ToArray();
-                    if (updateItems.Length != 0)
+                    Debug.LogWarning($"{nameof(FromPatchBuildVersion)} // Update");
+                    PatchFileListDifference.PatchStatus[] updateStatusArr = patchStatusList.Where(x => x.State == PatchFileListDifference.PatchStatus.E_STATE.UPDATE).ToArray();
+                    if (updateStatusArr.Length != 0)
                     {
+                        PatchFileList.PatchFileInfo[] updateItems = updateStatusArr.Select(x => x.PatchFileInfo).ToArray();
+                        long requireByteForUpdate = updateItems.Sum(x => x.Bytes);
+                        long occupiedByte = updateStatusArr.Sum(x => x.OccupiedByte);
+                        long needFreeStorageBytes = requireByteForUpdate - occupiedByte;
+                        if (!await _option.EventReceiver.OnIsEnoughStorageSpace(needFreeStorageBytes))
+                        {
+                            return new PatchManagerException("needFreeStorageBytes");
+                        }
+
                         Directory.CreateDirectory(patchDir);
 #if UNITY_IOS
                         UnityEngine.iOS.Device.SetNoBackupFlag(patchDir);
@@ -191,10 +205,11 @@ namespace NF.UnityLibs.Managers.PatchManagement
                         InternalConcurrentDownloader.Option opt = new InternalConcurrentDownloader.Option
                         {
                             PatchDirectory = patchDir,
-                            ConcurrentWebRequestMax = 5,
+                            ConcurrentWebRequestMax = _option.ConcurrentWebRequestMax,
                             PatchItemByteMax = nextPatchFileList.TotalBytes,
                             PatchItemMax = nextPatchFileList.Dic.Count,
-                            RemoteURL_Parent = $"{RemoteURL_Base}/{RemoteURL_SubPath}/{patchBuildVersion}"
+                            RemoteURL_Parent = $"{RemoteURL_Base}/{RemoteURL_SubPath}/{patchBuildVersion}",
+                            EventReceiver = _option.EventReceiver,
                         };
                         Exception? exOrNull = await InternalConcurrentDownloader.DownloadAll(opt, updateItems);
                         if (exOrNull != null)
@@ -207,6 +222,7 @@ namespace NF.UnityLibs.Managers.PatchManagement
 
             {
                 // Validate
+                Debug.LogWarning($"{nameof(FromPatchBuildVersion)} // Validate");
                 List<PatchFileListDifference.PatchStatus>? validatePatchStatusListOrNull = await PatchFileListDifference.DifferenceSetOrNull(currPatchFileListOrNull, nextPatchFileList, patchDir);
                 if (validatePatchStatusListOrNull == null)
                 {
