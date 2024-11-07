@@ -118,7 +118,7 @@ namespace NF.UnityLibs.Managers.Patcher.Impl
                     }
                     taskArr[i] = _DownloadPerFile(qid, info);
                 }
-                bool[] xs = await Task.WhenAll(taskArr);
+                bool[] xs = await Task.WhenAll(taskArr.Take(_infoArr.Length));
                 return xs.All(x => x);
             }
             finally
