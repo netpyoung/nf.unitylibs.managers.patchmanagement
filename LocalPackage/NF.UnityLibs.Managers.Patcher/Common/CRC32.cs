@@ -68,18 +68,20 @@ namespace NF.UnityLibs.Managers.Patcher.Common
                     return ComputeFromStream(stream);
                 }
             }
+#if UNITY_5_3_OR_NEWER && NF_PATCHER_LOG_ENABLED
             catch (IOException ex)
             {
-#if UNITY_5_3_OR_NEWER
                 UnityEngine.Debug.LogException(ex);
-#endif // UNITY_5_3_OR_NEWER
                 return 0;
             }
             catch (Exception ex)
             {
-#if UNITY_5_3_OR_NEWER
                 UnityEngine.Debug.LogException(ex);
-#endif // UNITY_5_3_OR_NEWER
+                return 0;
+            }
+#endif // UNITY_5_3_OR_NEWER && NF_PATCHER_LOG_ENABLED
+            catch
+            {
                 return 0;
             }
         }
