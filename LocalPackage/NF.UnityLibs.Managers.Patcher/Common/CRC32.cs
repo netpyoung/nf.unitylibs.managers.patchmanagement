@@ -62,7 +62,7 @@ namespace NF.UnityLibs.Managers.Patcher.Common
                 return ComputeFromStream(stream);
             }
         }
-        
+
         private static uint[] GenerateCrc32Table()
         {
             uint[] table = new uint[256];
@@ -70,10 +70,20 @@ namespace NF.UnityLibs.Managers.Patcher.Common
             for (uint i = 0; i < table.Length; i++)
             {
                 uint crc = i;
-                for (int j = 0; j < 8; j++)
-                {
-                    crc = (crc >> 1) ^ ((crc & 1) * POLY_NOMIAL);
-                }
+
+                // NOTE(pyoung): ¹Ýº¹ 8È¸ - crc = (crc >> 1) ^ ((crc & 1) * POLY_NOMIAL);
+                //for (int j = 0; j < 8; j++)
+                //{
+                //    crc = (crc >> 1) ^ ((crc & 1) * POLY_NOMIAL);
+                //}
+                crc = (crc >> 1) ^ ((crc & 1) * POLY_NOMIAL);
+                crc = (crc >> 1) ^ ((crc & 1) * POLY_NOMIAL);
+                crc = (crc >> 1) ^ ((crc & 1) * POLY_NOMIAL);
+                crc = (crc >> 1) ^ ((crc & 1) * POLY_NOMIAL);
+                crc = (crc >> 1) ^ ((crc & 1) * POLY_NOMIAL);
+                crc = (crc >> 1) ^ ((crc & 1) * POLY_NOMIAL);
+                crc = (crc >> 1) ^ ((crc & 1) * POLY_NOMIAL);
+                crc = (crc >> 1) ^ ((crc & 1) * POLY_NOMIAL);
 
                 table[i] = crc;
             }
