@@ -1,6 +1,12 @@
 ### YamlMime:XRefMap
 sorted: true
 references:
+- uid: NF.UnityLibs.Managers.Patcher
+  name: NF.UnityLibs.Managers.Patcher
+  href: api/NF.UnityLibs.Managers.Patcher.html
+  commentId: N:NF.UnityLibs.Managers.Patcher
+  fullName: NF.UnityLibs.Managers.Patcher
+  nameWithType: NF.UnityLibs.Managers.Patcher
 - uid: NF.UnityLibs.Managers.Patcher.Common
   name: NF.UnityLibs.Managers.Patcher.Common
   href: api/NF.UnityLibs.Managers.Patcher.Common.html
@@ -13,37 +19,67 @@ references:
   commentId: T:NF.UnityLibs.Managers.Patcher.Common.CRC32
   fullName: NF.UnityLibs.Managers.Patcher.Common.CRC32
   nameWithType: CRC32
-- uid: NF.UnityLibs.Managers.Patcher.Common.CRC32.Compute(System.IO.Stream)
-  name: Compute(Stream)
-  href: api/NF.UnityLibs.Managers.Patcher.Common.CRC32.html#NF_UnityLibs_Managers_Patcher_Common_CRC32_Compute_System_IO_Stream_
-  commentId: M:NF.UnityLibs.Managers.Patcher.Common.CRC32.Compute(System.IO.Stream)
-  fullName: NF.UnityLibs.Managers.Patcher.Common.CRC32.Compute(System.IO.Stream)
-  nameWithType: CRC32.Compute(Stream)
-- uid: NF.UnityLibs.Managers.Patcher.Common.CRC32.Compute(System.ReadOnlySpan{System.Byte})
-  name: Compute(ReadOnlySpan<byte>)
-  href: api/NF.UnityLibs.Managers.Patcher.Common.CRC32.html#NF_UnityLibs_Managers_Patcher_Common_CRC32_Compute_System_ReadOnlySpan_System_Byte__
-  commentId: M:NF.UnityLibs.Managers.Patcher.Common.CRC32.Compute(System.ReadOnlySpan{System.Byte})
-  name.vb: Compute(ReadOnlySpan(Of Byte))
-  fullName: NF.UnityLibs.Managers.Patcher.Common.CRC32.Compute(System.ReadOnlySpan<byte>)
-  fullName.vb: NF.UnityLibs.Managers.Patcher.Common.CRC32.Compute(System.ReadOnlySpan(Of Byte))
-  nameWithType: CRC32.Compute(ReadOnlySpan<byte>)
-  nameWithType.vb: CRC32.Compute(ReadOnlySpan(Of Byte))
-- uid: NF.UnityLibs.Managers.Patcher.Common.CRC32.Compute(System.String)
-  name: Compute(string)
-  href: api/NF.UnityLibs.Managers.Patcher.Common.CRC32.html#NF_UnityLibs_Managers_Patcher_Common_CRC32_Compute_System_String_
-  commentId: M:NF.UnityLibs.Managers.Patcher.Common.CRC32.Compute(System.String)
-  name.vb: Compute(String)
-  fullName: NF.UnityLibs.Managers.Patcher.Common.CRC32.Compute(string)
-  fullName.vb: NF.UnityLibs.Managers.Patcher.Common.CRC32.Compute(String)
-  nameWithType: CRC32.Compute(string)
-  nameWithType.vb: CRC32.Compute(String)
-- uid: NF.UnityLibs.Managers.Patcher.Common.CRC32.Compute*
-  name: Compute
-  href: api/NF.UnityLibs.Managers.Patcher.Common.CRC32.html#NF_UnityLibs_Managers_Patcher_Common_CRC32_Compute_
-  commentId: Overload:NF.UnityLibs.Managers.Patcher.Common.CRC32.Compute
+- uid: NF.UnityLibs.Managers.Patcher.Common.CRC32.ComputeFromFpath(System.String)
+  name: ComputeFromFpath(string)
+  href: api/NF.UnityLibs.Managers.Patcher.Common.CRC32.html#NF_UnityLibs_Managers_Patcher_Common_CRC32_ComputeFromFpath_System_String_
+  commentId: M:NF.UnityLibs.Managers.Patcher.Common.CRC32.ComputeFromFpath(System.String)
+  name.vb: ComputeFromFpath(String)
+  fullName: NF.UnityLibs.Managers.Patcher.Common.CRC32.ComputeFromFpath(string)
+  fullName.vb: NF.UnityLibs.Managers.Patcher.Common.CRC32.ComputeFromFpath(String)
+  nameWithType: CRC32.ComputeFromFpath(string)
+  nameWithType.vb: CRC32.ComputeFromFpath(String)
+- uid: NF.UnityLibs.Managers.Patcher.Common.CRC32.ComputeFromFpath*
+  name: ComputeFromFpath
+  href: api/NF.UnityLibs.Managers.Patcher.Common.CRC32.html#NF_UnityLibs_Managers_Patcher_Common_CRC32_ComputeFromFpath_
+  commentId: Overload:NF.UnityLibs.Managers.Patcher.Common.CRC32.ComputeFromFpath
   isSpec: "True"
-  fullName: NF.UnityLibs.Managers.Patcher.Common.CRC32.Compute
-  nameWithType: CRC32.Compute
+  fullName: NF.UnityLibs.Managers.Patcher.Common.CRC32.ComputeFromFpath
+  nameWithType: CRC32.ComputeFromFpath
+- uid: NF.UnityLibs.Managers.Patcher.Common.CRC32.ComputeFromSpan(System.ReadOnlySpan{System.Byte})
+  name: ComputeFromSpan(ReadOnlySpan<byte>)
+  href: api/NF.UnityLibs.Managers.Patcher.Common.CRC32.html#NF_UnityLibs_Managers_Patcher_Common_CRC32_ComputeFromSpan_System_ReadOnlySpan_System_Byte__
+  commentId: M:NF.UnityLibs.Managers.Patcher.Common.CRC32.ComputeFromSpan(System.ReadOnlySpan{System.Byte})
+  name.vb: ComputeFromSpan(ReadOnlySpan(Of Byte))
+  fullName: NF.UnityLibs.Managers.Patcher.Common.CRC32.ComputeFromSpan(System.ReadOnlySpan<byte>)
+  fullName.vb: NF.UnityLibs.Managers.Patcher.Common.CRC32.ComputeFromSpan(System.ReadOnlySpan(Of Byte))
+  nameWithType: CRC32.ComputeFromSpan(ReadOnlySpan<byte>)
+  nameWithType.vb: CRC32.ComputeFromSpan(ReadOnlySpan(Of Byte))
+- uid: NF.UnityLibs.Managers.Patcher.Common.CRC32.ComputeFromSpan*
+  name: ComputeFromSpan
+  href: api/NF.UnityLibs.Managers.Patcher.Common.CRC32.html#NF_UnityLibs_Managers_Patcher_Common_CRC32_ComputeFromSpan_
+  commentId: Overload:NF.UnityLibs.Managers.Patcher.Common.CRC32.ComputeFromSpan
+  isSpec: "True"
+  fullName: NF.UnityLibs.Managers.Patcher.Common.CRC32.ComputeFromSpan
+  nameWithType: CRC32.ComputeFromSpan
+- uid: NF.UnityLibs.Managers.Patcher.Common.CRC32.ComputeFromStr(System.String)
+  name: ComputeFromStr(string)
+  href: api/NF.UnityLibs.Managers.Patcher.Common.CRC32.html#NF_UnityLibs_Managers_Patcher_Common_CRC32_ComputeFromStr_System_String_
+  commentId: M:NF.UnityLibs.Managers.Patcher.Common.CRC32.ComputeFromStr(System.String)
+  name.vb: ComputeFromStr(String)
+  fullName: NF.UnityLibs.Managers.Patcher.Common.CRC32.ComputeFromStr(string)
+  fullName.vb: NF.UnityLibs.Managers.Patcher.Common.CRC32.ComputeFromStr(String)
+  nameWithType: CRC32.ComputeFromStr(string)
+  nameWithType.vb: CRC32.ComputeFromStr(String)
+- uid: NF.UnityLibs.Managers.Patcher.Common.CRC32.ComputeFromStr*
+  name: ComputeFromStr
+  href: api/NF.UnityLibs.Managers.Patcher.Common.CRC32.html#NF_UnityLibs_Managers_Patcher_Common_CRC32_ComputeFromStr_
+  commentId: Overload:NF.UnityLibs.Managers.Patcher.Common.CRC32.ComputeFromStr
+  isSpec: "True"
+  fullName: NF.UnityLibs.Managers.Patcher.Common.CRC32.ComputeFromStr
+  nameWithType: CRC32.ComputeFromStr
+- uid: NF.UnityLibs.Managers.Patcher.Common.CRC32.ComputeFromStream(System.IO.Stream)
+  name: ComputeFromStream(Stream)
+  href: api/NF.UnityLibs.Managers.Patcher.Common.CRC32.html#NF_UnityLibs_Managers_Patcher_Common_CRC32_ComputeFromStream_System_IO_Stream_
+  commentId: M:NF.UnityLibs.Managers.Patcher.Common.CRC32.ComputeFromStream(System.IO.Stream)
+  fullName: NF.UnityLibs.Managers.Patcher.Common.CRC32.ComputeFromStream(System.IO.Stream)
+  nameWithType: CRC32.ComputeFromStream(Stream)
+- uid: NF.UnityLibs.Managers.Patcher.Common.CRC32.ComputeFromStream*
+  name: ComputeFromStream
+  href: api/NF.UnityLibs.Managers.Patcher.Common.CRC32.html#NF_UnityLibs_Managers_Patcher_Common_CRC32_ComputeFromStream_
+  commentId: Overload:NF.UnityLibs.Managers.Patcher.Common.CRC32.ComputeFromStream
+  isSpec: "True"
+  fullName: NF.UnityLibs.Managers.Patcher.Common.CRC32.ComputeFromStream
+  nameWithType: CRC32.ComputeFromStream
 - uid: NF.UnityLibs.Managers.Patcher.Common.PatchDataGenerator
   name: PatchDataGenerator
   href: api/NF.UnityLibs.Managers.Patcher.Common.PatchDataGenerator.html
@@ -271,25 +307,109 @@ references:
   isSpec: "True"
   fullName: NF.UnityLibs.Managers.Patcher.Common.PatchFileList.Version
   nameWithType: PatchFileList.Version
+- uid: NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference
+  name: PatchFileListDifference
+  href: api/NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.html
+  commentId: T:NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference
+  fullName: NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference
+  nameWithType: PatchFileListDifference
+- uid: NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.DifferenceSetOrNull(NF.UnityLibs.Managers.Patcher.Common.PatchFileList,NF.UnityLibs.Managers.Patcher.Common.PatchFileList,System.String)
+  name: DifferenceSetOrNull(PatchFileList?, PatchFileList, string)
+  href: api/NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.html#NF_UnityLibs_Managers_Patcher_Common_PatchFileListDifference_DifferenceSetOrNull_NF_UnityLibs_Managers_Patcher_Common_PatchFileList_NF_UnityLibs_Managers_Patcher_Common_PatchFileList_System_String_
+  commentId: M:NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.DifferenceSetOrNull(NF.UnityLibs.Managers.Patcher.Common.PatchFileList,NF.UnityLibs.Managers.Patcher.Common.PatchFileList,System.String)
+  name.vb: DifferenceSetOrNull(PatchFileList, PatchFileList, String)
+  fullName: NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.DifferenceSetOrNull(NF.UnityLibs.Managers.Patcher.Common.PatchFileList?, NF.UnityLibs.Managers.Patcher.Common.PatchFileList, string)
+  fullName.vb: NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.DifferenceSetOrNull(NF.UnityLibs.Managers.Patcher.Common.PatchFileList, NF.UnityLibs.Managers.Patcher.Common.PatchFileList, String)
+  nameWithType: PatchFileListDifference.DifferenceSetOrNull(PatchFileList?, PatchFileList, string)
+  nameWithType.vb: PatchFileListDifference.DifferenceSetOrNull(PatchFileList, PatchFileList, String)
+- uid: NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.DifferenceSetOrNull*
+  name: DifferenceSetOrNull
+  href: api/NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.html#NF_UnityLibs_Managers_Patcher_Common_PatchFileListDifference_DifferenceSetOrNull_
+  commentId: Overload:NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.DifferenceSetOrNull
+  isSpec: "True"
+  fullName: NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.DifferenceSetOrNull
+  nameWithType: PatchFileListDifference.DifferenceSetOrNull
+- uid: NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus
+  name: PatchFileListDifference.PatchStatus
+  href: api/NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.html
+  commentId: T:NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus
+  fullName: NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus
+  nameWithType: PatchFileListDifference.PatchStatus
+- uid: NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.#ctor(NF.UnityLibs.Managers.Patcher.Common.PatchFileList.PatchFileInfo,NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.E_STATE)
+  name: PatchStatus(PatchFileInfo, E_STATE)
+  href: api/NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.html#NF_UnityLibs_Managers_Patcher_Common_PatchFileListDifference_PatchStatus__ctor_NF_UnityLibs_Managers_Patcher_Common_PatchFileList_PatchFileInfo_NF_UnityLibs_Managers_Patcher_Common_PatchFileListDifference_PatchStatus_E_STATE_
+  commentId: M:NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.#ctor(NF.UnityLibs.Managers.Patcher.Common.PatchFileList.PatchFileInfo,NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.E_STATE)
+  name.vb: New(PatchFileInfo, E_STATE)
+  fullName: NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.PatchStatus(NF.UnityLibs.Managers.Patcher.Common.PatchFileList.PatchFileInfo, NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.E_STATE)
+  fullName.vb: NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.New(NF.UnityLibs.Managers.Patcher.Common.PatchFileList.PatchFileInfo, NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.E_STATE)
+  nameWithType: PatchFileListDifference.PatchStatus.PatchStatus(PatchFileList.PatchFileInfo, PatchFileListDifference.PatchStatus.E_STATE)
+  nameWithType.vb: PatchFileListDifference.PatchStatus.New(PatchFileList.PatchFileInfo, PatchFileListDifference.PatchStatus.E_STATE)
+- uid: NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.#ctor*
+  name: PatchStatus
+  href: api/NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.html#NF_UnityLibs_Managers_Patcher_Common_PatchFileListDifference_PatchStatus__ctor_
+  commentId: Overload:NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.PatchStatus
+  fullName.vb: NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.New
+  nameWithType: PatchFileListDifference.PatchStatus.PatchStatus
+  nameWithType.vb: PatchFileListDifference.PatchStatus.New
+- uid: NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.E_STATE
+  name: PatchFileListDifference.PatchStatus.E_STATE
+  href: api/NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.E_STATE.html
+  commentId: T:NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.E_STATE
+  fullName: NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.E_STATE
+  nameWithType: PatchFileListDifference.PatchStatus.E_STATE
+- uid: NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.E_STATE.DELETE
+  name: DELETE
+  href: api/NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.E_STATE.html#NF_UnityLibs_Managers_Patcher_Common_PatchFileListDifference_PatchStatus_E_STATE_DELETE
+  commentId: F:NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.E_STATE.DELETE
+  fullName: NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.E_STATE.DELETE
+  nameWithType: PatchFileListDifference.PatchStatus.E_STATE.DELETE
+- uid: NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.E_STATE.SKIP
+  name: SKIP
+  href: api/NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.E_STATE.html#NF_UnityLibs_Managers_Patcher_Common_PatchFileListDifference_PatchStatus_E_STATE_SKIP
+  commentId: F:NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.E_STATE.SKIP
+  fullName: NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.E_STATE.SKIP
+  nameWithType: PatchFileListDifference.PatchStatus.E_STATE.SKIP
+- uid: NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.E_STATE.UPDATE
+  name: UPDATE
+  href: api/NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.E_STATE.html#NF_UnityLibs_Managers_Patcher_Common_PatchFileListDifference_PatchStatus_E_STATE_UPDATE
+  commentId: F:NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.E_STATE.UPDATE
+  fullName: NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.E_STATE.UPDATE
+  nameWithType: PatchFileListDifference.PatchStatus.E_STATE.UPDATE
+- uid: NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.PatchFileInfo
+  name: PatchFileInfo
+  href: api/NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.html#NF_UnityLibs_Managers_Patcher_Common_PatchFileListDifference_PatchStatus_PatchFileInfo
+  commentId: P:NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.PatchFileInfo
+  fullName: NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.PatchFileInfo
+  nameWithType: PatchFileListDifference.PatchStatus.PatchFileInfo
+- uid: NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.PatchFileInfo*
+  name: PatchFileInfo
+  href: api/NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.html#NF_UnityLibs_Managers_Patcher_Common_PatchFileListDifference_PatchStatus_PatchFileInfo_
+  commentId: Overload:NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.PatchFileInfo
+  isSpec: "True"
+  fullName: NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.PatchFileInfo
+  nameWithType: PatchFileListDifference.PatchStatus.PatchFileInfo
+- uid: NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.State
+  name: State
+  href: api/NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.html#NF_UnityLibs_Managers_Patcher_Common_PatchFileListDifference_PatchStatus_State
+  commentId: P:NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.State
+  fullName: NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.State
+  nameWithType: PatchFileListDifference.PatchStatus.State
+- uid: NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.State*
+  name: State
+  href: api/NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.html#NF_UnityLibs_Managers_Patcher_Common_PatchFileListDifference_PatchStatus_State_
+  commentId: Overload:NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.State
+  isSpec: "True"
+  fullName: NF.UnityLibs.Managers.Patcher.Common.PatchFileListDifference.PatchStatus.State
+  nameWithType: PatchFileListDifference.PatchStatus.State
 - uid: NF.UnityLibs.Managers.Patcher.Common.PatchVersion
   name: PatchVersion
   href: api/NF.UnityLibs.Managers.Patcher.Common.PatchVersion.html
   commentId: T:NF.UnityLibs.Managers.Patcher.Common.PatchVersion
   fullName: NF.UnityLibs.Managers.Patcher.Common.PatchVersion
   nameWithType: PatchVersion
-- uid: NF.UnityLibs.Managers.Patcher.Common.PatchVersion.Dummy
-  name: Dummy()
-  href: api/NF.UnityLibs.Managers.Patcher.Common.PatchVersion.html#NF_UnityLibs_Managers_Patcher_Common_PatchVersion_Dummy
-  commentId: M:NF.UnityLibs.Managers.Patcher.Common.PatchVersion.Dummy
-  fullName: NF.UnityLibs.Managers.Patcher.Common.PatchVersion.Dummy()
-  nameWithType: PatchVersion.Dummy()
-- uid: NF.UnityLibs.Managers.Patcher.Common.PatchVersion.Dummy*
-  name: Dummy
-  href: api/NF.UnityLibs.Managers.Patcher.Common.PatchVersion.html#NF_UnityLibs_Managers_Patcher_Common_PatchVersion_Dummy_
-  commentId: Overload:NF.UnityLibs.Managers.Patcher.Common.PatchVersion.Dummy
-  isSpec: "True"
-  fullName: NF.UnityLibs.Managers.Patcher.Common.PatchVersion.Dummy
-  nameWithType: PatchVersion.Dummy
 - uid: NF.UnityLibs.Managers.Patcher.Common.PatchVersion.ToJson
   name: ToJson()
   href: api/NF.UnityLibs.Managers.Patcher.Common.PatchVersion.html#NF_UnityLibs_Managers_Patcher_Common_PatchVersion_ToJson
@@ -303,19 +423,122 @@ references:
   isSpec: "True"
   fullName: NF.UnityLibs.Managers.Patcher.Common.PatchVersion.ToJson
   nameWithType: PatchVersion.ToJson
-- uid: NF.UnityLibs.Managers.Patcher.Common.PatchVersion.TryFromJson(System.String,NF.UnityLibs.Managers.Patcher.Common.PatchVersion@)
-  name: TryFromJson(string, out PatchVersion)
-  href: api/NF.UnityLibs.Managers.Patcher.Common.PatchVersion.html#NF_UnityLibs_Managers_Patcher_Common_PatchVersion_TryFromJson_System_String_NF_UnityLibs_Managers_Patcher_Common_PatchVersion__
-  commentId: M:NF.UnityLibs.Managers.Patcher.Common.PatchVersion.TryFromJson(System.String,NF.UnityLibs.Managers.Patcher.Common.PatchVersion@)
-  name.vb: TryFromJson(String, PatchVersion)
-  fullName: NF.UnityLibs.Managers.Patcher.Common.PatchVersion.TryFromJson(string, out NF.UnityLibs.Managers.Patcher.Common.PatchVersion)
-  fullName.vb: NF.UnityLibs.Managers.Patcher.Common.PatchVersion.TryFromJson(String, NF.UnityLibs.Managers.Patcher.Common.PatchVersion)
-  nameWithType: PatchVersion.TryFromJson(string, out PatchVersion)
-  nameWithType.vb: PatchVersion.TryFromJson(String, PatchVersion)
-- uid: NF.UnityLibs.Managers.Patcher.Common.PatchVersion.TryFromJson*
-  name: TryFromJson
-  href: api/NF.UnityLibs.Managers.Patcher.Common.PatchVersion.html#NF_UnityLibs_Managers_Patcher_Common_PatchVersion_TryFromJson_
-  commentId: Overload:NF.UnityLibs.Managers.Patcher.Common.PatchVersion.TryFromJson
+- uid: NF.UnityLibs.Managers.Patcher.PatchDataDownloader
+  name: PatchDataDownloader
+  href: api/NF.UnityLibs.Managers.Patcher.PatchDataDownloader.html
+  commentId: T:NF.UnityLibs.Managers.Patcher.PatchDataDownloader
+  fullName: NF.UnityLibs.Managers.Patcher.PatchDataDownloader
+  nameWithType: PatchDataDownloader
+- uid: NF.UnityLibs.Managers.Patcher.PatchDataDownloader.DevicePrefix
+  name: DevicePrefix
+  href: api/NF.UnityLibs.Managers.Patcher.PatchDataDownloader.html#NF_UnityLibs_Managers_Patcher_PatchDataDownloader_DevicePrefix
+  commentId: P:NF.UnityLibs.Managers.Patcher.PatchDataDownloader.DevicePrefix
+  fullName: NF.UnityLibs.Managers.Patcher.PatchDataDownloader.DevicePrefix
+  nameWithType: PatchDataDownloader.DevicePrefix
+- uid: NF.UnityLibs.Managers.Patcher.PatchDataDownloader.DevicePrefix*
+  name: DevicePrefix
+  href: api/NF.UnityLibs.Managers.Patcher.PatchDataDownloader.html#NF_UnityLibs_Managers_Patcher_PatchDataDownloader_DevicePrefix_
+  commentId: Overload:NF.UnityLibs.Managers.Patcher.PatchDataDownloader.DevicePrefix
   isSpec: "True"
-  fullName: NF.UnityLibs.Managers.Patcher.Common.PatchVersion.TryFromJson
-  nameWithType: PatchVersion.TryFromJson
+  fullName: NF.UnityLibs.Managers.Patcher.PatchDataDownloader.DevicePrefix
+  nameWithType: PatchDataDownloader.DevicePrefix
+- uid: NF.UnityLibs.Managers.Patcher.PatchDataDownloader.FromAppVersion(System.String)
+  name: FromAppVersion(string)
+  href: api/NF.UnityLibs.Managers.Patcher.PatchDataDownloader.html#NF_UnityLibs_Managers_Patcher_PatchDataDownloader_FromAppVersion_System_String_
+  commentId: M:NF.UnityLibs.Managers.Patcher.PatchDataDownloader.FromAppVersion(System.String)
+  name.vb: FromAppVersion(String)
+  fullName: NF.UnityLibs.Managers.Patcher.PatchDataDownloader.FromAppVersion(string)
+  fullName.vb: NF.UnityLibs.Managers.Patcher.PatchDataDownloader.FromAppVersion(String)
+  nameWithType: PatchDataDownloader.FromAppVersion(string)
+  nameWithType.vb: PatchDataDownloader.FromAppVersion(String)
+- uid: NF.UnityLibs.Managers.Patcher.PatchDataDownloader.FromAppVersion*
+  name: FromAppVersion
+  href: api/NF.UnityLibs.Managers.Patcher.PatchDataDownloader.html#NF_UnityLibs_Managers_Patcher_PatchDataDownloader_FromAppVersion_
+  commentId: Overload:NF.UnityLibs.Managers.Patcher.PatchDataDownloader.FromAppVersion
+  isSpec: "True"
+  fullName: NF.UnityLibs.Managers.Patcher.PatchDataDownloader.FromAppVersion
+  nameWithType: PatchDataDownloader.FromAppVersion
+- uid: NF.UnityLibs.Managers.Patcher.PatchDataDownloader.FromCurrentAppVersion
+  name: FromCurrentAppVersion()
+  href: api/NF.UnityLibs.Managers.Patcher.PatchDataDownloader.html#NF_UnityLibs_Managers_Patcher_PatchDataDownloader_FromCurrentAppVersion
+  commentId: M:NF.UnityLibs.Managers.Patcher.PatchDataDownloader.FromCurrentAppVersion
+  fullName: NF.UnityLibs.Managers.Patcher.PatchDataDownloader.FromCurrentAppVersion()
+  nameWithType: PatchDataDownloader.FromCurrentAppVersion()
+- uid: NF.UnityLibs.Managers.Patcher.PatchDataDownloader.FromCurrentAppVersion*
+  name: FromCurrentAppVersion
+  href: api/NF.UnityLibs.Managers.Patcher.PatchDataDownloader.html#NF_UnityLibs_Managers_Patcher_PatchDataDownloader_FromCurrentAppVersion_
+  commentId: Overload:NF.UnityLibs.Managers.Patcher.PatchDataDownloader.FromCurrentAppVersion
+  isSpec: "True"
+  fullName: NF.UnityLibs.Managers.Patcher.PatchDataDownloader.FromCurrentAppVersion
+  nameWithType: PatchDataDownloader.FromCurrentAppVersion
+- uid: NF.UnityLibs.Managers.Patcher.PatchDataDownloader.FromPatchBuildVersion(System.Int32)
+  name: FromPatchBuildVersion(int)
+  href: api/NF.UnityLibs.Managers.Patcher.PatchDataDownloader.html#NF_UnityLibs_Managers_Patcher_PatchDataDownloader_FromPatchBuildVersion_System_Int32_
+  commentId: M:NF.UnityLibs.Managers.Patcher.PatchDataDownloader.FromPatchBuildVersion(System.Int32)
+  name.vb: FromPatchBuildVersion(Integer)
+  fullName: NF.UnityLibs.Managers.Patcher.PatchDataDownloader.FromPatchBuildVersion(int)
+  fullName.vb: NF.UnityLibs.Managers.Patcher.PatchDataDownloader.FromPatchBuildVersion(Integer)
+  nameWithType: PatchDataDownloader.FromPatchBuildVersion(int)
+  nameWithType.vb: PatchDataDownloader.FromPatchBuildVersion(Integer)
+- uid: NF.UnityLibs.Managers.Patcher.PatchDataDownloader.FromPatchBuildVersion*
+  name: FromPatchBuildVersion
+  href: api/NF.UnityLibs.Managers.Patcher.PatchDataDownloader.html#NF_UnityLibs_Managers_Patcher_PatchDataDownloader_FromPatchBuildVersion_
+  commentId: Overload:NF.UnityLibs.Managers.Patcher.PatchDataDownloader.FromPatchBuildVersion
+  isSpec: "True"
+  fullName: NF.UnityLibs.Managers.Patcher.PatchDataDownloader.FromPatchBuildVersion
+  nameWithType: PatchDataDownloader.FromPatchBuildVersion
+- uid: NF.UnityLibs.Managers.Patcher.PatchDataDownloader.Init(System.String,System.String)
+  name: Init(string, string)
+  href: api/NF.UnityLibs.Managers.Patcher.PatchDataDownloader.html#NF_UnityLibs_Managers_Patcher_PatchDataDownloader_Init_System_String_System_String_
+  commentId: M:NF.UnityLibs.Managers.Patcher.PatchDataDownloader.Init(System.String,System.String)
+  name.vb: Init(String, String)
+  fullName: NF.UnityLibs.Managers.Patcher.PatchDataDownloader.Init(string, string)
+  fullName.vb: NF.UnityLibs.Managers.Patcher.PatchDataDownloader.Init(String, String)
+  nameWithType: PatchDataDownloader.Init(string, string)
+  nameWithType.vb: PatchDataDownloader.Init(String, String)
+- uid: NF.UnityLibs.Managers.Patcher.PatchDataDownloader.Init*
+  name: Init
+  href: api/NF.UnityLibs.Managers.Patcher.PatchDataDownloader.html#NF_UnityLibs_Managers_Patcher_PatchDataDownloader_Init_
+  commentId: Overload:NF.UnityLibs.Managers.Patcher.PatchDataDownloader.Init
+  isSpec: "True"
+  fullName: NF.UnityLibs.Managers.Patcher.PatchDataDownloader.Init
+  nameWithType: PatchDataDownloader.Init
+- uid: NF.UnityLibs.Managers.Patcher.PatchDataDownloader.RemoteURL_Base
+  name: RemoteURL_Base
+  href: api/NF.UnityLibs.Managers.Patcher.PatchDataDownloader.html#NF_UnityLibs_Managers_Patcher_PatchDataDownloader_RemoteURL_Base
+  commentId: P:NF.UnityLibs.Managers.Patcher.PatchDataDownloader.RemoteURL_Base
+  fullName: NF.UnityLibs.Managers.Patcher.PatchDataDownloader.RemoteURL_Base
+  nameWithType: PatchDataDownloader.RemoteURL_Base
+- uid: NF.UnityLibs.Managers.Patcher.PatchDataDownloader.RemoteURL_Base*
+  name: RemoteURL_Base
+  href: api/NF.UnityLibs.Managers.Patcher.PatchDataDownloader.html#NF_UnityLibs_Managers_Patcher_PatchDataDownloader_RemoteURL_Base_
+  commentId: Overload:NF.UnityLibs.Managers.Patcher.PatchDataDownloader.RemoteURL_Base
+  isSpec: "True"
+  fullName: NF.UnityLibs.Managers.Patcher.PatchDataDownloader.RemoteURL_Base
+  nameWithType: PatchDataDownloader.RemoteURL_Base
+- uid: NF.UnityLibs.Managers.Patcher.PatchDataDownloader.RemoteURL_SubPath
+  name: RemoteURL_SubPath
+  href: api/NF.UnityLibs.Managers.Patcher.PatchDataDownloader.html#NF_UnityLibs_Managers_Patcher_PatchDataDownloader_RemoteURL_SubPath
+  commentId: P:NF.UnityLibs.Managers.Patcher.PatchDataDownloader.RemoteURL_SubPath
+  fullName: NF.UnityLibs.Managers.Patcher.PatchDataDownloader.RemoteURL_SubPath
+  nameWithType: PatchDataDownloader.RemoteURL_SubPath
+- uid: NF.UnityLibs.Managers.Patcher.PatchDataDownloader.RemoteURL_SubPath*
+  name: RemoteURL_SubPath
+  href: api/NF.UnityLibs.Managers.Patcher.PatchDataDownloader.html#NF_UnityLibs_Managers_Patcher_PatchDataDownloader_RemoteURL_SubPath_
+  commentId: Overload:NF.UnityLibs.Managers.Patcher.PatchDataDownloader.RemoteURL_SubPath
+  isSpec: "True"
+  fullName: NF.UnityLibs.Managers.Patcher.PatchDataDownloader.RemoteURL_SubPath
+  nameWithType: PatchDataDownloader.RemoteURL_SubPath
+- uid: NF.UnityLibs.Managers.Patcher.PatchDataDownloader.Version
+  name: Version
+  href: api/NF.UnityLibs.Managers.Patcher.PatchDataDownloader.html#NF_UnityLibs_Managers_Patcher_PatchDataDownloader_Version
+  commentId: P:NF.UnityLibs.Managers.Patcher.PatchDataDownloader.Version
+  fullName: NF.UnityLibs.Managers.Patcher.PatchDataDownloader.Version
+  nameWithType: PatchDataDownloader.Version
+- uid: NF.UnityLibs.Managers.Patcher.PatchDataDownloader.Version*
+  name: Version
+  href: api/NF.UnityLibs.Managers.Patcher.PatchDataDownloader.html#NF_UnityLibs_Managers_Patcher_PatchDataDownloader_Version_
+  commentId: Overload:NF.UnityLibs.Managers.Patcher.PatchDataDownloader.Version
+  isSpec: "True"
+  fullName: NF.UnityLibs.Managers.Patcher.PatchDataDownloader.Version
+  nameWithType: PatchDataDownloader.Version
