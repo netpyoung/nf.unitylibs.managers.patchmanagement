@@ -101,20 +101,10 @@ namespace NF.UnityLibs.Managers.PatchManagement.Common
             {
                 uint crc = i;
 
-                // NOTE(pyoung): �ݺ� 8ȸ - crc = (crc >> 1) ^ ((crc & 1) * POLY_NOMIAL);
-                //for (int j = 0; j < 8; j++)
-                //{
-                //    crc = (crc >> 1) ^ ((crc & 1) * POLY_NOMIAL);
-                //}
-                crc = (crc >> 1) ^ ((crc & 1) * POLY_NOMIAL);
-                crc = (crc >> 1) ^ ((crc & 1) * POLY_NOMIAL);
-                crc = (crc >> 1) ^ ((crc & 1) * POLY_NOMIAL);
-                crc = (crc >> 1) ^ ((crc & 1) * POLY_NOMIAL);
-                crc = (crc >> 1) ^ ((crc & 1) * POLY_NOMIAL);
-                crc = (crc >> 1) ^ ((crc & 1) * POLY_NOMIAL);
-                crc = (crc >> 1) ^ ((crc & 1) * POLY_NOMIAL);
-                crc = (crc >> 1) ^ ((crc & 1) * POLY_NOMIAL);
-
+                for (int j = 0; j < 8; j++)
+                {
+                    crc = (crc >> 1) ^ ((crc & 1) * POLY_NOMIAL);
+                }
                 table[i] = crc;
             }
 
