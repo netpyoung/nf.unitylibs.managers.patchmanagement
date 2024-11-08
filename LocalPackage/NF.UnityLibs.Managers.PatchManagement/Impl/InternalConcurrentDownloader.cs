@@ -2,6 +2,7 @@ using NF.UnityLibs.Managers.PatchManagement.Common;
 using System;
 using System.Buffers;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading;
@@ -30,17 +31,18 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
             private long _bytesDownloadedPerSecond;
             private long _previousBytesDownloaded;
             private bool _isDisposed;
-            private long _acc;
+            private long _accByte;
 
             private List<ProgressFileInfo> _registerdProgressFileInfo;
-            public EventStorage(Option option)
+            public EventStorage(Option option, long needToDownloadByte)
             {
                 _option = option;
-                _bytesDownloadedPerSecond = 0;
-                _previousBytesDownloaded = 0;
                 _isDisposed = false;
                 _registerdProgressFileInfo = new List<ProgressFileInfo>(option.ConcurrentWebRequestMax);
-                _acc = 0;
+                long alreadyDownloaedByte = option.PatchItemByteMax - needToDownloadByte;
+                _previousBytesDownloaded = alreadyDownloaedByte;
+                _accByte = alreadyDownloaedByte;
+                _bytesDownloadedPerSecond = 0;
             }
 
             public void Dispose()
@@ -54,7 +56,7 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
             }
             internal void UnregisterProgressFileInfo(ProgressFileInfo info)
             {
-                _acc += info.PatchFileInfo.Bytes;
+                _accByte += info.PatchFileInfo.Bytes;
                 _registerdProgressFileInfo.Remove(info);
             }
 
@@ -71,10 +73,9 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
                 info.ProgressInFileDownload = currProgress;
                 info.BytesDownloaded = (long)(info.PatchFileInfo.Bytes * currProgress);
                 _option.EventReceiver.OnProgressFileInfo(info);
-                OnProgressTotal();
             }
 
-            internal void OnProgressTotal()
+            internal void TickPer30FPS()
             {
                 if (_isDisposed)
                 {
@@ -85,7 +86,7 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
                 _option.EventReceiver.OnProgressTotal(totalProgress, _bytesDownloadedPerSecond);
             }
 
-            internal void TickOneSecond()
+            internal void TickPerOneSecond()
             {
                 if (_isDisposed)
                 {
@@ -98,7 +99,7 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
 
             private long GetTotalBytesDownloaded()
             {
-                return _acc + _registerdProgressFileInfo.Sum(x => x.BytesDownloaded);
+                return _accByte + _registerdProgressFileInfo.Sum(x => x.BytesDownloaded);
             }
         }
 
@@ -119,7 +120,7 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
             InternalConcurrentDownloader ret = new InternalConcurrentDownloader(option, infoArr);
             ret._isError = false;
             ret._isDisposed = false;
-            ret.___eventStorage___ = new EventStorage(option);
+            ret.___eventStorage___ = new EventStorage(option, infoArr.Sum(x => x.Bytes));
             return ret;
         }
 
@@ -204,7 +205,6 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
             try
             {
                 Task watchTask = _Watch();
-                ___eventStorage___.OnProgressTotal();
                 int qid;
                 for (int i = 0; i < _infoArr.Length; ++i)
                 {
@@ -237,7 +237,6 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
                         return _SetError(exOrNull);
                     }
                 }
-                ___eventStorage___.OnProgressTotal();
                 _isStopWatch = true;
                 await watchTask;
                 return null;
@@ -303,6 +302,8 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
 
         private async Task _Watch()
         {
+            long totalElapsedTime = 0;
+
             while (true)
             {
                 if (_isStopWatch)
@@ -313,8 +314,16 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
                 {
                     return;
                 }
-                await Task.Delay(1000);
-                ___eventStorage___.TickOneSecond();
+
+                await Task.Delay(30);
+                ___eventStorage___.TickPer30FPS();
+
+                totalElapsedTime += 30;
+                if (totalElapsedTime >= 1000)
+                {
+                    totalElapsedTime -= 1000;
+                    ___eventStorage___.TickPerOneSecond();
+                }
             }
         }
 
