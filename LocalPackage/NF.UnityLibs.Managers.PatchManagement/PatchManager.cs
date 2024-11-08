@@ -80,6 +80,12 @@ namespace NF.UnityLibs.Managers.PatchManagement
             }
         }
 #endif // UNITY_EDITOR
+
+        ~PatchManager()
+        {
+            Dispose();
+        }
+
         public void Dispose()
         {
             if (_isDisposed)
@@ -187,18 +193,20 @@ namespace NF.UnityLibs.Managers.PatchManagement
             }
             Debug.LogWarning($"{nameof(FromPatchBuildVersion)} // nextPatchFileList: {nextPatchFileList.Version}");
 
-            // Collecting diff
-            Debug.LogWarning($"{nameof(FromPatchBuildVersion)} // Collecting diff");
             string patchDir = $"{Application.persistentDataPath}/{DevicePersistentPrefix}";
-            List<PatchFileListDifference.PatchStatus>? patchStatusListOrNull = await PatchFileListDifference.DifferenceSetOrNull(currPatchFileListOrNull, nextPatchFileList, patchDir, cancellationToken);
-            if (patchStatusListOrNull == null)
+            List<PatchFileListDifference.PatchStatus> patchStatusList;
             {
-                return new PatchManagerException(E_EXCEPTION_KIND.ERR_SYSTEM_EXCEPTION, "Internal Exception: patchStatusListOrNull == null");
+                // Collecting diff
+                Debug.LogWarning($"{nameof(FromPatchBuildVersion)} // Collecting diff");
+                List<PatchFileListDifference.PatchStatus>? patchStatusListOrNull = await PatchFileListDifference.DifferenceSetOrNull(currPatchFileListOrNull, nextPatchFileList, patchDir, cancellationToken);
+                if (patchStatusListOrNull == null)
+                {
+                    return new PatchManagerException(E_EXCEPTION_KIND.ERR_SYSTEM_EXCEPTION, "Internal Exception: patchStatusListOrNull == null");
+                }
+                patchStatusList = patchStatusListOrNull!;
             }
 
             {
-                List<PatchFileListDifference.PatchStatus> patchStatusList = patchStatusListOrNull!;
-
                 {
                     // Skip
                     Debug.LogWarning($"{nameof(FromPatchBuildVersion)} // Skip");
