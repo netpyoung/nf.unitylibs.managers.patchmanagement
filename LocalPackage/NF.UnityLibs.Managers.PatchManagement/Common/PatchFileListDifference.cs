@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace NF.UnityLibs.Managers.PatchManagement.Common
@@ -29,7 +30,7 @@ namespace NF.UnityLibs.Managers.PatchManagement.Common
             }
         }
 
-        private static async Task<PatchStatus> _GetPatchStatus(KeyValuePair<string, PatchFileList.PatchFileInfo> currKeyValue, PatchFileList nextPatchFileList, string patchFileDir)
+        private static async Task<PatchStatus> _GetPatchStatus(KeyValuePair<string, PatchFileList.PatchFileInfo> currKeyValue, PatchFileList nextPatchFileList, string patchFileDir, CancellationToken cancellationToken)
         {
             (string currKey, PatchFileList.PatchFileInfo currValue) = currKeyValue;
             if (!nextPatchFileList.Dic.TryGetValue(currKey, out PatchFileList.PatchFileInfo? nextValueOrNull))
@@ -52,7 +53,7 @@ namespace NF.UnityLibs.Managers.PatchManagement.Common
                     return new PatchStatus(nextValue, PatchStatus.E_STATE.UPDATE, occupiedByte);
                 }
 
-                uint checksum = await CRC32.ComputeFromFpathAsync(downloadFpath);
+                uint checksum = await CRC32.ComputeFromFpathAsync(downloadFpath, cancellationToken);
                 if (checksum != nextValue.Checksum)
                 {
                     return new PatchStatus(nextValue, PatchStatus.E_STATE.UPDATE, occupiedByte);
@@ -67,7 +68,7 @@ namespace NF.UnityLibs.Managers.PatchManagement.Common
             return x.PatchFileInfo.Bytes.CompareTo(y.PatchFileInfo.Bytes);
         }
 
-        public async static Task<List<PatchStatus>?> DifferenceSetOrNull(PatchFileList? currPatchFileListOrNull, PatchFileList nextPatchFileList, string patchFileDir)
+        public async static Task<List<PatchStatus>?> DifferenceSetOrNull(PatchFileList? currPatchFileListOrNull, PatchFileList nextPatchFileList, string patchFileDir, CancellationToken cancellationToken = default)
         {
             PatchFileList currPatchFileList;
             if (currPatchFileListOrNull != null)
@@ -79,7 +80,7 @@ namespace NF.UnityLibs.Managers.PatchManagement.Common
                 currPatchFileList = nextPatchFileList;
             }
 
-            IEnumerable<Task<PatchStatus>> tasks = currPatchFileList.Dic.Select(kv => _GetPatchStatus(kv, nextPatchFileList, patchFileDir));
+            IEnumerable<Task<PatchStatus>> tasks = currPatchFileList.Dic.Select(kv => _GetPatchStatus(kv, nextPatchFileList, patchFileDir, cancellationToken));
             PatchStatus[] statusArr = await Task.WhenAll(tasks);
 
             List<PatchStatus> ret = statusArr.ToList();

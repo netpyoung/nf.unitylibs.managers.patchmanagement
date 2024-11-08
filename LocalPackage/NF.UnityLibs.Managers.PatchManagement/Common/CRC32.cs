@@ -3,6 +3,7 @@ using System.Buffers;
 using System.IO;
 using System.IO.MemoryMappedFiles;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace NF.UnityLibs.Managers.PatchManagement.Common
@@ -30,7 +31,7 @@ namespace NF.UnityLibs.Managers.PatchManagement.Common
             return ~crc;
         }
 
-        public static async Task<uint> ComputeFromStreamAsync(Stream stream)
+        public static async Task<uint> ComputeFromStreamAsync(Stream stream, CancellationToken cancellationToken)
         {
             uint crc = 0xFFFFFFFF;
             byte[] buffer = ArrayPool<byte>.Shared.Rent(BUFFER_SIZE);
@@ -39,6 +40,11 @@ namespace NF.UnityLibs.Managers.PatchManagement.Common
                 int bytesRead;
                 while ((bytesRead = await stream.ReadAsync(buffer, 0, BUFFER_SIZE)) > 0)
                 {
+                    if (cancellationToken.IsCancellationRequested)
+                    {
+                        return 0;
+                    }
+
                     for (int i = 0; i < bytesRead; i++)
                     {
                         byte tableIndex = (byte)((crc ^ buffer[i]) & 0xFF);
@@ -54,7 +60,7 @@ namespace NF.UnityLibs.Managers.PatchManagement.Common
             return ~crc;
         }
 
-        public static async Task<uint> ComputeFromFpathAsync(string fpath)
+        public static async Task<uint> ComputeFromFpathAsync(string fpath, CancellationToken cancellationToken = default)
         {
             try
             {
@@ -66,7 +72,7 @@ namespace NF.UnityLibs.Managers.PatchManagement.Common
                 using (MemoryMappedFile mmf = MemoryMappedFile.CreateFromFile(fpath, FileMode.Open, null, bytes))
                 using (MemoryMappedViewStream stream = mmf.CreateViewStream(0, bytes, MemoryMappedFileAccess.Read))
                 {
-                    return await ComputeFromStreamAsync(stream);
+                    return await ComputeFromStreamAsync(stream, cancellationToken);
                 }
             }
 #if UNITY_5_3_OR_NEWER && NF_PATCHMANAGEMENT_LOG_ENABLED
