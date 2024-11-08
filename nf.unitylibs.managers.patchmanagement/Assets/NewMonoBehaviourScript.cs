@@ -8,22 +8,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using Logger = Unity.Logging.Logger;
 
-public sealed class HelloException : Exception
-{
-    public override string StackTrace { get; }
-
-    public HelloException()
-    {
-        string msg = Environment.StackTrace;
-        StackTrace = msg.Substring(msg.IndexOf('\n', msg.IndexOf('\n') + 1) + 1);
-    }
-}
-
 public sealed class NewMonoBehaviourScript : MonoBehaviour, IPatchManagerEventReceiver
 {
     public Slider _slider_Total;
     public TextMeshProUGUI _txt_Total;
-
     public Slider _slider_0;
     public Slider _slider_1;
     public Slider _slider_2;
@@ -63,11 +51,6 @@ public sealed class NewMonoBehaviourScript : MonoBehaviour, IPatchManagerEventRe
             return;
         }
         Debug.Log("!!!!!!!!!!!!");
-    }
-
-    Exception HEllo()
-    {
-        return new HelloException();
     }
 
     #region IPatchManagerEventReceiver

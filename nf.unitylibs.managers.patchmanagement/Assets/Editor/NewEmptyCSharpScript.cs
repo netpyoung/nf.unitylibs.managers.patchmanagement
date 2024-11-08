@@ -22,7 +22,7 @@ public sealed class NewEmptyCSharpScript
         int patchNumber = 0;
         Stopwatch sw = new Stopwatch();
         sw.Start();
-        string x = PatchDataGenerator.CreatePatchFileListJson(patchNumber, patchSrcDir);
+        string? x = PatchDataGenerator.CreatePatchFileListJson(patchNumber, patchSrcDir);
         sw.Stop();
         Log.Info($"stop: {sw.ElapsedMilliseconds} ms");
     }

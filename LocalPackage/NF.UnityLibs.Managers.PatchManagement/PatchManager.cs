@@ -88,10 +88,10 @@ namespace NF.UnityLibs.Managers.PatchManagement
             }
         }
 
-        public Task<Exception?> FromCurrentAppVersion()
+        public async Task<Exception?> FromCurrentAppVersion()
         {
             string appVersion = Application.version;
-            return FromAppVersion(appVersion);
+            return await FromAppVersion(appVersion);
         }
 
         public async Task<Exception?> FromAppVersion(string appVersion)
@@ -134,7 +134,7 @@ namespace NF.UnityLibs.Managers.PatchManagement
 
                 nextPatchFileList = remotePatchFileListOrNull!;
             }
-            Debug.LogWarning($"{nameof(FromPatchBuildVersion)} // nextPatchFileList: {nextPatchFileList}");
+            Debug.LogWarning($"{nameof(FromPatchBuildVersion)} // nextPatchFileList: {nextPatchFileList.Version}");
 
             string currPatchFileListFpath = $"{Application.persistentDataPath}/{DevicePersistentPrefix}/{nameof(PatchFileList)}.json";
             PatchFileList? currPatchFileListOrNull = GetCurrPatchFileListOrNull(currPatchFileListFpath);
