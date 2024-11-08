@@ -81,7 +81,7 @@ namespace NF.UnityLibs.Managers.PatchManagement.Common
             }
 
             IEnumerable<Task<PatchStatus>> tasks = currPatchFileList.Dic.Select(kv => _GetPatchStatus(kv, nextPatchFileList, patchFileDir, cancellationToken));
-            PatchStatus[] statusArr = await Task.WhenAll(tasks);
+            PatchStatus[] statusArr = await Task.Run(() => Task.WhenAll(tasks));
 
             List<PatchStatus> ret = statusArr.ToList();
             string[] newAssetNames = nextPatchFileList.Dic.Keys.Except(currPatchFileList.Dic.Keys).ToArray();
