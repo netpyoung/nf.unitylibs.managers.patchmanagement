@@ -89,7 +89,7 @@
 
 
   <h1 id="NF_UnityLibs_Managers_PatchManagement_PatchManager" data-uid="NF.UnityLibs.Managers.PatchManagement.PatchManager" class="text-break">
-Class PatchManager  <a class="header-action link-secondary" title="View source" href="https://github.com/netpyoung/nf.unitylibs.managers.patchmanagement/blob/main/LocalPackage/NF.UnityLibs.Managers.PatchManagement/PatchManager.cs/#L19"><i class="bi bi-code-slash"></i></a>
+Class PatchManager  <a class="header-action link-secondary" title="View source" href="https://github.com/netpyoung/nf.unitylibs.managers.patchmanagement/blob/main/LocalPackage/NF.UnityLibs.Managers.PatchManagement/PatchManager.cs/#L20"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -102,7 +102,7 @@ Class PatchManager  <a class="header-action link-secondary" title="View source" 
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Serializable]
-public sealed class PatchManager</code></pre>
+public sealed class PatchManager : IDisposable</code></pre>
   </div>
 
 
@@ -116,6 +116,12 @@ public sealed class PatchManager</code></pre>
     </dd>
   </dl>
 
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
 
 
   <dl class="typelist inheritedMembers">
@@ -154,7 +160,7 @@ public sealed class PatchManager</code></pre>
 
   <h3 id="NF_UnityLibs_Managers_PatchManagement_PatchManager_DevicePersistentPrefix" data-uid="NF.UnityLibs.Managers.PatchManagement.PatchManager.DevicePersistentPrefix">
   DevicePersistentPrefix
-  <a class="header-action link-secondary" title="View source" href="https://github.com/netpyoung/nf.unitylibs.managers.patchmanagement/blob/main/LocalPackage/NF.UnityLibs.Managers.PatchManagement/PatchManager.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/netpyoung/nf.unitylibs.managers.patchmanagement/blob/main/LocalPackage/NF.UnityLibs.Managers.PatchManagement/PatchManager.cs/#L63"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -185,7 +191,7 @@ public sealed class PatchManager</code></pre>
 
   <h3 id="NF_UnityLibs_Managers_PatchManagement_PatchManager_RemoteURL_Base" data-uid="NF.UnityLibs.Managers.PatchManagement.PatchManager.RemoteURL_Base">
   RemoteURL_Base
-  <a class="header-action link-secondary" title="View source" href="https://github.com/netpyoung/nf.unitylibs.managers.patchmanagement/blob/main/LocalPackage/NF.UnityLibs.Managers.PatchManagement/PatchManager.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/netpyoung/nf.unitylibs.managers.patchmanagement/blob/main/LocalPackage/NF.UnityLibs.Managers.PatchManagement/PatchManager.cs/#L61"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -216,7 +222,7 @@ public sealed class PatchManager</code></pre>
 
   <h3 id="NF_UnityLibs_Managers_PatchManagement_PatchManager_RemoteURL_SubPath" data-uid="NF.UnityLibs.Managers.PatchManagement.PatchManager.RemoteURL_SubPath">
   RemoteURL_SubPath
-  <a class="header-action link-secondary" title="View source" href="https://github.com/netpyoung/nf.unitylibs.managers.patchmanagement/blob/main/LocalPackage/NF.UnityLibs.Managers.PatchManagement/PatchManager.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/netpyoung/nf.unitylibs.managers.patchmanagement/blob/main/LocalPackage/NF.UnityLibs.Managers.PatchManagement/PatchManager.cs/#L62"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -247,11 +253,38 @@ public sealed class PatchManager</code></pre>
 </h2>
 
 
+  <a id="NF_UnityLibs_Managers_PatchManagement_PatchManager_Dispose_" data-uid="NF.UnityLibs.Managers.PatchManagement.PatchManager.Dispose*"></a>
+
+  <h3 id="NF_UnityLibs_Managers_PatchManagement_PatchManager_Dispose" data-uid="NF.UnityLibs.Managers.PatchManagement.PatchManager.Dispose">
+  Dispose()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/netpyoung/nf.unitylibs.managers.patchmanagement/blob/main/LocalPackage/NF.UnityLibs.Managers.PatchManagement/PatchManager.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="NF_UnityLibs_Managers_PatchManagement_PatchManager_FromAppVersion_" data-uid="NF.UnityLibs.Managers.PatchManagement.PatchManager.FromAppVersion*"></a>
 
   <h3 id="NF_UnityLibs_Managers_PatchManagement_PatchManager_FromAppVersion_System_String_" data-uid="NF.UnityLibs.Managers.PatchManagement.PatchManager.FromAppVersion(System.String)">
   FromAppVersion(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/netpyoung/nf.unitylibs.managers.patchmanagement/blob/main/LocalPackage/NF.UnityLibs.Managers.PatchManagement/PatchManager.cs/#L97"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/netpyoung/nf.unitylibs.managers.patchmanagement/blob/main/LocalPackage/NF.UnityLibs.Managers.PatchManagement/PatchManager.cs/#L125"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -287,7 +320,7 @@ public sealed class PatchManager</code></pre>
 
   <h3 id="NF_UnityLibs_Managers_PatchManagement_PatchManager_FromCurrentAppVersion" data-uid="NF.UnityLibs.Managers.PatchManagement.PatchManager.FromCurrentAppVersion">
   FromCurrentAppVersion()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/netpyoung/nf.unitylibs.managers.patchmanagement/blob/main/LocalPackage/NF.UnityLibs.Managers.PatchManagement/PatchManager.cs/#L91"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/netpyoung/nf.unitylibs.managers.patchmanagement/blob/main/LocalPackage/NF.UnityLibs.Managers.PatchManagement/PatchManager.cs/#L119"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -318,7 +351,7 @@ public sealed class PatchManager</code></pre>
 
   <h3 id="NF_UnityLibs_Managers_PatchManagement_PatchManager_FromPatchBuildVersion_System_Int32_" data-uid="NF.UnityLibs.Managers.PatchManagement.PatchManager.FromPatchBuildVersion(System.Int32)">
   FromPatchBuildVersion(int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/netpyoung/nf.unitylibs.managers.patchmanagement/blob/main/LocalPackage/NF.UnityLibs.Managers.PatchManagement/PatchManager.cs/#L124"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/netpyoung/nf.unitylibs.managers.patchmanagement/blob/main/LocalPackage/NF.UnityLibs.Managers.PatchManagement/PatchManager.cs/#L152"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -354,7 +387,7 @@ public sealed class PatchManager</code></pre>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/netpyoung/nf.unitylibs.managers.patchmanagement/blob/main/LocalPackage/NF.UnityLibs.Managers.PatchManagement/PatchManager.cs/#L19" class="edit-link">Edit this page</a>
+          <a href="https://github.com/netpyoung/nf.unitylibs.managers.patchmanagement/blob/main/LocalPackage/NF.UnityLibs.Managers.PatchManagement/PatchManager.cs/#L20" class="edit-link">Edit this page</a>
         </div>
 
 

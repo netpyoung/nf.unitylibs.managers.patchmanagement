@@ -19,22 +19,22 @@ references:
   commentId: T:NF.UnityLibs.Managers.PatchManagement.Common.CRC32
   fullName: NF.UnityLibs.Managers.PatchManagement.Common.CRC32
   nameWithType: CRC32
-- uid: NF.UnityLibs.Managers.PatchManagement.Common.CRC32.ComputeFromFpath(System.String)
-  name: ComputeFromFpath(string)
-  href: api/NF.UnityLibs.Managers.PatchManagement.Common.CRC32.html#NF_UnityLibs_Managers_PatchManagement_Common_CRC32_ComputeFromFpath_System_String_
-  commentId: M:NF.UnityLibs.Managers.PatchManagement.Common.CRC32.ComputeFromFpath(System.String)
-  name.vb: ComputeFromFpath(String)
-  fullName: NF.UnityLibs.Managers.PatchManagement.Common.CRC32.ComputeFromFpath(string)
-  fullName.vb: NF.UnityLibs.Managers.PatchManagement.Common.CRC32.ComputeFromFpath(String)
-  nameWithType: CRC32.ComputeFromFpath(string)
-  nameWithType.vb: CRC32.ComputeFromFpath(String)
-- uid: NF.UnityLibs.Managers.PatchManagement.Common.CRC32.ComputeFromFpath*
-  name: ComputeFromFpath
-  href: api/NF.UnityLibs.Managers.PatchManagement.Common.CRC32.html#NF_UnityLibs_Managers_PatchManagement_Common_CRC32_ComputeFromFpath_
-  commentId: Overload:NF.UnityLibs.Managers.PatchManagement.Common.CRC32.ComputeFromFpath
+- uid: NF.UnityLibs.Managers.PatchManagement.Common.CRC32.ComputeFromFpathAsync(System.String,System.Threading.CancellationToken)
+  name: ComputeFromFpathAsync(string, CancellationToken)
+  href: api/NF.UnityLibs.Managers.PatchManagement.Common.CRC32.html#NF_UnityLibs_Managers_PatchManagement_Common_CRC32_ComputeFromFpathAsync_System_String_System_Threading_CancellationToken_
+  commentId: M:NF.UnityLibs.Managers.PatchManagement.Common.CRC32.ComputeFromFpathAsync(System.String,System.Threading.CancellationToken)
+  name.vb: ComputeFromFpathAsync(String, CancellationToken)
+  fullName: NF.UnityLibs.Managers.PatchManagement.Common.CRC32.ComputeFromFpathAsync(string, System.Threading.CancellationToken)
+  fullName.vb: NF.UnityLibs.Managers.PatchManagement.Common.CRC32.ComputeFromFpathAsync(String, System.Threading.CancellationToken)
+  nameWithType: CRC32.ComputeFromFpathAsync(string, CancellationToken)
+  nameWithType.vb: CRC32.ComputeFromFpathAsync(String, CancellationToken)
+- uid: NF.UnityLibs.Managers.PatchManagement.Common.CRC32.ComputeFromFpathAsync*
+  name: ComputeFromFpathAsync
+  href: api/NF.UnityLibs.Managers.PatchManagement.Common.CRC32.html#NF_UnityLibs_Managers_PatchManagement_Common_CRC32_ComputeFromFpathAsync_
+  commentId: Overload:NF.UnityLibs.Managers.PatchManagement.Common.CRC32.ComputeFromFpathAsync
   isSpec: "True"
-  fullName: NF.UnityLibs.Managers.PatchManagement.Common.CRC32.ComputeFromFpath
-  nameWithType: CRC32.ComputeFromFpath
+  fullName: NF.UnityLibs.Managers.PatchManagement.Common.CRC32.ComputeFromFpathAsync
+  nameWithType: CRC32.ComputeFromFpathAsync
 - uid: NF.UnityLibs.Managers.PatchManagement.Common.CRC32.ComputeFromSpan(System.ReadOnlySpan{System.Byte})
   name: ComputeFromSpan(ReadOnlySpan<byte>)
   href: api/NF.UnityLibs.Managers.PatchManagement.Common.CRC32.html#NF_UnityLibs_Managers_PatchManagement_Common_CRC32_ComputeFromSpan_System_ReadOnlySpan_System_Byte__
@@ -67,19 +67,19 @@ references:
   isSpec: "True"
   fullName: NF.UnityLibs.Managers.PatchManagement.Common.CRC32.ComputeFromStr
   nameWithType: CRC32.ComputeFromStr
-- uid: NF.UnityLibs.Managers.PatchManagement.Common.CRC32.ComputeFromStream(System.IO.Stream)
-  name: ComputeFromStream(Stream)
-  href: api/NF.UnityLibs.Managers.PatchManagement.Common.CRC32.html#NF_UnityLibs_Managers_PatchManagement_Common_CRC32_ComputeFromStream_System_IO_Stream_
-  commentId: M:NF.UnityLibs.Managers.PatchManagement.Common.CRC32.ComputeFromStream(System.IO.Stream)
-  fullName: NF.UnityLibs.Managers.PatchManagement.Common.CRC32.ComputeFromStream(System.IO.Stream)
-  nameWithType: CRC32.ComputeFromStream(Stream)
-- uid: NF.UnityLibs.Managers.PatchManagement.Common.CRC32.ComputeFromStream*
-  name: ComputeFromStream
-  href: api/NF.UnityLibs.Managers.PatchManagement.Common.CRC32.html#NF_UnityLibs_Managers_PatchManagement_Common_CRC32_ComputeFromStream_
-  commentId: Overload:NF.UnityLibs.Managers.PatchManagement.Common.CRC32.ComputeFromStream
+- uid: NF.UnityLibs.Managers.PatchManagement.Common.CRC32.ComputeFromStreamAsync(System.IO.Stream,System.Threading.CancellationToken)
+  name: ComputeFromStreamAsync(Stream, CancellationToken)
+  href: api/NF.UnityLibs.Managers.PatchManagement.Common.CRC32.html#NF_UnityLibs_Managers_PatchManagement_Common_CRC32_ComputeFromStreamAsync_System_IO_Stream_System_Threading_CancellationToken_
+  commentId: M:NF.UnityLibs.Managers.PatchManagement.Common.CRC32.ComputeFromStreamAsync(System.IO.Stream,System.Threading.CancellationToken)
+  fullName: NF.UnityLibs.Managers.PatchManagement.Common.CRC32.ComputeFromStreamAsync(System.IO.Stream, System.Threading.CancellationToken)
+  nameWithType: CRC32.ComputeFromStreamAsync(Stream, CancellationToken)
+- uid: NF.UnityLibs.Managers.PatchManagement.Common.CRC32.ComputeFromStreamAsync*
+  name: ComputeFromStreamAsync
+  href: api/NF.UnityLibs.Managers.PatchManagement.Common.CRC32.html#NF_UnityLibs_Managers_PatchManagement_Common_CRC32_ComputeFromStreamAsync_
+  commentId: Overload:NF.UnityLibs.Managers.PatchManagement.Common.CRC32.ComputeFromStreamAsync
   isSpec: "True"
-  fullName: NF.UnityLibs.Managers.PatchManagement.Common.CRC32.ComputeFromStream
-  nameWithType: CRC32.ComputeFromStream
+  fullName: NF.UnityLibs.Managers.PatchManagement.Common.CRC32.ComputeFromStreamAsync
+  nameWithType: CRC32.ComputeFromStreamAsync
 - uid: NF.UnityLibs.Managers.PatchManagement.Common.PatchDataGenerator
   name: PatchDataGenerator
   href: api/NF.UnityLibs.Managers.PatchManagement.Common.PatchDataGenerator.html
@@ -313,15 +313,15 @@ references:
   commentId: T:NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference
   fullName: NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference
   nameWithType: PatchFileListDifference
-- uid: NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.DifferenceSetOrNull(NF.UnityLibs.Managers.PatchManagement.Common.PatchFileList,NF.UnityLibs.Managers.PatchManagement.Common.PatchFileList,System.String)
-  name: DifferenceSetOrNull(PatchFileList?, PatchFileList, string)
-  href: api/NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.html#NF_UnityLibs_Managers_PatchManagement_Common_PatchFileListDifference_DifferenceSetOrNull_NF_UnityLibs_Managers_PatchManagement_Common_PatchFileList_NF_UnityLibs_Managers_PatchManagement_Common_PatchFileList_System_String_
-  commentId: M:NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.DifferenceSetOrNull(NF.UnityLibs.Managers.PatchManagement.Common.PatchFileList,NF.UnityLibs.Managers.PatchManagement.Common.PatchFileList,System.String)
-  name.vb: DifferenceSetOrNull(PatchFileList, PatchFileList, String)
-  fullName: NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.DifferenceSetOrNull(NF.UnityLibs.Managers.PatchManagement.Common.PatchFileList?, NF.UnityLibs.Managers.PatchManagement.Common.PatchFileList, string)
-  fullName.vb: NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.DifferenceSetOrNull(NF.UnityLibs.Managers.PatchManagement.Common.PatchFileList, NF.UnityLibs.Managers.PatchManagement.Common.PatchFileList, String)
-  nameWithType: PatchFileListDifference.DifferenceSetOrNull(PatchFileList?, PatchFileList, string)
-  nameWithType.vb: PatchFileListDifference.DifferenceSetOrNull(PatchFileList, PatchFileList, String)
+- uid: NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.DifferenceSetOrNull(NF.UnityLibs.Managers.PatchManagement.Common.PatchFileList,NF.UnityLibs.Managers.PatchManagement.Common.PatchFileList,System.String,System.Threading.CancellationToken)
+  name: DifferenceSetOrNull(PatchFileList?, PatchFileList, string, CancellationToken)
+  href: api/NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.html#NF_UnityLibs_Managers_PatchManagement_Common_PatchFileListDifference_DifferenceSetOrNull_NF_UnityLibs_Managers_PatchManagement_Common_PatchFileList_NF_UnityLibs_Managers_PatchManagement_Common_PatchFileList_System_String_System_Threading_CancellationToken_
+  commentId: M:NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.DifferenceSetOrNull(NF.UnityLibs.Managers.PatchManagement.Common.PatchFileList,NF.UnityLibs.Managers.PatchManagement.Common.PatchFileList,System.String,System.Threading.CancellationToken)
+  name.vb: DifferenceSetOrNull(PatchFileList, PatchFileList, String, CancellationToken)
+  fullName: NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.DifferenceSetOrNull(NF.UnityLibs.Managers.PatchManagement.Common.PatchFileList?, NF.UnityLibs.Managers.PatchManagement.Common.PatchFileList, string, System.Threading.CancellationToken)
+  fullName.vb: NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.DifferenceSetOrNull(NF.UnityLibs.Managers.PatchManagement.Common.PatchFileList, NF.UnityLibs.Managers.PatchManagement.Common.PatchFileList, String, System.Threading.CancellationToken)
+  nameWithType: PatchFileListDifference.DifferenceSetOrNull(PatchFileList?, PatchFileList, string, CancellationToken)
+  nameWithType.vb: PatchFileListDifference.DifferenceSetOrNull(PatchFileList, PatchFileList, String, CancellationToken)
 - uid: NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.DifferenceSetOrNull*
   name: DifferenceSetOrNull
   href: api/NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.html#NF_UnityLibs_Managers_PatchManagement_Common_PatchFileListDifference_DifferenceSetOrNull_
@@ -502,6 +502,12 @@ references:
   commentId: F:NF.UnityLibs.Managers.PatchManagement.E_EXCEPTION_KIND.ERR_WEBREQUEST_TXT_IS_EMPTY
   fullName: NF.UnityLibs.Managers.PatchManagement.E_EXCEPTION_KIND.ERR_WEBREQUEST_TXT_IS_EMPTY
   nameWithType: E_EXCEPTION_KIND.ERR_WEBREQUEST_TXT_IS_EMPTY
+- uid: NF.UnityLibs.Managers.PatchManagement.E_EXCEPTION_KIND.NONE
+  name: NONE
+  href: api/NF.UnityLibs.Managers.PatchManagement.E_EXCEPTION_KIND.html#NF_UnityLibs_Managers_PatchManagement_E_EXCEPTION_KIND_NONE
+  commentId: F:NF.UnityLibs.Managers.PatchManagement.E_EXCEPTION_KIND.NONE
+  fullName: NF.UnityLibs.Managers.PatchManagement.E_EXCEPTION_KIND.NONE
+  nameWithType: E_EXCEPTION_KIND.NONE
 - uid: NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver
   name: IPatchManagerEventReceiver
   href: api/NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.html
@@ -572,6 +578,19 @@ references:
   isSpec: "True"
   fullName: NF.UnityLibs.Managers.PatchManagement.PatchManager.DevicePersistentPrefix
   nameWithType: PatchManager.DevicePersistentPrefix
+- uid: NF.UnityLibs.Managers.PatchManagement.PatchManager.Dispose
+  name: Dispose()
+  href: api/NF.UnityLibs.Managers.PatchManagement.PatchManager.html#NF_UnityLibs_Managers_PatchManagement_PatchManager_Dispose
+  commentId: M:NF.UnityLibs.Managers.PatchManagement.PatchManager.Dispose
+  fullName: NF.UnityLibs.Managers.PatchManagement.PatchManager.Dispose()
+  nameWithType: PatchManager.Dispose()
+- uid: NF.UnityLibs.Managers.PatchManagement.PatchManager.Dispose*
+  name: Dispose
+  href: api/NF.UnityLibs.Managers.PatchManagement.PatchManager.html#NF_UnityLibs_Managers_PatchManagement_PatchManager_Dispose_
+  commentId: Overload:NF.UnityLibs.Managers.PatchManagement.PatchManager.Dispose
+  isSpec: "True"
+  fullName: NF.UnityLibs.Managers.PatchManagement.PatchManager.Dispose
+  nameWithType: PatchManager.Dispose
 - uid: NF.UnityLibs.Managers.PatchManagement.PatchManager.FromAppVersion(System.String)
   name: FromAppVersion(string)
   href: api/NF.UnityLibs.Managers.PatchManagement.PatchManager.html#NF_UnityLibs_Managers_PatchManagement_PatchManager_FromAppVersion_System_String_
