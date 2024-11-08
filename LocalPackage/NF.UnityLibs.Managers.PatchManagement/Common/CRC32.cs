@@ -3,6 +3,7 @@ using System.Buffers;
 using System.IO;
 using System.IO.MemoryMappedFiles;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace NF.UnityLibs.Managers.PatchManagement.Common
 {
@@ -29,14 +30,14 @@ namespace NF.UnityLibs.Managers.PatchManagement.Common
             return ~crc;
         }
 
-        public static uint ComputeFromStream(Stream stream)
+        public static async Task<uint> ComputeFromStreamAsync(Stream stream)
         {
             uint crc = 0xFFFFFFFF;
             byte[] buffer = ArrayPool<byte>.Shared.Rent(BUFFER_SIZE);
             try
             {
                 int bytesRead;
-                while ((bytesRead = stream.Read(buffer, 0, BUFFER_SIZE)) > 0)
+                while ((bytesRead = await stream.ReadAsync(buffer, 0, BUFFER_SIZE)) > 0)
                 {
                     for (int i = 0; i < bytesRead; i++)
                     {
@@ -53,7 +54,7 @@ namespace NF.UnityLibs.Managers.PatchManagement.Common
             return ~crc;
         }
 
-        public static uint ComputeFromFpath(string fpath)
+        public static async Task<uint> ComputeFromFpathAsync(string fpath)
         {
             try
             {
@@ -65,7 +66,7 @@ namespace NF.UnityLibs.Managers.PatchManagement.Common
                 using (MemoryMappedFile mmf = MemoryMappedFile.CreateFromFile(fpath, FileMode.Open, null, bytes))
                 using (MemoryMappedViewStream stream = mmf.CreateViewStream(0, bytes, MemoryMappedFileAccess.Read))
                 {
-                    return ComputeFromStream(stream);
+                    return await ComputeFromStreamAsync(stream);
                 }
             }
 #if UNITY_5_3_OR_NEWER && NF_PATCHMANAGEMENT_LOG_ENABLED

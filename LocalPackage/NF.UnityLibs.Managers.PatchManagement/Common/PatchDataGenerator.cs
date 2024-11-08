@@ -65,9 +65,9 @@ namespace NF.UnityLibs.Managers.PatchManagement.Common
                 }
 
                 long bytes = new FileInfo(path).Length;
-                tasks.Add(Task.Run(() =>
+                tasks.Add(Task.Run(async () =>
                 {
-                    uint checksum = CRC32.ComputeFromFpath(path);
+                    uint checksum = await CRC32.ComputeFromFpathAsync(path);
                     PatchFileList.PatchFileInfo patchFileInfo = new PatchFileList.PatchFileInfo(filename, bytes, checksum);
                     cq.Enqueue(patchFileInfo);
                 }));

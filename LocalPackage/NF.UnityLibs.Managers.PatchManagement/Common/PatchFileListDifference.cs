@@ -29,7 +29,7 @@ namespace NF.UnityLibs.Managers.PatchManagement.Common
             }
         }
 
-        private static PatchStatus _GetPatchStatus(KeyValuePair<string, PatchFileList.PatchFileInfo> currKeyValue, PatchFileList nextPatchFileList, string patchFileDir)
+        private static async Task<PatchStatus> _GetPatchStatus(KeyValuePair<string, PatchFileList.PatchFileInfo> currKeyValue, PatchFileList nextPatchFileList, string patchFileDir)
         {
             (string currKey, PatchFileList.PatchFileInfo currValue) = currKeyValue;
             if (!nextPatchFileList.Dic.TryGetValue(currKey, out PatchFileList.PatchFileInfo? nextValueOrNull))
@@ -52,7 +52,7 @@ namespace NF.UnityLibs.Managers.PatchManagement.Common
                     return new PatchStatus(nextValue, PatchStatus.E_STATE.UPDATE, occupiedByte);
                 }
 
-                uint checksum = CRC32.ComputeFromFpath(downloadFpath);
+                uint checksum = await CRC32.ComputeFromFpathAsync(downloadFpath);
                 if (checksum != nextValue.Checksum)
                 {
                     return new PatchStatus(nextValue, PatchStatus.E_STATE.UPDATE, occupiedByte);
@@ -79,22 +79,10 @@ namespace NF.UnityLibs.Managers.PatchManagement.Common
                 currPatchFileList = nextPatchFileList;
             }
 
-            ConcurrentQueue<PatchStatus> cq = new ConcurrentQueue<PatchStatus>();
-            Task<ParallelLoopResult> task = Task.Run(() =>
-                Parallel.ForEach(currPatchFileList.Dic, kv =>
-                {
-                    PatchStatus patchStatus = _GetPatchStatus(kv, nextPatchFileList, patchFileDir);
-                    cq.Enqueue(patchStatus);
-                })
-            );
+            IEnumerable<Task<PatchStatus>> tasks = currPatchFileList.Dic.Select(kv => _GetPatchStatus(kv, nextPatchFileList, patchFileDir));
+            PatchStatus[] statusArr = await Task.WhenAll(tasks);
 
-            ParallelLoopResult result = await task;
-            if (!result.IsCompleted)
-            {
-                return null;
-            }
-
-            List<PatchStatus> ret = cq.ToList();
+            List<PatchStatus> ret = statusArr.ToList();
             string[] newAssetNames = nextPatchFileList.Dic.Keys.Except(currPatchFileList.Dic.Keys).ToArray();
             foreach (string newAssetName in newAssetNames)
             {
