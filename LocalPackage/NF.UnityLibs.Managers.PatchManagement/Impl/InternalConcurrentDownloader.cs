@@ -170,6 +170,7 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
                 return;
             }
             ___eventStorage___.Dispose();
+            _cancelTokenSource.Cancel();
             _cancelTokenSource.Dispose();
             _isDisposed = true;
         }
