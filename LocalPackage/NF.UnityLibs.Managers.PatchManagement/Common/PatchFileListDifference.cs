@@ -46,10 +46,15 @@ namespace NF.UnityLibs.Managers.PatchManagement.Common
                     return new PatchStatus(nextValue, PatchStatus.E_STATE.UPDATE);
                 }
 
+                long occupiedByte = new FileInfo(downloadFpath).Length;
+                if (occupiedByte != nextValue.Bytes)
+                {
+                    return new PatchStatus(nextValue, PatchStatus.E_STATE.UPDATE, occupiedByte);
+                }
+
                 uint checksum = CRC32.ComputeFromFpath(downloadFpath);
                 if (checksum != nextValue.Checksum)
                 {
-                    long occupiedByte = new FileInfo(downloadFpath).Length;
                     return new PatchStatus(nextValue, PatchStatus.E_STATE.UPDATE, occupiedByte);
                 }
             }
