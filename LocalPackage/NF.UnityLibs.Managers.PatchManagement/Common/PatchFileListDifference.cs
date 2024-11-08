@@ -1,5 +1,4 @@
-﻿using System.Collections.Concurrent;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -65,6 +64,7 @@ namespace NF.UnityLibs.Managers.PatchManagement.Common
 
         private static int _SortByBytesAscending(PatchStatus x, PatchStatus y)
         {
+            // 1, 2, 3, 4, 5 ...
             return x.PatchFileInfo.Bytes.CompareTo(y.PatchFileInfo.Bytes);
         }
 
@@ -85,6 +85,11 @@ namespace NF.UnityLibs.Managers.PatchManagement.Common
                 IEnumerable<Task<PatchStatus>> tasks = currPatchFileList.Dic.Select(kv => _GetPatchStatus(kv, nextPatchFileList, patchFileDir, cancellationToken));
                 return Task.WhenAll(tasks);
             });
+
+            if (cancellationToken.IsCancellationRequested)
+            {
+                return null;
+            }
 
             List<PatchStatus> ret = statusArr.ToList();
             string[] newAssetNames = nextPatchFileList.Dic.Keys.Except(currPatchFileList.Dic.Keys).ToArray();

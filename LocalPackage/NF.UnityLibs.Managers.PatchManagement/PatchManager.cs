@@ -55,7 +55,6 @@ namespace NF.UnityLibs.Managers.PatchManagement
 
         private Option _option;
         private CancellationTokenSource _cancelTokenSource = default!;
-        private CancellationToken _cancelToken;
         private bool _isDisposed;
 
         public string RemoteURL_Base { get => _option.RemoteURL_Base; }
@@ -87,7 +86,11 @@ namespace NF.UnityLibs.Managers.PatchManagement
             {
                 return;
             }
-            _cancelTokenSource.Dispose();
+            if (_cancelTokenSource != null)
+            {
+                _cancelTokenSource.Cancel();
+                _cancelTokenSource.Dispose();
+            }
             _isDisposed = true;
         }
 
@@ -154,9 +157,10 @@ namespace NF.UnityLibs.Managers.PatchManagement
             if (_cancelTokenSource != null)
             {
                 _cancelTokenSource.Cancel();
+                _cancelTokenSource.Dispose();
             }
             _cancelTokenSource = new CancellationTokenSource();
-            _cancelToken = _cancelTokenSource.Token;
+            CancellationToken cancellationToken = _cancelTokenSource.Token;
 
             string currPatchFileListFpath = $"{Application.persistentDataPath}/{DevicePersistentPrefix}/{nameof(PatchFileList)}.json";
             PatchFileList? currPatchFileListOrNull = GetCurrPatchFileListOrNull(currPatchFileListFpath);
@@ -186,7 +190,7 @@ namespace NF.UnityLibs.Managers.PatchManagement
             // Collecting diff
             Debug.LogWarning($"{nameof(FromPatchBuildVersion)} // Collecting diff");
             string patchDir = $"{Application.persistentDataPath}/{DevicePersistentPrefix}";
-            List<PatchFileListDifference.PatchStatus>? patchStatusListOrNull = await PatchFileListDifference.DifferenceSetOrNull(currPatchFileListOrNull, nextPatchFileList, patchDir, _cancelToken);
+            List<PatchFileListDifference.PatchStatus>? patchStatusListOrNull = await PatchFileListDifference.DifferenceSetOrNull(currPatchFileListOrNull, nextPatchFileList, patchDir, cancellationToken);
             if (patchStatusListOrNull == null)
             {
                 return new PatchManagerException(E_EXCEPTION_KIND.ERR_SYSTEM_EXCEPTION, "Internal Exception: patchStatusListOrNull == null");
@@ -262,7 +266,7 @@ namespace NF.UnityLibs.Managers.PatchManagement
                         {
                             // Validate
                             Debug.LogWarning($"{nameof(FromPatchBuildVersion)} // Validate");
-                            List<PatchFileListDifference.PatchStatus>? validatePatchStatusListOrNull = await PatchFileListDifference.DifferenceSetOrNull(currPatchFileListOrNull, nextPatchFileList, patchDir, _cancelToken);
+                            List<PatchFileListDifference.PatchStatus>? validatePatchStatusListOrNull = await PatchFileListDifference.DifferenceSetOrNull(currPatchFileListOrNull, nextPatchFileList, patchDir, cancellationToken);
                             if (validatePatchStatusListOrNull == null)
                             {
                                 return new PatchManagerException(E_EXCEPTION_KIND.ERR_SYSTEM_EXCEPTION, "Internal Exception: validatePatchStatusListOrNull == null");
@@ -283,7 +287,7 @@ namespace NF.UnityLibs.Managers.PatchManagement
                 string json = nextPatchFileList.ToJson();
                 try
                 {
-                    await File.WriteAllTextAsync(currPatchFileListFpath, json, _cancelToken);
+                    await File.WriteAllTextAsync(currPatchFileListFpath, json, cancellationToken);
                     return null;
                 }
                 catch (Exception ex)
