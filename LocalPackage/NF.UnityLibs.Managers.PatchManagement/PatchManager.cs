@@ -264,10 +264,14 @@ namespace NF.UnityLibs.Managers.PatchManagement
                                 RemoteURL_Parent = $"{RemoteURL_Base}/{RemoteURL_SubPath}/{patchBuildVersion}",
                                 EventReceiver = _option.EventReceiver,
                             };
-                            Exception? exOrNull = await InternalConcurrentDownloader.DownloadAll(opt, updateItems);
-                            if (exOrNull != null)
+
+                            using (InternalConcurrentDownloader concurrentDownloader = InternalConcurrentDownloader.DownloadAll(opt, updateItems))
                             {
-                                return exOrNull!;
+                                Exception? exOrNull = await concurrentDownloader;
+                                if (exOrNull != null)
+                                {
+                                    return exOrNull!;
+                                }
                             }
                         }
 

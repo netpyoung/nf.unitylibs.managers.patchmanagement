@@ -43,14 +43,16 @@ public sealed class NewMonoBehaviourScript : MonoBehaviour, IPatchManagerEventRe
             .WithConcurrentWebRequestMax(5)
             .EventRecieveWith(this)
             .Build();
-        PatchManager patchManager = patchManagerOrNull!;
-        Exception? exOrNull = await patchManager.FromCurrentAppVersion();
-        if (exOrNull != null)
+        using (PatchManager patchManager = patchManagerOrNull!)
         {
-            Debug.LogException(exOrNull, this);
-            return;
+            Exception? exOrNull = await patchManager.FromCurrentAppVersion();
+            if (exOrNull != null)
+            {
+                Debug.LogException(exOrNull, this);
+                return;
+            }
+            Debug.Log("!!!!!!!!!!!!");
         }
-        Debug.Log("!!!!!!!!!!!!");
     }
 
     #region IPatchManagerEventReceiver
