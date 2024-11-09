@@ -7,6 +7,7 @@ namespace NF.UnityLibs.Managers.PatchManagement
         Task<bool> OnIsEnoughStorageSpace(long needFreeStorageBytes);
         void OnProgressFileInfo(ProgressFileInfo info);
         void OnProgressTotal(float progressTotal, long bytesDownloadedPerSecond);
+        void OnStateChanged(E_PATCH_STATE state, string debugMessage = "");
 
         internal sealed class DummyPatchManagerEventReceiver : IPatchManagerEventReceiver
         {
@@ -20,6 +21,10 @@ namespace NF.UnityLibs.Managers.PatchManagement
             }
 
             public void OnProgressTotal(float progressTotal, long bytesDownloadedPerSecond)
+            {
+            }
+
+            public void OnStateChanged(E_PATCH_STATE state, string debugMessage)
             {
             }
         }

@@ -92,5 +92,10 @@ namespace NF.UnityLibs.Managers.PatchManagement.Common
             ret.UpdateTotalBytes();
             return ret;
         }
+
+        public override string ToString()
+        {
+            return $"<PatchFileList: {Version} / {TotalBytes} / {Dic.Count}>";
+        }
     }
 }

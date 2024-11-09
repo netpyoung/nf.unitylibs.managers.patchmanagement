@@ -75,6 +75,11 @@ public sealed class NewMonoBehaviourScript : MonoBehaviour, IPatchManagerEventRe
         _slider_Total.value = progressTotal;
         _txt_Total.text = $"{bytesDownloadedPerSecond.ToSize(MyExtension.SizeUnits.MB)}Mb/s";
     }
+
+    public void OnStateChanged(E_PATCH_STATE state, string debugMessage)
+    {
+        Debug.Log($"state: {state} // debugMessage: {debugMessage}");
+    }
     #endregion IPatchManagerEventReceiver
 }
 

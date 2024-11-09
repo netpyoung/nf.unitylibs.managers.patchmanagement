@@ -133,6 +133,7 @@ namespace NF.UnityLibs.Managers.PatchManagement
 
         public async Task<Exception?> FromAppVersion(string appVersion)
         {
+            _option.EventReceiver.OnStateChanged(E_PATCH_STATE.RECIEVE_PATCHBUILDVERSION_START);
             int patchBuildVersion = 0;
             {
                 string url = $"{RemoteURL_Base}/{RemoteURL_SubPath}/{nameof(PatchVersion)}.json";
@@ -154,7 +155,7 @@ namespace NF.UnityLibs.Managers.PatchManagement
                     return new PatchManagerException(E_EXCEPTION_KIND.ERR_FAIL_TO_GET_PATCHBUILDVERSION, $"failed to get version from patchVersion\n{patchVersion.ToJson()}");
                 }
             }
-            Debug.LogWarning($"{nameof(FromPatchBuildVersion)} // patchBuildVersion: {patchBuildVersion}");
+            _option.EventReceiver.OnStateChanged(E_PATCH_STATE.RECIEVE_PATCHBUILDVERSION_END, $"patchBuildVersion: {patchBuildVersion}");
             return await FromPatchBuildVersion(patchBuildVersion);
         }
 
@@ -178,7 +179,7 @@ namespace NF.UnityLibs.Managers.PatchManagement
                     return null;
                 }
             }
-            Debug.LogWarning($"{nameof(FromPatchBuildVersion)} // currPatchFileListOrNull: {currPatchFileListOrNull}");
+            _option.EventReceiver.OnStateChanged(E_PATCH_STATE.PATCHFILELIST_CURR, $"currPatchFileListOrNull: {currPatchFileListOrNull}");
 
             PatchFileList nextPatchFileList;
             {
@@ -191,30 +192,30 @@ namespace NF.UnityLibs.Managers.PatchManagement
 
                 nextPatchFileList = remotePatchFileListOrNull!;
             }
-            Debug.LogWarning($"{nameof(FromPatchBuildVersion)} // nextPatchFileList: {nextPatchFileList.Version}");
+            _option.EventReceiver.OnStateChanged(E_PATCH_STATE.PATCHFILELIST_NEXT, $"nextPatchFileList: {nextPatchFileList}");
 
             string patchDir = $"{Application.persistentDataPath}/{DevicePersistentPrefix}";
             List<PatchFileListDifference.PatchStatus> patchStatusList;
             {
                 // Collecting diff
-                Debug.LogWarning($"{nameof(FromPatchBuildVersion)} // Collecting diff");
+                _option.EventReceiver.OnStateChanged(E_PATCH_STATE.PATCHFILELIST_DIFF_COLLECT_START);
                 List<PatchFileListDifference.PatchStatus>? patchStatusListOrNull = await PatchFileListDifference.DifferenceSetOrNull(currPatchFileListOrNull, nextPatchFileList, patchDir, cancellationToken);
                 if (patchStatusListOrNull == null)
                 {
                     return new PatchManagerException(E_EXCEPTION_KIND.ERR_SYSTEM_EXCEPTION, "Internal Exception: patchStatusListOrNull == null");
                 }
                 patchStatusList = patchStatusListOrNull!;
+                _option.EventReceiver.OnStateChanged(E_PATCH_STATE.PATCHFILELIST_DIFF_COLLECT_END);
             }
 
             {
+                _option.EventReceiver.OnStateChanged(E_PATCH_STATE.PATCHFILELIST_VALIDATE);
                 {
                     // Skip
-                    Debug.LogWarning($"{nameof(FromPatchBuildVersion)} // Skip");
                     patchStatusList.RemoveAll(x => x.State == PatchFileListDifference.PatchStatus.E_STATE.SKIP);
                 }
                 {
                     // Delete
-                    Debug.LogWarning($"{nameof(FromPatchBuildVersion)} // Delete");
                     PatchFileListDifference.PatchStatus[] items = patchStatusList.Where(x => x.State == PatchFileListDifference.PatchStatus.E_STATE.DELETE).ToArray();
                     foreach (PatchFileListDifference.PatchStatus item in items)
                     {
@@ -236,7 +237,6 @@ namespace NF.UnityLibs.Managers.PatchManagement
                 }
                 {
                     // Update
-                    Debug.LogWarning($"{nameof(FromPatchBuildVersion)} // Update");
                     PatchFileListDifference.PatchStatus[] updateStatusArr = patchStatusList.Where(x => x.State == PatchFileListDifference.PatchStatus.E_STATE.UPDATE).ToArray();
                     if (updateStatusArr.Length != 0)
                     {
@@ -277,7 +277,7 @@ namespace NF.UnityLibs.Managers.PatchManagement
 
                         {
                             // Validate
-                            Debug.LogWarning($"{nameof(FromPatchBuildVersion)} // Validate");
+                            _option.EventReceiver.OnStateChanged(E_PATCH_STATE.PATCHFILELIST_VALIDATE);
                             List<PatchFileListDifference.PatchStatus>? validatePatchStatusListOrNull = await PatchFileListDifference.DifferenceSetOrNull(currPatchFileListOrNull, nextPatchFileList, patchDir, cancellationToken);
                             if (validatePatchStatusListOrNull == null)
                             {
@@ -295,7 +295,7 @@ namespace NF.UnityLibs.Managers.PatchManagement
             }
 
             {
-                // Finalize
+                _option.EventReceiver.OnStateChanged(E_PATCH_STATE.PATCHFILELIST_FINALIZE);
                 string json = nextPatchFileList.ToJson();
                 try
                 {
