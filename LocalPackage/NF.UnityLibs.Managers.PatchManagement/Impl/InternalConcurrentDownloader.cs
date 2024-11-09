@@ -275,6 +275,7 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
                     {
                         if (_IsError())
                         {
+                            op.webRequest.Abort();
                             return _GetError();
                         }
                         await Task.Yield();
