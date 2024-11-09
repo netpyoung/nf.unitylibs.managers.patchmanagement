@@ -334,6 +334,7 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
 
         private Exception _SetError(Exception ex)
         {
+            _cancelTokenSource.Cancel();
             _savedExceptionOrNull = ex;
             _isError = true;
             _isStopWatch = true;
