@@ -1,7 +1,6 @@
 using System;
 using System.Buffers;
 using System.IO;
-using System.IO.MemoryMappedFiles;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -69,8 +68,12 @@ namespace NF.UnityLibs.Managers.PatchManagement.Common
                 {
                     return 0;
                 }
-                using (MemoryMappedFile mmf = MemoryMappedFile.CreateFromFile(fpath, FileMode.Open, null, bytes))
-                using (MemoryMappedViewStream stream = mmf.CreateViewStream(0, bytes, MemoryMappedFileAccess.Read))
+
+                // NOTE(pyoung): commented MemoryMappedFile.
+                //using System.IO.MemoryMappedFiles;
+                //using (MemoryMappedFile mmf = MemoryMappedFile.CreateFromFile(fpath, FileMode.Open, null, bytes))
+                //using (MemoryMappedViewStream stream = mmf.CreateViewStream(0, bytes, MemoryMappedFileAccess.Read))
+                using (FileStream stream = File.OpenRead(fpath))
                 {
                     return await ComputeFromStreamAsync(stream, cancellationToken);
                 }
