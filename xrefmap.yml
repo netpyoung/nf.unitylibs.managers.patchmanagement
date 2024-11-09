@@ -591,6 +591,22 @@ references:
   isSpec: "True"
   fullName: NF.UnityLibs.Managers.PatchManagement.PatchManager.Dispose
   nameWithType: PatchManager.Dispose
+- uid: NF.UnityLibs.Managers.PatchManagement.PatchManager.Finalize
+  name: ~PatchManager()
+  href: api/NF.UnityLibs.Managers.PatchManagement.PatchManager.html#NF_UnityLibs_Managers_PatchManagement_PatchManager_Finalize
+  commentId: M:NF.UnityLibs.Managers.PatchManagement.PatchManager.Finalize
+  name.vb: ''
+  fullName: NF.UnityLibs.Managers.PatchManagement.PatchManager.~PatchManager()
+  fullName.vb: ''
+  nameWithType: PatchManager.~PatchManager()
+  nameWithType.vb: ''
+- uid: NF.UnityLibs.Managers.PatchManagement.PatchManager.Finalize*
+  name: ~PatchManager
+  href: api/NF.UnityLibs.Managers.PatchManagement.PatchManager.html#NF_UnityLibs_Managers_PatchManagement_PatchManager_Finalize_
+  commentId: Overload:NF.UnityLibs.Managers.PatchManagement.PatchManager.Finalize
+  isSpec: "True"
+  fullName: NF.UnityLibs.Managers.PatchManagement.PatchManager.~PatchManager
+  nameWithType: PatchManager.~PatchManager
 - uid: NF.UnityLibs.Managers.PatchManagement.PatchManager.FromAppVersion(System.String)
   name: FromAppVersion(string)
   href: api/NF.UnityLibs.Managers.PatchManagement.PatchManager.html#NF_UnityLibs_Managers_PatchManagement_PatchManager_FromAppVersion_System_String_
