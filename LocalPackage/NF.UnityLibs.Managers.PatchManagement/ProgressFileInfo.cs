@@ -13,7 +13,7 @@ namespace NF.UnityLibs.Managers.PatchManagement
 
         public override string ToString()
         {
-            return $"{ConcurrentIndex} - {PatchFileInfo} - {ProgressInFileDownload}";
+            return $"<ProgressFileInfo: {ConcurrentIndex} / {PatchFileInfo} / {ProgressInFileDownload}>";
         }
     }
 }

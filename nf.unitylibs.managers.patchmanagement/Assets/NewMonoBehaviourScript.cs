@@ -43,6 +43,12 @@ public sealed class NewMonoBehaviourScript : MonoBehaviour, IPatchManagerEventRe
             .WithConcurrentWebRequestMax(5)
             .EventRecieveWith(this)
             .Build();
+        if (builderExOrNull is Exception ex)
+        {
+            Debug.LogException(ex);
+            return;
+        }
+        
         using (PatchManager patchManager = patchManagerOrNull!)
         {
             Exception? exOrNull = await patchManager.FromCurrentAppVersion();

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
@@ -8,7 +9,7 @@ namespace NF.UnityLibs.Managers.PatchManagement.Common
 {
     public static class PatchDataGenerator
     {
-        private static readonly HashSet<string> _DEFAULT_FILTER_SET = new HashSet<string>
+        private static readonly HashSet<string> _DEFAULT_FILTER_SET = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
         {
             $"{nameof(PatchFileList)}.json".ToLower(),
             "buildlogtep.json".ToLower(),

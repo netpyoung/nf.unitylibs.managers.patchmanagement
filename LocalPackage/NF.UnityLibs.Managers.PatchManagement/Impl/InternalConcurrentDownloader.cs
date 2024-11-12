@@ -1,4 +1,3 @@
-using NF.UnityLibs.Managers.PatchManagement.Common;
 using System;
 using System.Buffers;
 using System.Collections.Generic;
@@ -6,6 +5,8 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
+using NF.UnityLibs.Managers.PatchManagement.Common;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -33,6 +34,7 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
             private long _accByte;
 
             private List<ProgressFileInfo> _registerdProgressFileInfo;
+
             public EventStorage(Option option, long needToDownloadByte)
             {
                 _option = option;
@@ -53,6 +55,7 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
             {
                 _registerdProgressFileInfo.Add(info);
             }
+
             internal void UnregisterProgressFileInfo(ProgressFileInfo info)
             {
                 _accByte += info.PatchFileInfo.Bytes;
@@ -65,10 +68,12 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
                 {
                     return;
                 }
-                if (currProgress == info.ProgressInFileDownload)
+
+                if (Mathf.Approximately(currProgress, info.ProgressInFileDownload))
                 {
                     return;
                 }
+
                 info.ProgressInFileDownload = currProgress;
                 info.BytesDownloaded = (long)(info.PatchFileInfo.Bytes * currProgress);
                 _option.EventReceiver.OnProgressFileInfo(info);
@@ -80,6 +85,7 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
                 {
                     return;
                 }
+
                 long totalBytesDownloaded = GetTotalBytesDownloaded();
                 float totalProgress = (float)((double)totalBytesDownloaded / _option.PatchItemByteMax);
                 _option.EventReceiver.OnProgressTotal(totalProgress, _bytesDownloadedPerSecond);
@@ -91,6 +97,7 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
                 {
                     return;
                 }
+
                 long totalBytesDownloaded = GetTotalBytesDownloaded();
                 _bytesDownloadedPerSecond = totalBytesDownloaded - _previousBytesDownloaded;
                 _previousBytesDownloaded = totalBytesDownloaded;
@@ -142,8 +149,8 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
 #endif // UNITY_IOS
 
 #if UNITY_EDITOR
-            UnityEditor.EditorApplication.playModeStateChanged -= OnPlayModeStateChanged;
-            UnityEditor.EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
+            EditorApplication.playModeStateChanged -= OnPlayModeStateChanged;
+            EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
 #endif // UNITY_EDITOR
         }
 
@@ -153,12 +160,12 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
         }
 
 #if UNITY_EDITOR
-        private void OnPlayModeStateChanged(UnityEditor.PlayModeStateChange state)
+        private void OnPlayModeStateChanged(PlayModeStateChange state)
         {
-            if (state == UnityEditor.PlayModeStateChange.ExitingPlayMode)
+            if (state == PlayModeStateChange.ExitingPlayMode)
             {
                 Dispose();
-                UnityEditor.EditorApplication.playModeStateChanged -= OnPlayModeStateChanged;
+                EditorApplication.playModeStateChanged -= OnPlayModeStateChanged;
             }
         }
 #endif // UNITY_EDITOR
@@ -169,6 +176,7 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
             {
                 return;
             }
+
             ___eventStorage___.Dispose();
             _cancelTokenSource.Cancel();
             _cancelTokenSource.Dispose();
@@ -176,6 +184,7 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
         }
 
         #region For Await
+
         public TaskAwaiter<Exception?> GetAwaiter()
         {
             return _downloadAllTask.GetAwaiter();
@@ -197,6 +206,7 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
         {
             _downloadAllTask.GetAwaiter().OnCompleted(continuation);
         }
+
         #endregion For Await
 
         private async Task<Exception?> _DownloadAll()
@@ -215,6 +225,7 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
                         {
                             return _GetError();
                         }
+
                         await Task.Yield();
                     }
 
@@ -227,8 +238,10 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
                         ItemMaxLength = _infoArr.Length,
                         BytesDownloaded = 0,
                     };
+
                     taskArr[i] = _DownloadPerFile(progressInfo);
                 }
+
                 for (int i = 0; i < _infoArr.Length; ++i)
                 {
                     Exception? exOrNull = await taskArr[i];
@@ -237,6 +250,7 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
                         return _SetError(exOrNull);
                     }
                 }
+
                 _isStopWatch = true;
                 await watchTask;
                 return null;
@@ -257,6 +271,7 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
             {
                 return _GetError();
             }
+
             try
             {
                 ___eventStorage___.RegisterProgressFileInfo(progressInfo);
@@ -269,6 +284,7 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
                     {
                         removeFileOnAbort = true
                     };
+
                     uwr.downloadHandler = downloadHandler;
                     UnityWebRequestAsyncOperation op = uwr.SendWebRequest();
                     while (!op.isDone)
@@ -278,14 +294,17 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
                             op.webRequest.Abort();
                             return _GetError();
                         }
+
                         await Task.Yield();
                         ___eventStorage___.OnProgressFile(progressInfo, op.progress);
                     }
+
                     if (uwr.result != UnityWebRequest.Result.Success)
                     {
                         return _SetError(new PatchManagerException(E_EXCEPTION_KIND.ERR_WEBREQUEST_FAIL, $"uwr.error: {uwr.error} / uwr.responseCode: {uwr.responseCode} / url: {url} / progressInfo: {progressInfo}"));
                     }
                 }
+
                 ___eventStorage___.OnProgressFile(progressInfo, 1);
 
                 return null;
@@ -311,6 +330,7 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
                 {
                     return;
                 }
+
                 if (_IsError())
                 {
                     return;
@@ -360,11 +380,13 @@ namespace NF.UnityLibs.Managers.PatchManagement.Impl
                 _SetError(new PatchManagerException(E_EXCEPTION_KIND.ERR_NETWORK_IS_NOT_REACHABLE, "Application.internetReachability == NetworkReachability.NotReachable"));
                 return true;
             }
+
             if (_cancelToken.IsCancellationRequested)
             {
                 _SetError(new PatchManagerException(E_EXCEPTION_KIND.ERR_TASK_IS_CANCELED, "_cancelToken.IsCancellationRequested"));
                 return true;
             }
+
             return false;
         }
     }
