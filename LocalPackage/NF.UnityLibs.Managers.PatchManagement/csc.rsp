@@ -1,5 +1,4 @@
 -nullable:enable
 -warn:4
 -warnaserror+
--nullable:enable
 -nowarn:CS8632
