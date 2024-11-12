@@ -96,6 +96,30 @@
 </ul>
 <pre><code>https://github.com/netpyoung/nf.unitylibs.managers.patchmanagement.git?path=LocalPackage
 </code></pre>
+<h2 id="example">example</h2>
+<pre><code class="lang-cs">(PatchManager? patchManagerOrNull, Exception? builderExOrNull) = PatchManagerBuilder
+    .FromRemote(&quot;http://127.0.0.1:9000&quot;, &quot;bucket-a/prefix-a&quot;)
+    .ToPersistantPrefix(&quot;A&quot;)
+    .WithConcurrentWebRequestMax(5)
+    .EventRecieveWith(this)
+    .Build();
+if (builderExOrNull is Exception ex)
+{
+    Debug.LogException(ex);
+    return;
+}
+
+using (PatchManager patchManager = patchManagerOrNull!)
+{
+    Exception? exOrNull = await patchManager.FromCurrentAppVersion();
+    if (exOrNull != null)
+    {
+        Debug.LogException(exOrNull, this);
+        return;
+    }
+    Debug.Log(&quot;!!!!!!!!!!!!&quot;);
+}
+</code></pre>
 
 </article>
 
