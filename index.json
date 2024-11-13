@@ -54,6 +54,16 @@
     "title": "Enum E_PATCH_STATE | nf.unitylibs.managers.patchmanagement",
     "keywords": "Enum E_PATCH_STATE Namespace NF.UnityLibs.Managers.PatchManagement public enum E_PATCH_STATE Fields NONE = 0 PATCHFILELIST_CURR = 300 PATCHFILELIST_DIFF_COLLECT_END = 600 PATCHFILELIST_DIFF_COLLECT_START = 500 PATCHFILELIST_FINALIZE = 800 PATCHFILELIST_NEXT = 400 PATCHFILELIST_VALIDATE = 700 RECIEVE_PATCHBUILDVERSION_END = 200 RECIEVE_PATCHBUILDVERSION_START = 100"
   },
+  "api/NF.UnityLibs.Managers.PatchManagement.EditorTests.NewTestScript.html": {
+    "href": "api/NF.UnityLibs.Managers.PatchManagement.EditorTests.NewTestScript.html",
+    "title": "Class NewTestScript | nf.unitylibs.managers.patchmanagement",
+    "keywords": "Class NewTestScript Namespace NF.UnityLibs.Managers.PatchManagement.EditorTests public sealed class NewTestScript Inheritance object NewTestScript Inherited Members object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.ReferenceEquals(object, object) object.ToString() Methods TestCrc32WithKnownValues(string, uint) public void TestCrc32WithKnownValues(string input, uint expectedCrc) Parameters input string expectedCrc uint TestCrc32WithModifiedData(string, string) public void TestCrc32WithModifiedData(string a, string b) Parameters a string b string"
+  },
+  "api/NF.UnityLibs.Managers.PatchManagement.EditorTests.html": {
+    "href": "api/NF.UnityLibs.Managers.PatchManagement.EditorTests.html",
+    "title": "Namespace NF.UnityLibs.Managers.PatchManagement.EditorTests | nf.unitylibs.managers.patchmanagement",
+    "keywords": "Namespace NF.UnityLibs.Managers.PatchManagement.EditorTests Classes NewTestScript"
+  },
   "api/NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.html": {
     "href": "api/NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.html",
     "title": "Interface IPatchManagerEventReceiver | nf.unitylibs.managers.patchmanagement",
