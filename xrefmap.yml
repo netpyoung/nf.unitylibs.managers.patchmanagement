@@ -581,50 +581,6 @@ references:
   commentId: F:NF.UnityLibs.Managers.PatchManagement.E_PATCH_STATE.RECIEVE_PATCHBUILDVERSION_START
   fullName: NF.UnityLibs.Managers.PatchManagement.E_PATCH_STATE.RECIEVE_PATCHBUILDVERSION_START
   nameWithType: E_PATCH_STATE.RECIEVE_PATCHBUILDVERSION_START
-- uid: NF.UnityLibs.Managers.PatchManagement.EditorTests
-  name: NF.UnityLibs.Managers.PatchManagement.EditorTests
-  href: api/NF.UnityLibs.Managers.PatchManagement.EditorTests.html
-  commentId: N:NF.UnityLibs.Managers.PatchManagement.EditorTests
-  fullName: NF.UnityLibs.Managers.PatchManagement.EditorTests
-  nameWithType: NF.UnityLibs.Managers.PatchManagement.EditorTests
-- uid: NF.UnityLibs.Managers.PatchManagement.EditorTests.NewTestScript
-  name: NewTestScript
-  href: api/NF.UnityLibs.Managers.PatchManagement.EditorTests.NewTestScript.html
-  commentId: T:NF.UnityLibs.Managers.PatchManagement.EditorTests.NewTestScript
-  fullName: NF.UnityLibs.Managers.PatchManagement.EditorTests.NewTestScript
-  nameWithType: NewTestScript
-- uid: NF.UnityLibs.Managers.PatchManagement.EditorTests.NewTestScript.TestCrc32WithKnownValues(System.String,System.UInt32)
-  name: TestCrc32WithKnownValues(string, uint)
-  href: api/NF.UnityLibs.Managers.PatchManagement.EditorTests.NewTestScript.html#NF_UnityLibs_Managers_PatchManagement_EditorTests_NewTestScript_TestCrc32WithKnownValues_System_String_System_UInt32_
-  commentId: M:NF.UnityLibs.Managers.PatchManagement.EditorTests.NewTestScript.TestCrc32WithKnownValues(System.String,System.UInt32)
-  name.vb: TestCrc32WithKnownValues(String, UInteger)
-  fullName: NF.UnityLibs.Managers.PatchManagement.EditorTests.NewTestScript.TestCrc32WithKnownValues(string, uint)
-  fullName.vb: NF.UnityLibs.Managers.PatchManagement.EditorTests.NewTestScript.TestCrc32WithKnownValues(String, UInteger)
-  nameWithType: NewTestScript.TestCrc32WithKnownValues(string, uint)
-  nameWithType.vb: NewTestScript.TestCrc32WithKnownValues(String, UInteger)
-- uid: NF.UnityLibs.Managers.PatchManagement.EditorTests.NewTestScript.TestCrc32WithKnownValues*
-  name: TestCrc32WithKnownValues
-  href: api/NF.UnityLibs.Managers.PatchManagement.EditorTests.NewTestScript.html#NF_UnityLibs_Managers_PatchManagement_EditorTests_NewTestScript_TestCrc32WithKnownValues_
-  commentId: Overload:NF.UnityLibs.Managers.PatchManagement.EditorTests.NewTestScript.TestCrc32WithKnownValues
-  isSpec: "True"
-  fullName: NF.UnityLibs.Managers.PatchManagement.EditorTests.NewTestScript.TestCrc32WithKnownValues
-  nameWithType: NewTestScript.TestCrc32WithKnownValues
-- uid: NF.UnityLibs.Managers.PatchManagement.EditorTests.NewTestScript.TestCrc32WithModifiedData(System.String,System.String)
-  name: TestCrc32WithModifiedData(string, string)
-  href: api/NF.UnityLibs.Managers.PatchManagement.EditorTests.NewTestScript.html#NF_UnityLibs_Managers_PatchManagement_EditorTests_NewTestScript_TestCrc32WithModifiedData_System_String_System_String_
-  commentId: M:NF.UnityLibs.Managers.PatchManagement.EditorTests.NewTestScript.TestCrc32WithModifiedData(System.String,System.String)
-  name.vb: TestCrc32WithModifiedData(String, String)
-  fullName: NF.UnityLibs.Managers.PatchManagement.EditorTests.NewTestScript.TestCrc32WithModifiedData(string, string)
-  fullName.vb: NF.UnityLibs.Managers.PatchManagement.EditorTests.NewTestScript.TestCrc32WithModifiedData(String, String)
-  nameWithType: NewTestScript.TestCrc32WithModifiedData(string, string)
-  nameWithType.vb: NewTestScript.TestCrc32WithModifiedData(String, String)
-- uid: NF.UnityLibs.Managers.PatchManagement.EditorTests.NewTestScript.TestCrc32WithModifiedData*
-  name: TestCrc32WithModifiedData
-  href: api/NF.UnityLibs.Managers.PatchManagement.EditorTests.NewTestScript.html#NF_UnityLibs_Managers_PatchManagement_EditorTests_NewTestScript_TestCrc32WithModifiedData_
-  commentId: Overload:NF.UnityLibs.Managers.PatchManagement.EditorTests.NewTestScript.TestCrc32WithModifiedData
-  isSpec: "True"
-  fullName: NF.UnityLibs.Managers.PatchManagement.EditorTests.NewTestScript.TestCrc32WithModifiedData
-  nameWithType: NewTestScript.TestCrc32WithModifiedData
 - uid: NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver
   name: IPatchManagerEventReceiver
   href: api/NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.html
