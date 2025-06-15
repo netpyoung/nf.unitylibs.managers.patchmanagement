@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -37,6 +37,13 @@
         document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
       </script>
 
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5N6XJHEX5"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-Q5N6XJHEX5');
+      </script>
   </head>
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
@@ -54,7 +61,7 @@
             <div id="navbar">
               <form class="search" role="search" id="search">
                 <i class="bi bi-search"></i>
-                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
@@ -117,23 +124,32 @@ Enum E_PATCH_STATE  <a class="header-action link-secondary" title="View source" 
 </h2>
   <dl class="parameters">
     <dt id="NF_UnityLibs_Managers_PatchManagement_E_PATCH_STATE_NONE"><code>NONE = 0</code></dt>
-    <dd></dd>
+  
+  <dd></dd>
     <dt id="NF_UnityLibs_Managers_PatchManagement_E_PATCH_STATE_PATCHFILELIST_CURR"><code>PATCHFILELIST_CURR = 300</code></dt>
-    <dd></dd>
+  
+  <dd></dd>
     <dt id="NF_UnityLibs_Managers_PatchManagement_E_PATCH_STATE_PATCHFILELIST_DIFF_COLLECT_END"><code>PATCHFILELIST_DIFF_COLLECT_END = 600</code></dt>
-    <dd></dd>
+  
+  <dd></dd>
     <dt id="NF_UnityLibs_Managers_PatchManagement_E_PATCH_STATE_PATCHFILELIST_DIFF_COLLECT_START"><code>PATCHFILELIST_DIFF_COLLECT_START = 500</code></dt>
-    <dd></dd>
+  
+  <dd></dd>
     <dt id="NF_UnityLibs_Managers_PatchManagement_E_PATCH_STATE_PATCHFILELIST_FINALIZE"><code>PATCHFILELIST_FINALIZE = 800</code></dt>
-    <dd></dd>
+  
+  <dd></dd>
     <dt id="NF_UnityLibs_Managers_PatchManagement_E_PATCH_STATE_PATCHFILELIST_NEXT"><code>PATCHFILELIST_NEXT = 400</code></dt>
-    <dd></dd>
+  
+  <dd></dd>
     <dt id="NF_UnityLibs_Managers_PatchManagement_E_PATCH_STATE_PATCHFILELIST_VALIDATE"><code>PATCHFILELIST_VALIDATE = 700</code></dt>
-    <dd></dd>
+  
+  <dd></dd>
     <dt id="NF_UnityLibs_Managers_PatchManagement_E_PATCH_STATE_RECIEVE_PATCHBUILDVERSION_END"><code>RECIEVE_PATCHBUILDVERSION_END = 200</code></dt>
-    <dd></dd>
+  
+  <dd></dd>
     <dt id="NF_UnityLibs_Managers_PatchManagement_E_PATCH_STATE_RECIEVE_PATCHBUILDVERSION_START"><code>RECIEVE_PATCHBUILDVERSION_START = 100</code></dt>
-    <dd></dd>
+  
+  <dd></dd>
   </dl>
 
 

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -37,6 +37,13 @@
         document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
       </script>
 
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5N6XJHEX5"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-Q5N6XJHEX5');
+      </script>
   </head>
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
@@ -54,7 +61,7 @@
             <div id="navbar">
               <form class="search" role="search" id="search">
                 <i class="bi bi-search"></i>
-                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
@@ -117,11 +124,14 @@ Enum PatchFileListDifference.PatchStatus.E_STATE  <a class="header-action link-s
 </h2>
   <dl class="parameters">
     <dt id="NF_UnityLibs_Managers_PatchManagement_Common_PatchFileListDifference_PatchStatus_E_STATE_DELETE"><code>DELETE = 2</code></dt>
-    <dd></dd>
+  
+  <dd></dd>
     <dt id="NF_UnityLibs_Managers_PatchManagement_Common_PatchFileListDifference_PatchStatus_E_STATE_SKIP"><code>SKIP = 0</code></dt>
-    <dd></dd>
+  
+  <dd></dd>
     <dt id="NF_UnityLibs_Managers_PatchManagement_Common_PatchFileListDifference_PatchStatus_E_STATE_UPDATE"><code>UPDATE = 1</code></dt>
-    <dd></dd>
+  
+  <dd></dd>
   </dl>
 
 

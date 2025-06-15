@@ -18,7 +18,11 @@
           "relative_path": "api/NF.UnityLibs.Managers.PatchManagement.Common.CRC32.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NF.UnityLibs.Managers.PatchManagement.Common.CRC32",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -28,7 +32,11 @@
           "relative_path": "api/NF.UnityLibs.Managers.PatchManagement.Common.PatchDataGenerator.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NF.UnityLibs.Managers.PatchManagement.Common.PatchDataGenerator",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -38,7 +46,11 @@
           "relative_path": "api/NF.UnityLibs.Managers.PatchManagement.Common.PatchFileList.PatchFileInfo.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NF.UnityLibs.Managers.PatchManagement.Common.PatchFileList.PatchFileInfo",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -48,7 +60,11 @@
           "relative_path": "api/NF.UnityLibs.Managers.PatchManagement.Common.PatchFileList.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NF.UnityLibs.Managers.PatchManagement.Common.PatchFileList",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -58,7 +74,11 @@
           "relative_path": "api/NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.PatchStatus.E_STATE.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.PatchStatus.E_STATE",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -68,7 +88,11 @@
           "relative_path": "api/NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.PatchStatus.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.PatchStatus",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -78,7 +102,11 @@
           "relative_path": "api/NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NF.UnityLibs.Managers.PatchManagement.Common.PatchFileListDifference",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -88,7 +116,11 @@
           "relative_path": "api/NF.UnityLibs.Managers.PatchManagement.Common.PatchVersion.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NF.UnityLibs.Managers.PatchManagement.Common.PatchVersion",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -98,7 +130,11 @@
           "relative_path": "api/NF.UnityLibs.Managers.PatchManagement.Common.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NF.UnityLibs.Managers.PatchManagement.Common",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -108,7 +144,11 @@
           "relative_path": "api/NF.UnityLibs.Managers.PatchManagement.E_EXCEPTION_KIND.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NF.UnityLibs.Managers.PatchManagement.E_EXCEPTION_KIND",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -118,7 +158,11 @@
           "relative_path": "api/NF.UnityLibs.Managers.PatchManagement.E_PATCH_STATE.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NF.UnityLibs.Managers.PatchManagement.E_PATCH_STATE",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -128,7 +172,11 @@
           "relative_path": "api/NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NF.UnityLibs.Managers.PatchManagement.IPatchManagerEventReceiver",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -138,7 +186,11 @@
           "relative_path": "api/NF.UnityLibs.Managers.PatchManagement.PatchManager.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NF.UnityLibs.Managers.PatchManagement.PatchManager",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -148,7 +200,11 @@
           "relative_path": "api/NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NF.UnityLibs.Managers.PatchManagement.PatchManagerBuilder",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -158,7 +214,11 @@
           "relative_path": "api/NF.UnityLibs.Managers.PatchManagement.PatchManagerException.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NF.UnityLibs.Managers.PatchManagement.PatchManagerException",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -168,7 +228,11 @@
           "relative_path": "api/NF.UnityLibs.Managers.PatchManagement.ProgressFileInfo.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NF.UnityLibs.Managers.PatchManagement.ProgressFileInfo",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -178,17 +242,21 @@
           "relative_path": "api/NF.UnityLibs.Managers.PatchManagement.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "NF.UnityLibs.Managers.PatchManagement",
+      "Summary": null
     },
     {
       "type": "Toc",
       "source_relative_path": "api/toc.yml",
       "output": {
-        ".json": {
-          "relative_path": "api/toc.json"
-        },
         ".html": {
           "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
         }
       },
       "version": ""
@@ -207,11 +275,11 @@
       "type": "Toc",
       "source_relative_path": "docs/toc.yml",
       "output": {
-        ".json": {
-          "relative_path": "docs/toc.json"
-        },
         ".html": {
           "relative_path": "docs/toc.html"
+        },
+        ".json": {
+          "relative_path": "docs/toc.json"
         }
       },
       "version": ""
@@ -230,11 +298,11 @@
       "type": "Toc",
       "source_relative_path": "toc.yml",
       "output": {
-        ".json": {
-          "relative_path": "toc.json"
-        },
         ".html": {
           "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
         }
       },
       "version": ""

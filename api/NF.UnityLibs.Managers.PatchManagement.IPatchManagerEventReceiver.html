@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -37,6 +37,13 @@
         document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
       </script>
 
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5N6XJHEX5"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-Q5N6XJHEX5');
+      </script>
   </head>
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
@@ -54,7 +61,7 @@
             <div id="navbar">
               <form class="search" role="search" id="search">
                 <i class="bi bi-search"></i>
-                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
@@ -136,13 +143,13 @@ Interface IPatchManagerEventReceiver  <a class="header-action link-secondary" ti
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>needFreeStorageBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dt><code>needFreeStorageBytes</code> <span class="xref">long</span></dt>
     <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dt><span class="xref">Task</span>&lt;<span class="xref">bool</span>&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -203,9 +210,9 @@ Interface IPatchManagerEventReceiver  <a class="header-action link-secondary" ti
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>progressTotal</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dt><code>progressTotal</code> <span class="xref">float</span></dt>
     <dd></dd>
-    <dt><code>bytesDownloadedPerSecond</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dt><code>bytesDownloadedPerSecond</code> <span class="xref">long</span></dt>
     <dd></dd>
   </dl>
 
@@ -238,7 +245,7 @@ Interface IPatchManagerEventReceiver  <a class="header-action link-secondary" ti
   <dl class="parameters">
     <dt><code>state</code> <a class="xref" href="NF.UnityLibs.Managers.PatchManagement.E_PATCH_STATE.html">E_PATCH_STATE</a></dt>
     <dd></dd>
-    <dt><code>debugMessage</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dt><code>debugMessage</code> <span class="xref">string</span></dt>
     <dd></dd>
   </dl>
 

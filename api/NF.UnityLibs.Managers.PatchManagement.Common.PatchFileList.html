@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -37,6 +37,13 @@
         document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
       </script>
 
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5N6XJHEX5"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-Q5N6XJHEX5');
+      </script>
   </head>
 
   <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
@@ -54,7 +61,7 @@
             <div id="navbar">
               <form class="search" role="search" id="search">
                 <i class="bi bi-search"></i>
-                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
@@ -110,7 +117,7 @@ Class PatchFileList  <a class="header-action link-secondary" title="View source"
   <dl class="typelist inheritance">
     <dt>Inheritance</dt>
     <dd>
-      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">object</span></div>
       <div><span class="xref">PatchFileList</span></div>
     </dd>
   </dl>
@@ -143,11 +150,11 @@ Class PatchFileList  <a class="header-action link-secondary" title="View source"
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>version</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dt><code>version</code> <span class="xref">int</span></dt>
     <dd></dd>
-    <dt><code>dic</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="NF.UnityLibs.Managers.PatchManagement.Common.PatchFileList.html">PatchFileList</a>.<a class="xref" href="NF.UnityLibs.Managers.PatchManagement.Common.PatchFileList.PatchFileInfo.html">PatchFileInfo</a>&gt;</dt>
+    <dt><code>dic</code> <span class="xref">Dictionary</span>&lt;<span class="xref">string</span>, <a class="xref" href="NF.UnityLibs.Managers.PatchManagement.Common.PatchFileList.html">PatchFileList</a>.<a class="xref" href="NF.UnityLibs.Managers.PatchManagement.Common.PatchFileList.PatchFileInfo.html">PatchFileInfo</a>&gt;</dt>
     <dd></dd>
-    <dt><code>totalBytes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dt><code>totalBytes</code> <span class="xref">long</span></dt>
     <dd></dd>
   </dl>
 
@@ -178,9 +185,9 @@ Class PatchFileList  <a class="header-action link-secondary" title="View source"
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>version</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dt><code>version</code> <span class="xref">int</span></dt>
     <dd></dd>
-    <dt><code>count</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dt><code>count</code> <span class="xref">int</span></dt>
     <dd></dd>
   </dl>
 
@@ -219,7 +226,7 @@ Class PatchFileList  <a class="header-action link-secondary" title="View source"
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="NF.UnityLibs.Managers.PatchManagement.Common.PatchFileList.html">PatchFileList</a>.<a class="xref" href="NF.UnityLibs.Managers.PatchManagement.Common.PatchFileList.PatchFileInfo.html">PatchFileInfo</a>&gt;</dt>
+    <dt><span class="xref">Dictionary</span>&lt;<span class="xref">string</span>, <a class="xref" href="NF.UnityLibs.Managers.PatchManagement.Common.PatchFileList.html">PatchFileList</a>.<a class="xref" href="NF.UnityLibs.Managers.PatchManagement.Common.PatchFileList.PatchFileInfo.html">PatchFileInfo</a>&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -250,7 +257,7 @@ Class PatchFileList  <a class="header-action link-secondary" title="View source"
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dt><span class="xref">long</span></dt>
     <dd></dd>
   </dl>
 
@@ -281,7 +288,7 @@ Class PatchFileList  <a class="header-action link-secondary" title="View source"
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dt><span class="xref">int</span></dt>
     <dd></dd>
   </dl>
 
@@ -344,7 +351,7 @@ Class PatchFileList  <a class="header-action link-secondary" title="View source"
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dt><span class="xref">string</span></dt>
     <dd></dd>
   </dl>
 
@@ -376,7 +383,7 @@ Class PatchFileList  <a class="header-action link-secondary" title="View source"
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dt><span class="xref">string</span></dt>
     <dd><p>A string that represents the current object.</p>
 </dd>
   </dl>
@@ -408,7 +415,7 @@ Class PatchFileList  <a class="header-action link-secondary" title="View source"
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dt><span class="xref">long</span></dt>
     <dd></dd>
   </dl>
 
